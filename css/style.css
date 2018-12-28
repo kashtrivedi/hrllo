@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900|Raleway:300,400,500,600,700,800,900|Roboto:300,400,500,700');
+@font-face {
+    font-family: 'Brandon Grotesque';
+    src: url('../fonts/BrandonGrotesque-Bold.woff2') format('woff2'),
+        url('../fonts/BrandonGrotesque-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon Grotesque';
+    src: url('../fonts/BrandonGrotesque-Regular.woff2') format('woff2'),
+        url('../fonts/BrandonGrotesque-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon Grotesque';
+    src: url('../fonts/BrandonGrotesque-Light.woff2') format('woff2'),
+        url('../fonts/BrandonGrotesque-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon Grotesque';
+    src: url('../fonts/BrandonGrotesque-Black.woff2') format('woff2'),
+        url('../fonts/BrandonGrotesque-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon Grotesque';
+    src: url('../fonts/BrandonGrotesque-Thin.woff2') format('woff2'),
+        url('../fonts/BrandonGrotesque-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon Grotesque';
+    src: url('../fonts/BrandonGrotesque-Medium.woff2') format('woff2'),
+        url('../fonts/BrandonGrotesque-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+*{
+    margin:0;
+    padding:0;
+    text-decoration:none;
+    list-style:none;
+}
+
+
+/* Scroll Bar Css Starts */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 20px;
+    border-radius: 0;
+    background: #292929;
+    border: 2px solid #ffffff;
+    width: 8px;
+}
+::-webkit-scrollbar-thumb:active {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: #616161;
+}
+/* Scroll Bar Css Ends */
+
+a:hover,
+a:focus,
+a:active{
+    text-decoration: none;
+}
+ol, ul{
+    margin: 0;
+    padding: 0;
+}
+img{
+    display: block;
+}
+body{
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    background: #EEEEEE;
+    text-decoration: none;
+}
+
+/* Navigation Section */ 
+.navbar-default{
+    background:transparent;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border: none;
+    margin:0;
+    border-radius: 0;
+    padding:40px 0;
+    z-index: 120;
+}
+.navbar-brand{
+    height: auto;
+    padding: 0;
+}
+.navbar-default .navbar-nav>li>a{
+    padding: 10px 30px;
+    color: #fff;
+    font-family: 'Raleway';
+    font-size: 20px;
+    font-weight: 500;
+    -ms-transition:all 0.3s ease;
+    -o-transition:all 0.3s ease;
+    -webkit-transition:all 0.3s ease;
+    transition:all 0.3s ease;
+}
+.navbar-default .navbar-nav>li>a.signup{
+    border: 2px solid #fff;
+    border-radius: 30px; 
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:hover{
+    color: #fff;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: #fff;
+}
+
+/* Toggle */
+.navbar-default .navbar-toggle{
+    border-color: #000;
+    transition: all 0.3s ease;
+}
+.navbar-default .navbar-toggle .icon-bar{
+    background: #000;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+    background: #ca031a;
+    border-color: #d4670c;
+}
+.navbar-default .navbar-toggle:hover .icon-bar,.navbar-default .navbar-toggle:focus .icon-bar{
+    background: #fff;
+}
+/* End Navigation CSS */
+
+/* **** Index Page **** */
+.main-block{
+    padding: 120px 0;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: #0d47a1; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #0d47a1 0%, #1e88e5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%); 
+}
+.main-block .container{
+    height: 100vh;
+    position: relative;
+}
+.home-img img{
+    width: 100%;
+}
+.home-info h1{
+    font-size: 85px;
+    font-weight: bold;
+    font-family: 'Raleway';
+    margin: 0 0 40px;
+    line-height: 95px;
+    color: #fff;
+}
+.home-info h1 span{
+    display: block;
+    color: rgba(255,255,255,0.30);
+}
+.home-info .btn-main{
+    padding: 10px 80px;
+    background: #fff;
+    border-radius:50px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #1E88E5;
+    font-family: 'Raleway';
+    display: table;
+    box-shadow: 0 9px 6px rgba(0,0,0,0.16);
+    margin: 0;
+    -webkit-transition: .4s linear;
+    -moz-transition: .4s linear;
+    -ms-transition: .4s linear;
+    transition: .4s linear;
+}
+.home-info .btn-main:hover{
+    color: #1E88E5;
+}
+/* **** End Index Page **** */
+
+/* **** Footer **** */
+footer{
+    padding: 20px 0 10px;
+    width: 100%;
+    background: #EEEEEE;
+}
+.footer-logo img{
+    margin: 0 0 5px;
+}
+.footer-logo p{
+    font-family: 'Brandon Grotesque';
+    font-size: 16px;
+    font-weight: 300;
+    color: #000;
+    margin: 0;
+}
+.foot-links ul{
+    text-align: right;
+}
+.foot-links ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+.foot-links ul li:last-child{
+    margin: 0;
+}
+.foot-links ul li a{
+    font-size: 16px;
+    font-weight: 300;
+    padding: 20px 0;
+    font-family: 'Montserrat';
+    display: inline-block;
+}
+/* **** End Footer **** */
+
+/* **** 404 Page **** */
+.error-block{
+    width: 100%;
+    padding: 100px 0;
+    height: 100vh;
+}
+.error-block img{
+    width: 100%;
+}
+.error-wrp{
+    position: relative;
+}
+.error-bx{
+    width: 350px;
+    position: absolute;
+    right:15%;
+    top: 50%;
+    -webkit-transform: translate(0,-50%);
+    -moz-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+.error-bx h1{
+    font-size: 200px;
+    font-weight: bold;
+    color: #1E88E5;
+    margin: 0 0 0px;
+}
+.error-bx p{
+    width: 80%;
+    font-size:15px;
+    font-weight:500;
+    font-family: 'Raleway';
+    line-height: 20px;
+    text-align: center;
+    color: rgba(33,33,33,0.60);
+    margin: 0 auto 30px;
+    font-style: italic;
+}
+.error-bx .btn-main{
+    padding: 10px 35px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    background: #1E88E5;
+    border-radius: 30px;
+    margin: 0 auto;
+    display: table;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.30);
+}
+.error-bx .btn-main i{
+    margin-right: 5px;
+}
+/* **** End 404 Page **** */
+
+/* **** 403 Page **** */
+.error-img img{
+    width: 100%;
+}
+.error-dt{
+    padding:0 80px;
+}
+.error-dt h2{
+    font-size: 200px;
+    margin: 0;
+    font-family: 'Raleway';
+    font-weight: bold;
+    color: #1E88E5;
+    text-align: center;
+}
+.error-dt p{
+    font-size:18px;
+    font-weight:500;
+    font-family: 'Raleway';
+    line-height: 20px;
+    text-align: center;
+    color: rgba(33,33,33,0.60);
+    margin: 0 auto 30px;
+    font-style: italic;
+}
+.error-dt .btn-group{
+    width: 100%;
+    overflow: hidden;
+}
+.error-dt .btn-main{
+    padding: 10px 30px;
+    background: #fff;
+    color: #1E88E5;
+    border: 2px solid #1E88E5;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Raleway';
+    float: left;
+    border-radius: 35px;
+}
+.error-dt .btn-main i{margin-right: 5px; font-size: 18px;}
+.error-dt .home-b{
+    background: #1E88E5;
+    color: #fff;
+    float: right;
+}
+.oho-er{
+    padding: 200px 0;
+}
+/* **** End 403 Page **** */
+
+
+/* **** Dashboard Page **** */
+.dash-nav{
+    padding: 10px 0;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.20);
+    z-index: 120;
+}
+.dash-nav .navbar-brand{
+    padding: 7px 0 0;
+}
+.dash-nav .navbar-nav>li>a{
+    padding: 0;
+}
+.dash-nav .navbar-nav>li>a img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dash-nav .navbar-nav>li>a i{
+    color: #1E88E5;
+    font-size: 22px;
+    line-height: 26px;
+}
+/* **** End Dashboard Page **** */
