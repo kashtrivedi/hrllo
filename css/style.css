@@ -111,6 +111,9 @@ body{
     padding:40px 0;
     z-index: 120;
 }
+.navbar-collapse{
+    padding: 0;
+}
 .navbar-brand{
     height: auto;
     padding: 0;
@@ -790,9 +793,6 @@ footer{
 /* **** End User Profile 2 **** */
 
 /* **** User Profile 3 **** */
-.user-prov3 .row{
-    margin: 0 15px;
-}
 .user-prov3 .col-sm-4, .user-prov3 .col-sm-8{
     padding: 0 15px;
 }
