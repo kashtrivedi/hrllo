@@ -351,13 +351,16 @@ footer{
 
 /* **** Dashboard Page **** */
 .dash-nav{
-    padding: 10px 0;
+    padding: 15px 0;
     width: 100%;
     background: #fff;
     position: relative;
     box-shadow: 0 3px 8px rgba(0,0,0,0.20);
     z-index: 120;
     display: table;
+}
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
+    margin-left: 0;
 }
 .dash-nav .navbar-brand{
     padding: 7px 0 0;
@@ -505,3 +508,318 @@ footer{
     width: 20px;
 }
 /* **** End Dashboard Page **** */
+
+/* **** User Profile 0 **** */
+.user-profile{
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 0;
+    background: #0d47a1; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #0d47a1 0%, #1e88e5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%); 
+}
+.user-profile-head{
+    padding: 40px;
+    width: 100%;
+}
+.pro-bx{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+.pro-img img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.25);
+}
+.pro-dt h3{
+    font-size: 34px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+.pro-dt p{
+    font-size: 16px;
+    font-weight: normal;
+    color: rgba(255,255,255,0.60);
+    margin: 0;
+}
+.pro-like ul{
+    text-align: right;
+    padding: 35px 0 0;
+}
+.pro-like li{
+    display: inline-block;
+    margin-right: 20px;
+    padding: 5px 25px;
+    border-radius: 30px;
+    border: 1px solid #fff;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+}
+.pro-like li img{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.pro-like li:last-child{
+    margin: 0;
+}
+
+.polls-created-wrp{
+    padding: 80px 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.20);
+}
+.polls-created-wrp h2{
+    font-size: 26px;
+    font-weight: bold;
+    color: #212121;
+    margin: 0 0 60px;
+}
+.polls-created-wrp h2 span{color: rgba(33,33,33,0.60); font-weight: normal; margin-left: 5px;}
+.polls-created-wrp h2 img{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.created-poll{
+    background: #EEEEEE;
+    border-radius: 10px;
+    box-shadow: 0 6px 4px rgba(0,0,0,0.25);
+    margin-bottom: 30px;
+}
+.cre-pl{
+    padding: 40px 40px;
+    border-bottom: 1px solid #707070;
+}
+.cre-pl h4{
+    font-size: 28px;
+    font-weight: bold;
+    color: #010101;
+    margin: 0 0 15px;
+}
+.cre-pl p{
+    font-size: 18px;
+    font-weight: normal;
+    color: #212121;
+    line-height: 26px;
+    margin: 0 0 30px;
+}
+.cre-pl li{
+    display: inline-block;
+    font-size: 18px;
+    font-weight:400;
+    color: #212121;
+    padding: 5px 25px;
+    border: 1px solid #212121;
+    border-radius: 30px;
+    margin: 0 10px 10px 0;
+}
+.cre-pl li:last-child{
+    margin: 0;
+}
+.poll-act{
+    padding: 15px 40px;
+}
+.poll-act ul{
+    text-align: right;
+}
+.poll-act li{
+    display: inline-block;
+    margin-right:20px;
+}
+.poll-act li:last-child{
+    margin: 0;
+}
+.poll-act li img{
+    width: 20px;
+    height: 20px;
+}
+/* **** End User Profile 0 **** */
+
+/* **** User Profile 1 **** */
+.add-color{
+    background: #0d47a1; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #0d47a1 0%, #1e88e5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%); 
+}
+.add-color .navbar-brand{
+    padding:0px 0 0;
+}
+.pro-v1{
+    background: #EEEEEE;
+}
+.prov1-wrp{
+    padding: 0;
+}
+.prov1-wrp .row{
+    margin: 0;
+}
+.prov1-wrp .col-sm-4,
+.prov1-wrp .col-sm-8{
+    padding: 0;
+}
+.poll-left{
+    padding: 60px 25px;
+    background: #FAFAFA;
+    border-radius: 10px 0 0 10px;
+    min-height: 100vh;
+}
+.poll-right{
+    padding: 60px 25px;
+    background: #fff;
+    box-shadow: -4px 0 4px rgba(0,0,0,0.07);
+    border-radius: 0 10px 10px 0; 
+}
+.poll-right .cre-pl{
+    padding: 35px;
+}
+.poll-right .cre-pl h4{
+    font-size: 24px;
+}
+.poll-right .cre-pl p{
+    font-size: 16px;
+}
+.poll-right .cre-pl li{
+    font-size: 16px;
+}
+.poll-prohd .pro-dt p{
+    font-size: 14px;
+    color: #1E88E5;
+}
+.poll-prohd .pro-dt h3{
+    font-size: 26px;
+    color: #1E88E5;
+}
+.poll-prohd .pro-img img{
+    width: 80px;
+    height: 80px; 
+}
+.pro-v1-lk{
+    padding: 40px 0;
+    width: 100%;
+}
+.pro-v1-lk li{
+    display: block;
+    margin: 0 0 15px;
+    padding: 8px 15px;
+    border: 1px solid #1E88E5;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight:500;
+    color: #1E88E5;
+}
+.pro-v1-lk li:last-child{
+    margin: 0;
+}
+.pro-v1-lk li img{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+.pro-v1-lk li span{
+    float: right;
+}
+/* **** End User Profile 1 **** */
+
+/* **** User Profile 2 **** */
+.pro-userv2{
+    position: relative;
+}
+.userpro-v2{
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+}
+.userpro-v2 .created-poll{
+    background: #fff;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.18);
+}
+.profile-ver2{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 380px;
+    height: auto;
+    padding: 0 30px;
+    background: #0d47a1; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #0d47a1 0%, #1e88e5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #0d47a1 0%,#1e88e5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #0d47a1 0%,#1e88e5 100%); 
+    box-shadow: 3px 0 6px rgba(0,0,0,0.25);
+}
+.logo-bx{
+    padding: 60px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.60);
+}
+.logo-bx img{
+    margin: 0 auto;
+}
+.profile-v2 .pro-bx{
+    padding: 40px 15px;
+}
+.profile-v2 .pro-bx .pro-img img{
+    width: 80px;
+    height: 80px;
+}
+.profile-v2 .pro-dt h3{font-size: 26px;}
+.profile-v2 .pro-dt p{font-size: 15px;}
+.profile-v2 .pro-v1-lk{padding: 0 20px 80px;}
+.profile-v2 .pro-v1-lk li{
+    border: 1px solid #fff;
+    color: #fff;
+}
+/* **** End User Profile 2 **** */
+
+/* **** User Profile 3 **** */
+.user-prov3 .row{
+    margin: 0 15px;
+}
+.user-prov3 .col-sm-4, .user-prov3 .col-sm-8{
+    padding: 0 15px;
+}
+.user-prov3{background-color: transparent; box-shadow: none; border-radius: 0;}
+.user-prov3 .poll-right{
+    box-shadow: none;
+    border-radius:10px;
+}
+.user-prov3 .poll-right .cre-pl{
+    padding: 20px;
+}
+.user-prov3 .poll-left{
+    border-radius: 10px;
+    background: #fff;
+    min-height: auto;
+    background: #0d47a1; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #0d47a1 0%, #1e88e5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #0d47a1 0%,#1e88e5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #0d47a1 0%,#1e88e5 100%); 
+    box-shadow: 0 5px 6px rgba(0,0,0,0.25);
+}
+.user-prov3 .poll-prohd .pro-dt h3,
+.user-prov3 .poll-prohd .pro-dt p{
+    color: #fff;
+}
+.user-prov3 .pro-v1-lk li{
+    border: 1px solid #fff;
+    color: #fff;
+}
+/* **** End User Profile 3 **** */
