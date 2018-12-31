@@ -145,17 +145,18 @@ body{
 /* Toggle */
 .navbar-default .navbar-toggle{
     border-color: #000;
+    border-radius: 0;
     transition: all 0.3s ease;
 }
 .navbar-default .navbar-toggle .icon-bar{
     background: #000;
 }
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
-    background: #ca031a;
-    border-color: #d4670c;
+    background: #fff;
+    border-color: #fff;
 }
 .navbar-default .navbar-toggle:hover .icon-bar,.navbar-default .navbar-toggle:focus .icon-bar{
-    background: #fff;
+    background: #000;
 }
 /* End Navigation CSS */
 
@@ -823,3 +824,359 @@ footer{
     color: #fff;
 }
 /* **** End User Profile 3 **** */
+
+/* **** Create Poll Page **** */
+.create-poll-req{
+    padding: 100px 0 40px;
+}
+.create-pol-wrp{
+    padding: 100px 40px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.18);
+}
+.crebtn{
+    position: absolute;
+    top: -30px;
+    right:50px;
+    z-index: 10;
+    padding: 15px 35px;
+    background: #1E88E5;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.30);
+}
+.crebtn img{
+    margin-right: 10px;
+    display: inline-block;
+    width: 23px;
+}
+.crebtn:focus,
+.crebtn:hover{
+    color: #fff;
+}
+.dt-it h6,
+.cre-frmg h6{
+    font-size: 26px;
+    font-weight: 500;
+    color: #212121;
+    margin: 0 0px;
+}
+.dt-it p,
+.cre-frmg p{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(33,33,33,0.60);
+    margin: 0 0 15px;
+}
+.cre-frmg .form-control{
+    padding: 10px 15px;
+    background: #fff;
+    border: 2px solid #1E88E5;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(33,33,33,0.60);
+    box-shadow: none;
+    height: auto;
+}
+.cre-frmg{
+    margin-bottom: 30px;
+}
+textarea{
+    resize: none;
+}
+.add-rw{
+    width: 100%;
+    overflow: hidden;
+}
+.cre-dt{
+    float: left;
+}
+.add-pol{
+    float: right;
+}
+.add-pol i{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    line-height: 60px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background: #1E88E5;
+    margin-right: 15px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.40);
+}
+.opt-lst li{
+    display: block;
+    padding: 12px 25px;
+    background: #EEEEEE;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.20);
+    margin-bottom: 20px;
+    width: 100%;
+    overflow: hidden;
+}
+.op-lf img{
+    width: 35px;
+    float: left;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.op-lf p{
+    margin:0;
+    float: left;
+    font-size: 22px;
+    font-weight: 500;
+    color: rgba(33,33,33,0.60);
+}
+.clo-op{
+    float: right;
+}
+.clo-op img{
+    width: 35px;
+}
+.end-poll .form-group{
+    margin: 0;
+}
+.end-poll .form-group img{
+    float: left;
+    width: 35px;
+    text-align: center;
+    margin-top: 3px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.end-poll .form-group .form-control{
+    float: right;
+    width: 80%;
+}
+/* The container */
+.cus-chek {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+}
+
+/* Hide the browser's default checkbox */
+.cus-chek input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:45px;
+  width: 45px;
+  border: 3px solid #1E88E5;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+/* On mouse-over, add a grey background color */
+.cus-chek:hover input ~ .checkmark {
+  background-color: #1E88E5;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cus-chek input:checked ~ .checkmark {
+  background-color: #1E88E5;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.cus-chek input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.cus-chek .checkmark:after {
+  left: 9px;
+  top: 7px;
+  color: #fff;
+  font-family: 'FontAwesome';
+  content: "\f00c";
+  font-size: 20px;
+  text-align: center;
+}
+.item-cheh{
+    margin-bottom: 30px;
+}
+.dt-it p{
+    margin: 0;
+}
+.ad-st h6{
+    margin-bottom: 40px;
+}
+/* **** End Create Poll Page **** */
+
+/* **** Poll Start Page **** */
+.start-head h1{
+    font-size: 55px;
+    font-weight: 600;
+    color: #1E88E5;
+    margin: 0 0 10px;
+}
+.start-head h2{
+    font-size: 36px;
+    font-weight: 600;
+    color: #212121;
+    margin: 0 0 40px;
+}
+.poll-start-wrp{
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.18);
+    padding: 60px 60px;
+}
+
+.header-wrp h2{
+    font-size: 36px;
+    font-weight: 600;
+    color: #212121;
+    margin: 0;
+}
+.header-wrp h2 img{
+    display: inline-block;
+    width: 35px;
+    margin-right: 10px;
+}
+.header-wrp h3{
+    font-size: 34px;
+    font-weight:500;
+    color: #212121;
+    font-family: 'Montserrat';
+    margin: 0;
+    text-align: right;
+}
+.header-wrp h3 img{
+    display: inline-block;
+    width: 35px;
+    margin-right: 10px;
+}
+.progress-poll{
+    padding: 40px;
+}
+/* PROGRESS BAR */
+.progress-reviews{
+    margin-bottom: 40px;
+    width: 100%;
+}
+.progress-reviews:last-child{
+    margin: 0;
+}
+.progress-reviews .progress {
+    height: 40px;
+    margin: 0;
+    background: #fff;
+    border: 2px solid #1E88E5;
+    border-radius:10px;
+}
+.progress-reviews .progress .skill {
+    line-height: 15px;
+    padding:0;
+    margin: 0 0 0 ;
+    text-transform: uppercase;
+}
+.progress-reviews .progress .skill .val {
+    float: right;
+    font-style: normal;
+    margin: 0 20px 0 0;
+}
+.progress-reviews .progress-bar {
+    background-color: #1E88E5;
+    text-align: left;
+    transition-duration: 3s;
+}
+.progress-reviews h4{
+    padding-bottom: 5px;
+    color: #1E88E5;
+    font-weight:600;
+    margin: 0;
+    font-size: 20px;
+}
+.progress-reviews p{
+    float: right;
+    color: #1E88E5;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
+}
+.progress-reviews p img{
+    display: inline-block;
+    margin-right: 10px;
+    width: 20px;
+}
+/* End of Skill Section */
+
+
+.modal-dialog{
+    width: 400px;
+}
+.modal-content{
+    border-radius: 15px;
+    background: #fff;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.31);
+}
+.close{
+    float: left;
+    margin: 0;
+    opacity: 1;
+    color: #1E88E5;
+    font-size: 24px;
+    line-height: 32px;
+}
+.modal-header{
+    border: none;
+}
+.modal-header h4{
+    font-size: 26px;
+    font-weight: normal;
+    color: #1E88E5;
+    margin: 0;
+    float: right;
+}
+.modal-header h4 img{
+    display: inline-block;
+    margin-right: 10px;
+    width: 25px;
+}
+.user-listing{
+    width: 100%;
+    overflow: hidden;
+}
+.user-listing li{
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+.user-listing li:last-child{
+    margin: 0;
+}
+.user-listing li a img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #1E88E5;
+}

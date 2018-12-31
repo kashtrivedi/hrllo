@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <title>EASYPOLL | Poll Stats</title>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-default dash-nav">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/logo-foot.png" alt=""></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav pull-right" id="manu">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><img src="images/Profile Pic.png" alt=""> <i class="fa fa-angle-down"></i></a>
+                    	<ul class="dropdown-menu">
+						    <li><a href="#">My Profile</a></li>
+						    <li><a href="#">Notifications</a></li>
+						    <li><a href="#">Log out</a></li>
+						 </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End Header -->
+
+    <!-- Dashboard -->
+    <section class="main-dash-cnt create-poll-req">
+    	<div class="container">
+    		<div class="start-head">
+                <h1>Poll for Vacation </h1>
+                <h2>Guys can you please help me decide my next vacation</h2>
+            </div>
+
+            <div class="poll-start-wrp">
+                <div class="header-wrp">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h2><img src="images/ic2.png" alt=""> Statistics</h2>
+                        </div>
+                        <div class="col-sm-5">
+                            <h3><img src="images/user.png" alt=""> 20</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-poll">
+                    <div class="progress-reviews">
+                        <h4>Kerala</h4>
+                        <div class="progress skill-bar ">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50">
+                            </div>
+                        </div>
+                        <p><img src="images/user-2.png" alt=""> 5</p>
+                    </div>
+
+                    <div class="progress-reviews">
+                        <h4>Andaman</h4>
+                        <div class="progress skill-bar ">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50">
+                            </div>
+                        </div>
+                        <p><img src="images/user-2.png" alt=""> 5</p>
+                    </div>
+
+                    <div class="progress-reviews">
+                        <h4>Goa</h4>
+                        <div class="progress skill-bar ">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50">
+                            </div>
+                        </div>
+                        <p><img src="images/user-2.png" alt=""> 5</p>
+                    </div>
+
+                    <div class="progress-reviews">
+                        <h4>Rajasthan</h4>
+                        <div class="progress skill-bar ">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50">
+                            </div>
+                        </div>
+                        <p><img src="images/user-2.png" alt=""> 5</p>
+                    </div>
+                </div>
+            </div>
+    	</div>
+    </section>
+    <!-- End Dashboard -->
+
+    <script type="text/javascript" src="js/jquery.min.js"></script> 
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        /* Progress BAR */
+    $(document).ready(function() {
+        $('.progress .progress-bar').css("width",
+            function() {
+                return $(this).attr("aria-valuenow") + "%";
+            }
+            )
+    });
+    /* End Progress Bar */
+    </script>
+</body>
+</html>
