@@ -1,204 +1,212 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-    <title>EASYPOLL | Create Poll</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<title>EASYPOLL | Create Poll</title>
 </head>
+
 <body>
 
 	<!-- Pop Up -->
 	<div id="myModal" class="modal fade" role="dialog">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-      			<div class="modal-header">
-        			<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
-        			<h4><img src="images/user-2.png" alt=""> 5</h4>
-      			</div>
-      			<div class="modal-body">
-        			<div class="user-listing">
-        				<ul>
-        					<li><a href="#"><img src="images/user1.png" alt=""></a></li>
-        					<li><a href="#"><img src="images/user2.png" alt=""></a></li>
-        					<li><a href="#"><img src="images/user3.png" alt=""></a></li>
-        					<li><a href="#"><img src="images/user4.png" alt=""></a></li>
-        					<li><a href="#"><img src="images/user5.png" alt=""></a></li>
-        				</ul>
-        			</div>
-      			</div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+					<h4><img src="images/user-2.png" alt=""> 5</h4>
+				</div>
+				<div class="modal-body">
+					<div class="user-listing">
+						<ul>
+							<li><a href="#"><img src="images/user1.png" alt=""></a></li>
+							<li><a href="#"><img src="images/user2.png" alt=""></a></li>
+							<li><a href="#"><img src="images/user3.png" alt=""></a></li>
+							<li><a href="#"><img src="images/user4.png" alt=""></a></li>
+							<li><a href="#"><img src="images/user5.png" alt=""></a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-  		</div>
+		</div>
 	</div>
 	<!-- Pop Up -->
 
-    <!-- Header -->
-    <nav class="navbar navbar-default dash-nav">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img src="images/logo-foot.png" alt=""></a>
-            </div>
+	<!-- Header -->
+	<nav class="navbar navbar-default dash-nav">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><img src="images/logo-foot.png" alt=""></a>
+			</div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav pull-right" id="manu">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><img src="images/Profile Pic.png" alt=""> <i class="fa fa-angle-down"></i></a>
-                    	<ul class="dropdown-menu">
-						    <li><a href="#">My Profile</a></li>
-						    <li><a href="#">Notifications</a></li>
-						    <li><a href="#">Log out</a></li>
-						 </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <!-- End Header -->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav pull-right" id="manu">
+					<li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><img src="images/Profile Pic.png"
+							 alt=""> <i class="fa fa-angle-down"></i></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">My Profile</a></li>
+							<li><a href="#">Notifications</a></li>
+							<li><a href="#">Log out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- End Header -->
 
-    <!-- Dashboard -->
-    <section class="main-dash-cnt create-poll-req">
-    	<div class="container">
-    		<div class="create-pol-wrp">
-    			<div class="poll-cre-btn">
-    				<a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" class="crebtn"><img src="images/ok.png" alt=""> CREATE POLL</a>
-    			</div>
+	<!-- Dashboard -->
+	<section class="main-dash-cnt create-poll-req">
+		<div class="container">
+			<div class="create-pol-wrp">
+				<div class="poll-cre-btn">
+					<a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" class="crebtn"><img src="images/ok.png"
+						 alt=""> CREATE POLL</a>
+				</div>
 
-    			<div class="row">
-    				<div class="col-md-7 col-sm-12">
-    					<div class="cre-frm">
-    						<div class="cre-frmg">
-    							<div class="cre-dt">
-	    							<h6>Title</h6>
-	    							<p>Choose an appropriate title for your poll</p>
-	    						</div>
+				<div class="row">
+					<div class="col-md-7 col-sm-12">
+						<div class="cre-frm">
+							<form method="POST" action="">
+								<div class="cre-frmg">
+									<div class="cre-dt">
+										<h6>Title</h6>
+										<p>Choose an appropriate title for your poll</p>
+									</div>
 
-    							<input type="text" name="" placeholder="Poll title" class="form-control">
-    						</div>
+									<input type="text" name="" placeholder="Poll title" class="form-control">
+								</div>
 
-    						<div class="cre-frmg">
-    							<div class="cre-dt">
-	    							<h6>Description</h6>
-	    							<p>A brief description describing your poll</p>
-	    						</div>
+								<div class="cre-frmg">
+									<div class="cre-dt">
+										<h6>Description</h6>
+										<p>A brief description describing your poll</p>
+									</div>
 
-    							<textarea class="form-control" rows="5" placeholder="Poll Description"></textarea>
-    						</div>
+									<textarea class="form-control" rows="5" placeholder="Poll Description"></textarea>
+								</div>
 
-    						<div class="cre-frmg">
-    							<div class="add-rw">
-	    							<div class="cre-dt">
-		    							<h6>Options</h6>
-		    							<p>Add options for your poll</p>
-		    						</div>
-		    						<div class="add-pol">
-		    							<a href="#"><i class="fa fa-plus"></i></a>
-		    						</div>
-		    					</div>
-
-		    					<div class="opt-lst">
-		    						<ul>
-		    							<li>
-		    								<div class="op-lf">
-		    									<img src="images/sm-bar.png" alt="">
-		    									<p>Kerala</p>
-		    								</div>
-		    								<div class="clo-op">
-		    									<a href="#"><img src="images/close.png" alt=""></a>
-		    								</div>
-		    							</li>
-		    							<li>
-		    								<div class="op-lf">
-		    									<img src="images/sm-bar.png" alt="">
-		    									<p>Andaman</p>
-		    								</div>
-		    								<div class="clo-op">
-		    									<a href="#"><img src="images/close.png" alt=""></a>
-		    								</div>
-		    							</li>
-		    						</ul>
-		    					</div>
-    						</div>
-
-    						<div class="cre-frmg">
-    							<div class="cre-dt">
-	    							<h6>Ends on</h6>
-	    							<p>Select the date and time when the polling ends</p>
-	    						</div>
-
-    							<div class="row end-poll">
-    								<div class="col-md-6 col-sm-7">
-    									<div class="form-group">
-    										<img src="images/calen.png" alt="">
-    										<input type="text" name="" placeholder="dd/mm/yy" class="form-control">
-    									</div>
-    								</div>
-    								<div class="col-md-6 col-sm-5">
-    									<div class="form-group">
-    										<img src="images/time.png" alt="">
-    										<input type="text" name="" placeholder="hh/mm" class="form-control">
-    									</div>
-    								</div>
-    							</div>
-    						</div>
-
-    						<div class="cre-frmg">
-    							<div class="cre-dt ad-st">
-	    							<h6>Advanced Settings</h6>
-	    						</div>
-
-
-	    						<div class="item-cheh">
-	    							<div class="row">
-	    								<div class="col-sm-10">
-	    									<div class="dt-it">
-	    										<h6>Allow multiple selections</h6>
-	    										<p>Check if allowed to select more than one options</p>
-	    									</div>
-	    								</div>
-	    								<div class="col-sm-2">
-			    							<label class="cus-chek">
-											  	<input type="checkbox" checked="checked">
-											 	<span class="checkmark"></span>
-											</label>
+								<div class="cre-frmg">
+									<div class="add-rw">
+										<div class="cre-dt">
+											<h6>Options</h6>
+											<p>Add options for your poll</p>
+										</div>
+										<div class="add-pol">
+											<a href="#"><i class="fa fa-plus"></i></a>
 										</div>
 									</div>
-	    						</div>
-	    						<div class="item-cheh">
-	    							<div class="row">
-	    								<div class="col-sm-10">
-	    									<div class="dt-it">
-	    										<h6>Allow participant to add</h6>
-	    										<p>Check if participant is allowed to add options</p>
-	    									</div>
-	    								</div>
-	    								<div class="col-sm-2">
-			    							<label class="cus-chek">
-											  	<input type="checkbox">
-											 	<span class="checkmark"></span>
-											</label>
+
+									<div class="opt-lst">
+										<ul>
+											<li>
+												<div class="op-lf">
+													<img src="images/sm-bar.png" alt="">
+													<p>Kerala</p>
+												</div>
+												<div class="clo-op">
+													<a href="#"><img src="images/close.png" alt=""></a>
+												</div>
+											</li>
+											<li>
+												<div class="op-lf">
+													<img src="images/sm-bar.png" alt="">
+													<p>Andaman</p>
+												</div>
+												<div class="clo-op">
+													<a href="#"><img src="images/close.png" alt=""></a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="cre-frmg">
+									<div class="cre-dt">
+										<h6>Ends on</h6>
+										<p>Select the date and time when the polling ends</p>
+									</div>
+
+									<div class="row end-poll">
+										<div class="col-md-6 col-sm-7">
+											<div class="form-group">
+												<img src="images/calen.png" alt="">
+												<input type="text" name="" placeholder="dd/mm/yy" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-5">
+											<div class="form-group">
+												<img src="images/time.png" alt="">
+												<input type="text" name="" placeholder="hh/mm" class="form-control">
+											</div>
 										</div>
 									</div>
-	    						</div>
-	    					</div>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-    <!-- End Dashboard -->
+								</div>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script> 
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+								<div class="cre-frmg">
+									<div class="cre-dt ad-st">
+										<h6>Advanced Settings</h6>
+									</div>
+
+
+									<div class="item-cheh">
+										<div class="row">
+											<div class="col-sm-10">
+												<div class="dt-it">
+													<h6>Allow multiple selections</h6>
+													<p>Check if allowed to select more than one options</p>
+												</div>
+											</div>
+											<div class="col-sm-2">
+												<label class="cus-chek">
+													<input type="checkbox" checked="checked">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="item-cheh">
+										<div class="row">
+											<div class="col-sm-10">
+												<div class="dt-it">
+													<h6>Allow participant to add</h6>
+													<p>Check if participant is allowed to add options</p>
+												</div>
+											</div>
+											<div class="col-sm-2">
+												<label class="cus-chek">
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Dashboard -->
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </body>
+
 </html>

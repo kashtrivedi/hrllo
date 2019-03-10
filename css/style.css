@@ -1180,3 +1180,35 @@ textarea{
     border-radius: 50%;
     border: 3px solid #1E88E5;
 }
+
+#modal-dialog {
+    top: 20%;
+}
+
+#modal-title {
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.close {
+    position: absolute;
+    font-size: 50px;
+    top: 10px;
+    right: 10px;
+}
+
+.form-group input {
+    color: black;
+    font-weight: 500;
+}
+
+.submit-div {
+    text-align: center;
+}
+
+#sign-up-submit {
+    height: 45px;
+    width: 100px;
+    border-radius: 50px;
+}
