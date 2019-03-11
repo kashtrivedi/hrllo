@@ -6,7 +6,8 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
     <title>EASYPOLL | User Profile</title>
 </head>
 <body>
@@ -36,20 +37,20 @@
     				<div class="col-md-6 col-sm-6">
     					<div class="pro-bx">
     						<div class="pro-img">
-    							<img src="images/user-profile.png" alt="">
+    							<img id="pro-pic" alt="Profile Picture">
     						</div>
     						<div class="pro-dt">
-    							<h3>Alex Andrews</h3>
-    							<p>alex.andrews@gmail.com</p>
+    							<h3 id="pro-name"></h3>
+    							<p id="pro-email"></p>
     						</div>
     					</div>
     				</div>
     				<div class="col-md-6 col-sm-6">
     					<div class="pro-like">
     						<ul>
-    							<li><img src="images/pro1.png" alt=""> 20</li>
-    							<li><img src="images/pro2.png" alt=""> 10</li>
-    							<li><img src="images/pro3.png" alt=""> 33</li>
+    							<li><img src="images/pro1.png" alt=""><div id="karma"></div></li>
+    							<li><img src="images/pro2.png" alt=""><div id="created"></div></li>
+    							<li><img src="images/pro3.png" alt=""><div id="participated"></div></li>
     						</ul>
     					</div>
     				</div>
@@ -67,10 +68,7 @@
     							<p>Can you guys please help me decide where should I have my next vacation.</p>
 
     							<ul>
-    								<li>Rajasthan</li>
-    								<li>Goa</li>
-    								<li>Andaman</li>
-    								<li>Kerala</li>
+
     							</ul>
     						</div>
     						<div class="poll-act">
@@ -88,10 +86,7 @@
     							<p>Can you guys please help me decide where should I have my next vacation.</p>
 
     							<ul>
-    								<li>Rajasthan</li>
-    								<li>Goa</li>
-    								<li>Andaman</li>
-    								<li>Kerala</li>
+    								
     							</ul>
     						</div>
     						<div class="poll-act">
@@ -109,10 +104,7 @@
     							<p>Can you guys please help me decide where should I have my next vacation.</p>
 
     							<ul>
-    								<li>Rajasthan</li>
-    								<li>Goa</li>
-    								<li>Andaman</li>
-    								<li>Kerala</li>
+    								
     							</ul>
     						</div>
     						<div class="poll-act">
@@ -130,10 +122,7 @@
     							<p>Can you guys please help me decide where should I have my next vacation.</p>
 
     							<ul>
-    								<li>Rajasthan</li>
-    								<li>Goa</li>
-    								<li>Andaman</li>
-    								<li>Kerala</li>
+    								
     							</ul>
     						</div>
     						<div class="poll-act">
@@ -151,10 +140,7 @@
     							<p>Can you guys please help me decide where should I have my next vacation.</p>
 
     							<ul>
-    								<li>Rajasthan</li>
-    								<li>Goa</li>
-    								<li>Andaman</li>
-    								<li>Kerala</li>
+    								
     							</ul>
     						</div>
     						<div class="poll-act">
@@ -172,10 +158,7 @@
     							<p>Can you guys please help me decide where should I have my next vacation.</p>
 
     							<ul>
-    								<li>Rajasthan</li>
-    								<li>Goa</li>
-    								<li>Andaman</li>
-    								<li>Kerala</li>
+    								
     							</ul>
     						</div>
     						<div class="poll-act">
@@ -194,6 +177,7 @@
 
     <script type="text/javascript" src="js/jquery.min.js"></script> 
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/cookies.js"></script>
+    <script type="text/javascript" src="js/profile.js"></script>
 </body>
 </html>

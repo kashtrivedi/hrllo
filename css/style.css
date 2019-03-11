@@ -1212,3 +1212,13 @@ textarea{
     width: 100px;
     border-radius: 50px;
 }
+
+#karma {
+    display: inline-block;
+}
+#created {
+    display: inline-block;
+}
+#participated {
+    display: inline-block;
+}

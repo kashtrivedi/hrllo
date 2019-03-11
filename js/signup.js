@@ -9,6 +9,10 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var token;
+var displayName;
+var email;
+
 var signIn = document.getElementById('signIn');
 var signUp = document.getElementById('signUp');
 var redirect_signup = document.getElementById('redirect_signup');
@@ -21,12 +25,22 @@ function login() {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
+        token = result.credential.accessToken;
         // The signed-in user info.
-        var displayName = result.user.displayName;
-        console.log(displayName);
+        displayName = result.user.displayName;
+        email = result.user.email;
+        photo = result.user.photoURL;
+        console.log(photo);
         // ...
-        window.location.href = '../dashboard.html';
+        
+
+        setCookie('displayName', displayName, 7);
+        setCookie('email', email, 7);
+        setCookie('token', token, 7);
+        setCookie('photo', photo, 7);
+
+        window.location.href = '../user-profile-0.html';
+
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -42,6 +56,7 @@ function login() {
         console.log(credential);
     });
 }
+
 
 
 // TODO elsewhere
