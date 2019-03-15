@@ -17,8 +17,7 @@ firebase.initializeApp(config);
 var profilePic = $("#pro-pic");
 var profileName = $("#pro-name");
 var profileEmail = $("#pro-email");
-var firestore = firebase.firestore();
-var docRef = firestore.doc("polls/2iZMIHyKKKkULGzL4eNu/poll_1/title");
+var database = firebase.firestore();
 
 window.onload = function () {
     displayProfile();
@@ -30,26 +29,55 @@ function displayProfile() {
     profileName.html(getCookie("displayName"));
     profileEmail.html(getCookie("email"));
 
-    docRef.get().then(function (doc) {
-        var myData = doc.data();
-        console.log(myData);
-    })
-
-    var poll = {
-        title: "Vacation",
-        description: "Where shall we go for our vacation trip?",
-        options: ["Manali", "Andaman", "Goa", "Wayanad"]
-    }
-
     var user = {
         karma: 25,
         polls_created: 10,
         polls_participated: 35
     }
 
-    $(".cre-pl h4").html(poll.title);
-    $(".cre-pl p").html(poll.description);
-    $('.cre-pl ul').append(poll.options.map(t => $('<li>').text(t)));
+    // WORK IN PROGRESS, WILL WORK ON IT AFTER CREATE POLL
+
+    function renderPolls(doc) {
+        title = doc.data().title;
+        desc = doc.data().description;
+        opts = doc.data().options;
+
+        console.log(typeof opts);
+        console.log(opts);
+
+        // opts.forEach(op => {
+        //     console.log(op);
+        // })
+
+        var output = `
+            <div class="col-md-6 col-sm-6">
+                <div class="created-poll">
+                    <div class="cre-pl">
+                        <h4>${title}</h4>
+                        <p>${desc}</p>
+                        <ul id="options">
+
+                        </ul>
+                    </div>
+                    <div class="poll-act">
+                        <ul>
+                            <li><a href="poll-stats.html"><img src="images/ic2.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        $('#polls').append(output);
+        $('#options').append(opts.map(t => $('<li>').text(t)));
+    }
+
+    database.collection('polls').get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+            renderPolls(doc);
+        })
+    })
 
     $("#karma").html(user.karma);
     $("#created").html(user.polls_created);
