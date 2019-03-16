@@ -70,6 +70,7 @@ function displayProfile() {
         `;
 
         $('#polls').append(output);
+        // https://www.kirupa.com/html5/dynamically_create_populate_list.htm
         $('#options').append(opts.map(t => $('<li>').text(t)));
     }
 

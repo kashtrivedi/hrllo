@@ -830,16 +830,16 @@ footer{
     padding: 100px 0 40px;
 }
 .create-pol-wrp{
-    padding: 100px 40px;
+    padding: 60px 40px;
     background: #fff;
     border-radius: 10px;
     position: relative;
     box-shadow: 0 5px 5px rgba(0,0,0,0.18);
 }
 .crebtn{
-    position: absolute;
+    /* position: absolute;
     top: -30px;
-    right:50px;
+    right:50px; */
     z-index: 10;
     padding: 15px 35px;
     background: #1E88E5;
@@ -848,6 +848,7 @@ footer{
     font-weight: 500;
     color: #fff;
     box-shadow: 0 3px 4px rgba(0,0,0,0.30);
+    border: none;
 }
 .crebtn img{
     margin-right: 10px;
@@ -1221,4 +1222,37 @@ textarea{
 }
 #participated {
     display: inline-block;
+}
+
+
+/* Anands changes */
+
+#poll-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#poll-head {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#form-container {
+    width: 90%;
+}
+
+#ends-on {
+    display: flex;
+    justify-content: space-between;
+}
+
+#date-time {
+    display: flex;
+    align-items: center;
+}
+
+#crebtn {
+    text-align: center;
+    margin-top: 50px;
 }

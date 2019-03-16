@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
 	<title>EASYPOLL | Create Poll</title>
 </head>
 
@@ -73,22 +74,20 @@
 	<section class="main-dash-cnt create-poll-req">
 		<div class="container">
 			<div class="create-pol-wrp">
-				<div class="poll-cre-btn">
-					<a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" class="crebtn"><img src="images/ok.png"
-						 alt=""> CREATE POLL</a>
-				</div>
-
-				<div class="row">
-					<div class="col-md-7 col-sm-12">
+				<div class="row" id="poll-container">
+					<div class="col-md-7 col-sm-12" id="form-container">
+						<div id="poll-head">
+							<h1>CREATE POLL</h1>
+						</div>
 						<div class="cre-frm">
-							<form method="POST" action="">
+							<form method="POST" action="" id="create-poll-form">
 								<div class="cre-frmg">
 									<div class="cre-dt">
 										<h6>Title</h6>
 										<p>Choose an appropriate title for your poll</p>
 									</div>
 
-									<input type="text" name="" placeholder="Poll title" class="form-control">
+									<input type="text" name="title" placeholder="Poll title" class="form-control" id="poll-title">
 								</div>
 
 								<div class="cre-frmg">
@@ -97,7 +96,7 @@
 										<p>A brief description describing your poll</p>
 									</div>
 
-									<textarea class="form-control" rows="5" placeholder="Poll Description"></textarea>
+									<textarea class="form-control" name="desc" rows="5" placeholder="Poll Description"></textarea>
 								</div>
 
 								<div class="cre-frmg">
@@ -135,23 +134,23 @@
 									</div>
 								</div>
 
-								<div class="cre-frmg">
+								<div class="cre-frmg" id="ends-on">
 									<div class="cre-dt">
 										<h6>Ends on</h6>
 										<p>Select the date and time when the polling ends</p>
 									</div>
 
-									<div class="row end-poll">
+									<div class="row end-poll" id="date-time">
 										<div class="col-md-6 col-sm-7">
 											<div class="form-group">
 												<img src="images/calen.png" alt="">
-												<input type="text" name="" placeholder="dd/mm/yy" class="form-control">
+												<input type="date" name="" placeholder="dd/mm/yy" class="form-control">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-5">
 											<div class="form-group">
 												<img src="images/time.png" alt="">
-												<input type="text" name="" placeholder="hh/mm" class="form-control">
+												<input type="time" name="" placeholder="hh/mm" class="form-control">
 											</div>
 										</div>
 									</div>
@@ -196,6 +195,10 @@
 										</div>
 									</div>
 								</div>
+								<div class="poll-cre-btn" id="crebtn">
+									<!-- <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" class="crebtn"><img src="images/ok.png" alt=""> CREATE POLL</a> -->
+									<button class="crebtn"><img src="images/ok.png" alt=""> CREATE POLL</button>
+								</div>
 							</form>
 						</div>
 					</div>
@@ -207,6 +210,8 @@
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/cookies.js"></script>
+	<script type="text/javascript" src="js/poll.js"></script>
 </body>
 
 </html>
