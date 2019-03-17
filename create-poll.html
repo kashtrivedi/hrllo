@@ -106,28 +106,24 @@
 											<p>Add options for your poll</p>
 										</div>
 										<div class="add-pol">
-											<a href="#"><i class="fa fa-plus"></i></a>
+											<i class="fa fa-plus" onclick="addOpt()"></i>
 										</div>
 									</div>
 
 									<div class="opt-lst">
-										<ul>
+										<ul id="opt-list">
 											<li>
 												<div class="op-lf">
-													<img src="images/sm-bar.png" alt="">
-													<p>Kerala</p>
-												</div>
-												<div class="clo-op">
-													<a href="#"><img src="images/close.png" alt=""></a>
+													<img src="images/sm-bar.png" alt="" class="sortIcon">
+													<input class="opt" type="text" placeholder="Kerala">
+													<img src="images/close.png" alt="" onclick="delOpt(this)">
 												</div>
 											</li>
 											<li>
 												<div class="op-lf">
-													<img src="images/sm-bar.png" alt="">
-													<p>Andaman</p>
-												</div>
-												<div class="clo-op">
-													<a href="#"><img src="images/close.png" alt=""></a>
+													<img src="images/sm-bar.png" alt="" class="sortIcon">
+													<input class="opt" type="text" placeholder="Andaman">
+													<img src="images/close.png" alt="" onclick="delOpt(this)">
 												</div>
 											</li>
 										</ul>
@@ -144,13 +140,13 @@
 										<div class="col-md-6 col-sm-7">
 											<div class="form-group">
 												<img src="images/calen.png" alt="">
-												<input type="date" name="" placeholder="dd/mm/yy" class="form-control">
+												<input type="date" name="date" class="form-control">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-5">
 											<div class="form-group">
 												<img src="images/time.png" alt="">
-												<input type="time" name="" placeholder="hh/mm" class="form-control">
+												<input type="time" name="time" placeholder="hh/mm" class="form-control">
 											</div>
 										</div>
 									</div>
@@ -172,7 +168,7 @@
 											</div>
 											<div class="col-sm-2">
 												<label class="cus-chek">
-													<input type="checkbox" checked="checked">
+													<input type="checkbox" name="multSelection">
 													<span class="checkmark"></span>
 												</label>
 											</div>
@@ -188,7 +184,7 @@
 											</div>
 											<div class="col-sm-2">
 												<label class="cus-chek">
-													<input type="checkbox">
+													<input type="checkbox" name="addOptions">
 													<span class="checkmark"></span>
 												</label>
 											</div>
@@ -212,6 +208,8 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/cookies.js"></script>
 	<script type="text/javascript" src="js/poll.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 
 </html>

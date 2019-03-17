@@ -1,8 +1,3 @@
-// If user is on a page without signing in then redirect to sign in page
-if (getCookie("displayName") == "" || getCookie("email") == "") {
-    window.location.href = '../index.html';
-}
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyBhYCyUQE0XiOGHhzhelNdtGwBsYj8Af7Y",
@@ -41,9 +36,6 @@ function displayProfile() {
         title = doc.data().title;
         desc = doc.data().description;
         opts = doc.data().options;
-
-        console.log(typeof opts);
-        console.log(opts);
 
         // opts.forEach(op => {
         //     console.log(op);

@@ -23,7 +23,8 @@ redirect_signup.addEventListener('click', login);
 
 function login() {
     var provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
+    firebase.auth().signInWithPopup(provider)
+    .then(function (result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         token = result.credential.accessToken;
         // The signed-in user info.
@@ -33,15 +34,16 @@ function login() {
         console.log(photo);
         // ...
         
-
         setCookie('displayName', displayName, 7);
         setCookie('email', email, 7);
         setCookie('token', token, 7);
         setCookie('photo', photo, 7);
-
-        window.location.href = '../user-profile-0.html';
-
-    }).catch(function (error) {
+        
+    })
+    .then(function() {
+        window.location.href = '../create-poll.html';
+    })
+    .catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
