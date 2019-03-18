@@ -1,28 +1,42 @@
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyBhYCyUQE0XiOGHhzhelNdtGwBsYj8Af7Y",
-    authDomain: "easy-poll-54c41.firebaseapp.com",
-    databaseURL: "https://easy-poll-54c41.firebaseio.com",
-    projectId: "easy-poll-54c41",
-    storageBucket: "easy-poll-54c41.appspot.com",
-    messagingSenderId: "7924447937"
-};
-firebase.initializeApp(config);
-
-var profilePic = $("#pro-pic");
-var profileName = $("#pro-name");
-var profileEmail = $("#pro-email");
-var database = firebase.firestore();
+var app;
 
 window.onload = function () {
-    displayProfile();
+    setup();
 };
 
+function setup() {
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBhYCyUQE0XiOGHhzhelNdtGwBsYj8Af7Y",
+        authDomain: "easy-poll-54c41.firebaseapp.com",
+        databaseURL: "https://easy-poll-54c41.firebaseio.com",
+        projectId: "easy-poll-54c41",
+        storageBucket: "easy-poll-54c41.appspot.com",
+        messagingSenderId: "7924447937"
+    };
+    app = firebase.initializeApp(config);
 
-function displayProfile() {
-    profilePic.attr('src', getCookie("photo"));
-    profileName.html(getCookie("displayName"));
-    profileEmail.html(getCookie("email"));
+    app.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            main(user);
+        } else {
+            // No user is signed in.
+            window.location.href = '/';
+        }
+    });
+}
+
+function main(user) {
+
+    var profilePic = $("#pro-pic");
+    var profileName = $("#pro-name");
+    var profileEmail = $("#pro-email");
+    var database = app.firestore();
+
+    profilePic.attr('src', user.photoURL);
+    profileName.html(user.displayName);
+    profileEmail.html(user.email);
 
     var user = {
         karma: 25,
@@ -77,4 +91,3 @@ function displayProfile() {
     $("#participated").html(user.polls_participated);
 
 }
-

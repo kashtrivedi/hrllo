@@ -1,214 +1,108 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
-    <title>EASYPOLL | Dashboard</title>
+	<title>EASYPOLL | Dashboard</title>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <nav class="navbar navbar-default dash-nav">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img src="images/logo-foot.png" alt=""></a>
-            </div>
+	<!-- Header -->
+	<nav class="navbar navbar-default dash-nav">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><img src="images/logo-foot.png" alt=""></a>
+			</div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav pull-right" id="manu">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><img src="images/Profile Pic.png" alt=""> <i class="fa fa-angle-down"></i></a>
-                    	<ul class="dropdown-menu">
-						    <li><a href="#">My Profile</a></li>
-						    <li><a href="#">Notifications</a></li>
-						    <li><a href="#" id="logOut">Log out</a></li>
-						 </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <!-- End Header -->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav pull-right" id="manu">
+					<li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
+							<img id="pro-pic" alt="Profile Picture"> <i class="fa fa-angle-down"></i></a>
+						<ul class="dropdown-menu">
+							<li><a href="#" onclick="location.href = '/user-profile-0.html';">My Profile</a></li>
+							<li><a href="#" id="logOut" onclick="signOut()">Log out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- End Header -->
 
-    <!-- Dashboard -->
-    <section class="main-dash-cnt">
-    	<div class="container">
-    		<a href="#" class="add-btn"><i class="fa fa-plus"></i> CREATE POLL</a>
+	<!-- Dashboard -->
+	<section class="main-dash-cnt">
+		<div class="container">
+			<a href="#" class="add-btn" onclick="location.href = '/create-poll.html';"><i class="fa fa-plus"></i> CREATE POLL</a>
 
-    		<div class="poll-block">
-    			<div class="poll-head">
-    				<div class="row">
-    					<div class="col-sm-9">
-    						<div class="poll-tab">
-    							<p>View</p>
-    							<ul class="nav nav-tabs">
+			<div class="poll-block">
+				<div class="poll-head">
+					<div class="row">
+						<div class="col-sm-9">
+							<div class="poll-tab">
+								<p>View</p>
+								<ul class="nav nav-tabs">
 									<li class="active"><a data-toggle="tab" href="#home">ALL</a></li>
 									<li><a data-toggle="tab" href="#menu1">Active</a></li>
 									<li><a data-toggle="tab" href="#menu2">Inactive</a></li>
 								</ul>
-    						</div>
-    					</div>
-    					<div class="col-sm-3">
-    						<div class="filter-bx">
-    							<a href="#"><img src="images/filter.png" alt=""></a>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="filter-bx">
+								<a href="#"><img src="images/filter.png" alt=""></a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-    			<div class="tab-content">
-  					<div id="home" class="tab-pane fade in active">
-		    			<div class="poll-lst">
-		    				<ul>
-		    					<li>
-		    						<div class="row">
-			    						<div class="col-sm-8">
-			    							<div class="list-nm">
-			    								<p>Poll for Vacation</p>
-			    							</div>
-			    						</div>
-			    						<div class="col-sm-4">
-			    							<div class="action-icons">
-			    								<ul>
-			    									<li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic2.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic4.png" alt=""></a></li>
-			    								</ul>
-			    							</div>
-			    						</div>
-			    					</div>
-		    					</li>
-		    					<li>
-		    						<div class="row">
-			    						<div class="col-sm-8">
-			    							<div class="list-nm">
-			    								<p>Red or Blue?</p>
-			    							</div>
-			    						</div>
-			    						<div class="col-sm-4">
-			    							<div class="action-icons">
-			    								<ul>
-			    									<li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic2.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic4.png" alt=""></a></li>
-			    								</ul>
-			    							</div>
-			    						</div>
-			    					</div>
-		    					</li>
-		    				</ul>
-		    			</div>
-		    		</div>
-		    		<div id="menu1" class="tab-pane fade">
-		    			<div class="poll-lst">
-		    				<ul>
-		    					<li>
-		    						<div class="row">
-			    						<div class="col-sm-8">
-			    							<div class="list-nm">
-			    								<p>Poll for Vacation</p>
-			    							</div>
-			    						</div>
-			    						<div class="col-sm-4">
-			    							<div class="action-icons">
-			    								<ul>
-			    									<li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic2.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic4.png" alt=""></a></li>
-			    								</ul>
-			    							</div>
-			    						</div>
-			    					</div>
-		    					</li>
-		    					<li>
-		    						<div class="row">
-			    						<div class="col-sm-8">
-			    							<div class="list-nm">
-			    								<p>Red or Blue?</p>
-			    							</div>
-			    						</div>
-			    						<div class="col-sm-4">
-			    							<div class="action-icons">
-			    								<ul>
-			    									<li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic2.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic4.png" alt=""></a></li>
-			    								</ul>
-			    							</div>
-			    						</div>
-			    					</div>
-		    					</li>
-		    				</ul>
-		    			</div>
-		    		</div>
-		    		<div id="menu2" class="tab-pane fade">
-		    			<div class="poll-lst">
-		    				<ul>
-		    					<li>
-		    						<div class="row">
-			    						<div class="col-sm-8">
-			    							<div class="list-nm">
-			    								<p>Poll for Vacation</p>
-			    							</div>
-			    						</div>
-			    						<div class="col-sm-4">
-			    							<div class="action-icons">
-			    								<ul>
-			    									<li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic2.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic4.png" alt=""></a></li>
-			    								</ul>
-			    							</div>
-			    						</div>
-			    					</div>
-		    					</li>
-		    					<li>
-		    						<div class="row">
-			    						<div class="col-sm-8">
-			    							<div class="list-nm">
-			    								<p>Red or Blue?</p>
-			    							</div>
-			    						</div>
-			    						<div class="col-sm-4">
-			    							<div class="action-icons">
-			    								<ul>
-			    									<li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic2.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-			    									<li><a href="#"><img src="images/ic4.png" alt=""></a></li>
-			    								</ul>
-			    							</div>
-			    						</div>
-			    					</div>
-		    					</li>
-		    				</ul>
-		    			</div>
-		    		</div>
-		    	</div>
-    		</div>
-    	</div>
-    </section>
-    <!-- End Dashboard -->
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade in active">
+						<div class="poll-lst">
+							<ul id="pollTitles">
 
-    <script type="text/javascript" src="js/jquery.min.js"></script> 
+							</ul>
+						</div>
+					</div>
+					<div id="menu1" class="tab-pane fade">
+						<div class="poll-lst">
+							<ul id="activePolls">
+								
+							</ul>
+						</div>
+					</div>
+					<div id="menu2" class="tab-pane fade">
+						<div class="poll-lst">
+							<ul id="inactivePolls">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Dashboard -->
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<!-- <script type="text/javascript" src="js/signup.js"></script> -->
+	<script type="text/javascript" src="js/dashboard.js"></script>
+
 </body>
+
 </html>

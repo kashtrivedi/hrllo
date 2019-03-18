@@ -85,4 +85,10 @@ function delOpt(opt) {
     opt.parentNode.parentNode.remove();
 }
 
-// TODO SIGN OUT
+function signOut() {
+    firebase.auth().signOut().then(function () {
+
+    }, function (error) {
+        console.error('Sign Out Error', error);
+    });
+}
