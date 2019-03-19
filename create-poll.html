@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
 	<title>EASYPOLL | Create Poll</title>
 </head>
 
@@ -139,13 +140,13 @@
 										<div class="col-md-6 col-sm-7">
 											<div class="form-group">
 												<img src="images/calen.png" alt="">
-												<input type="date" name="date" class="form-control">
+												<input type="date" name="date" class="form-control" id="endDate">
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-5">
 											<div class="form-group">
 												<img src="images/time.png" alt="">
-												<input type="time" name="time" placeholder="hh/mm" class="form-control">
+												<input type="time" name="time" placeholder="hh/mm" class="form-control" id="endTime">
 											</div>
 										</div>
 									</div>
@@ -184,6 +185,22 @@
 											<div class="col-sm-2">
 												<label class="cus-chek">
 													<input type="checkbox" name="addOptions">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="item-cheh">
+										<div class="row">
+											<div class="col-sm-10">
+												<div class="dt-it">
+													<h6>Public poll</h6>
+													<p>Allow anyone to vote</p>
+												</div>
+											</div>
+											<div class="col-sm-2">
+												<label class="cus-chek">
+													<input type="checkbox" name="public">
 													<span class="checkmark"></span>
 												</label>
 											</div>

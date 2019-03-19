@@ -36,24 +36,33 @@ function main(user) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var opts = [];
-        $('.opt').each(function () {
-            opts.push($(this).val());
-        });
+        var submitData = new Promise(function (resolve, reject) {
+            var opts = [];
+            $('.opt').each(function () {
+                opts.push($(this).val());
+            });
 
-        database.collection('polls').add({
-            title: form.title.value,
-            description: form.desc.value,
-            options: opts,
-            date: form.date.value,
-            time: form.time.value,
-            multipleSelections: form.multSelection.checked,
-            addOptions: form.addOptions.checked,
-            uid: uid,
+            var endDate = $('#endDate').val();
+            var endTime = $('#endTime').val();
+            var dateTime = `${endDate} ${endTime}`;
+            var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
+
+            database.collection('polls').add({
+                title: form.title.value,
+                description: form.desc.value,
+                options: opts,
+                endsOn: epochTime,
+                multipleSelections: form.multSelection.checked,
+                addOptions: form.addOptions.checked,
+                public: form.public.checked,
+                uid: uid,
+            })
+            resolve();
         })
-        setInterval(function () {
+
+        submitData.then(function() {
             window.location.href = '../dashboard.html';
-        }, 2000);
+        })
     })
 
     $("#opt-list").sortable({

@@ -1,7 +1,6 @@
 var app;
 var database;
-var todayDate;
-var todayTime;
+var count = 0;
 
 window.onload = function () {
     setup();
@@ -34,51 +33,42 @@ function main(user) {
     database = app.firestore();
     var profilePic = $('#pro-pic');
 
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
-
-    todayDate = today = yyyy + '-' + mm + '-' + dd;
-
-    var time = new Date();
-    var hours = String(time.getHours());
-    var min = String(time.getMinutes());
-
-    todayTime = time = hours + ':' + min;
+    var Today = moment().format("YYYY-MM-DD HH:mm").valueOf();
+    var epochToday = moment(Today, "YYYY-MM-DD HH:mm").valueOf();
 
     profilePic.attr('src', user.photoURL);
 
     database.collection('polls').where("uid", "==", user.uid).get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
-            renderPollTitles(doc);
-            if (doc.data().date >= todayDate && doc.data().time < todayTime) {
-                renderActivePolls(doc);
+            renderPollTitle(doc);
+            if (doc.data().endsOn > epochToday) {
+                renderActivePoll(doc);
             } else {
-                renderInactivePolls(doc);
+                renderInactivePoll(doc);
             }
         })
     })
 }
 
-function renderPollTitles(doc) {
+function renderPollTitle(doc) {
     var title = doc.data().title;
+    count = count +1;
 
     var pollTitles = `
         <li>
             <div class="row">
                 <div class="col-sm-8">
                     <div class="list-nm">
-                        <p>${title}</p>
+                        <p id="title${count}">${title}</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic4.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -89,7 +79,7 @@ function renderPollTitles(doc) {
     $('#pollTitles').append(pollTitles);
 }
 
-function renderActivePolls(doc) {
+function renderActivePoll(doc) {
     var title = doc.data().title;
 
     var pollTitles = `
@@ -104,9 +94,9 @@ function renderActivePolls(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic4.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,9 +107,9 @@ function renderActivePolls(doc) {
     $('#activePolls').append(pollTitles);
 }
 
-function renderInactivePolls(doc) {
+function renderInactivePoll(doc) {
     var title = doc.data().title;
-
+    
     var pollTitles = `
         <li>
             <div class="row">
@@ -132,9 +122,9 @@ function renderInactivePolls(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic4.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -143,6 +133,18 @@ function renderInactivePolls(doc) {
     `;
 
     $('#inactivePolls').append(pollTitles);
+}
+
+function deletePoll() {
+    var title = $().text();
+    console.log(title);
+    // database.collection("polls").where("title", "==", pollTitle).delete().then(function () {
+    //     console.log("Document successfully deleted!");
+    // }).catch(function (error) {
+    //     console.error("Error removing document: ", error);
+    // });
+
+    // $('#deletePoll').modal('hide');
 }
 
 function signOut() {
