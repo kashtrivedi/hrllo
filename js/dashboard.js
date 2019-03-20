@@ -1,6 +1,7 @@
 var app;
 var database;
 var count = 0;
+var item;
 
 window.onload = function () {
     setup();
@@ -48,11 +49,60 @@ function main(user) {
             }
         })
     })
+
+    // SUBMIT EDITED POLL
+
+    var uid = user.uid;
+    var form = document.getElementById('create-poll-form');
+
+    // TODO ASYNC
+    // Does not work yet, making changes
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var title = $('#poll-title').val();
+
+        database.collection("polls").where("title", "==", title).get().then(function (snap) {
+            snap.forEach(function (doc) {
+                doc.ref.delete();
+            })
+            console.log("Document successfully deleted!");
+        }).catch(function (error) {
+            console.error("Error removing document: ", error);
+        });
+
+        setInterval(function () {
+            var opts = [];
+            $('.opt').each(function () {
+                opts.push($(this).val());
+            });
+
+            var endDate = $('#endDate').val();
+            var endTime = $('#endTime').val();
+            var dateTime = `${endDate} ${endTime}`;
+            var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
+
+            database.collection('polls').add({
+                title: form.title.value,
+                description: form.desc.value,
+                options: opts,
+                endsOn: epochTime,
+                multipleSelections: form.multSelections.checked,
+                addOptions: form.addOptions.checked,
+                public: form.public.checked,
+                uid: uid,
+            })
+
+            setInterval(function () {
+                window.location.href = "/dashboard.html";
+            }, 2000)
+        }, 3000)
+    })
 }
 
 function renderPollTitle(doc) {
     var title = doc.data().title;
-    count = count +1;
+    count = count + 1;
 
     var pollTitles = `
         <li>
@@ -65,10 +115,10 @@ function renderPollTitle(doc) {
                 <div class="col-sm-4">
                     <div class="action-icons">
                         <ul>
-                            <li><a href="#"><img src="images/ic1.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
                             <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll"></a></li>
+                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -81,22 +131,23 @@ function renderPollTitle(doc) {
 
 function renderActivePoll(doc) {
     var title = doc.data().title;
+    count = count + 1;
 
     var pollTitles = `
         <li>
             <div class="row">
                 <div class="col-sm-8">
                     <div class="list-nm">
-                        <p>${title}</p>
+                        <p id="title${count}">${title}</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="action-icons">
                         <ul>
-                            <li><a href="#"><img src="images/ic1.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
                             <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll"></a></li>
+                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -109,22 +160,23 @@ function renderActivePoll(doc) {
 
 function renderInactivePoll(doc) {
     var title = doc.data().title;
-    
+    count = count + 1;
+
     var pollTitles = `
         <li>
             <div class="row">
                 <div class="col-sm-8">
                     <div class="list-nm">
-                        <p>${title}</p>
+                        <p id="title${count}">${title}</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="action-icons">
                         <ul>
-                            <li><a href="#"><img src="images/ic1.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
                             <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll"></a></li>
+                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -135,16 +187,99 @@ function renderInactivePoll(doc) {
     $('#inactivePolls').append(pollTitles);
 }
 
-function deletePoll() {
-    var title = $().text();
-    console.log(title);
-    // database.collection("polls").where("title", "==", pollTitle).delete().then(function () {
-    //     console.log("Document successfully deleted!");
-    // }).catch(function (error) {
-    //     console.error("Error removing document: ", error);
-    // });
+function getId(title) {
+    item = title;
+}
 
-    // $('#deletePoll').modal('hide');
+
+// TODO ASYNC
+function deletePoll() {
+    var titleID = `title${item[4]}`;
+    var title = $(`#${titleID}`).text();
+    database.collection("polls").where("title", "==", title).get().then(function (snap) {
+        snap.forEach(function (doc) {
+            doc.ref.delete();
+        })
+        console.log("Document successfully deleted!");
+    }).catch(function (error) {
+        console.error("Error removing document: ", error);
+    });
+
+    // $(`#${titleID}`).each(function() {
+    //     $(this).parent().parent().parent().parent().remove();
+    // })
+
+    setInterval(function () {
+        window.location.href = "/dashboard.html";
+    }, 2000)
+}
+
+function getOldData(pollTitle) {
+    var title = $(`#title${pollTitle[4]}`).text();
+
+    $("body").load("/edit-poll.html");
+
+    database.collection('polls').where("title", "==", title).get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+            oldData(doc);
+        })
+    })
+}
+
+function oldData(doc) {
+    var title = doc.data().title;
+    var desc = doc.data().description;
+    var opts = doc.data().options;
+    var epochTime = doc.data().endsOn;
+    var multSelections = doc.data().multipleSelections;
+    var addOptions = doc.data().addOptions;
+    var public = doc.data().public;
+
+    var dateTime = moment(epochTime).format("YYYY-MM-DD H:mm");
+    var date = dateTime.slice(0, 10);
+    var time = dateTime.slice(11, );
+
+    $('#poll-title').val(title);
+    $('#poll-desc').val(desc);
+    $('#multSelections').prop("checked", multSelections);
+    $('#addOptions').prop("checked", addOptions);
+    $('#public').prop("checked", public);
+    $('#endDate').val(date);
+    $('#endTime').val(time);
+
+    $("#opt-list").sortable({
+        containment: "parent",
+        tolerance: "pointer",
+        handle: ".sortIcon",
+        revert: 300,
+    }).disableSelection();
+
+    opts.map(function (option) {
+        addOpt(option);
+    })
+
+
+}
+
+function addOpt(option) {
+    count = count + 1;
+    var opt = `
+        <li>
+            <div class="op-lf">
+                <img src="images/sm-bar.png" alt="" class="sortIcon">
+                <input class="opt" type="text" placeholder="Type here" id="poll-option${count}">
+                <img src="images/close.png" alt="" onclick="delOpt(this)">
+            </div>
+        </li>
+    `;
+
+    $('#opt-list').append(opt);
+    $(`#poll-option${count}`).val(option);
+    $('#opt-list').sortable("refresh");
+}
+
+function delOpt(opt) {
+    opt.parentNode.parentNode.remove();
 }
 
 function signOut() {

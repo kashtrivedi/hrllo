@@ -96,7 +96,7 @@
 										<p>A brief description describing your poll</p>
 									</div>
 
-									<textarea class="form-control" name="desc" rows="5" placeholder="Poll Description"></textarea>
+									<textarea class="form-control" name="desc" rows="5" placeholder="Poll Description" id="poll-desc"></textarea>
 								</div>
 
 								<div class="cre-frmg">
@@ -112,20 +112,7 @@
 
 									<div class="opt-lst">
 										<ul id="opt-list">
-											<li>
-												<div class="op-lf">
-													<img src="images/sm-bar.png" alt="" class="sortIcon">
-													<input class="opt" type="text" placeholder="Kerala">
-													<img src="images/close.png" alt="" onclick="delOpt(this)">
-												</div>
-											</li>
-											<li>
-												<div class="op-lf">
-													<img src="images/sm-bar.png" alt="" class="sortIcon">
-													<input class="opt" type="text" placeholder="Andaman">
-													<img src="images/close.png" alt="" onclick="delOpt(this)">
-												</div>
-											</li>
+											
 										</ul>
 									</div>
 								</div>
@@ -168,7 +155,7 @@
 											</div>
 											<div class="col-sm-2">
 												<label class="cus-chek">
-													<input type="checkbox" name="multSelections">
+													<input type="checkbox" name="multSelections" id="multSelections">
 													<span class="checkmark"></span>
 												</label>
 											</div>
@@ -184,7 +171,7 @@
 											</div>
 											<div class="col-sm-2">
 												<label class="cus-chek">
-													<input type="checkbox" name="addOptions">
+													<input type="checkbox" name="addOptions" id="addOptions">
 													<span class="checkmark"></span>
 												</label>
 											</div>
@@ -200,7 +187,7 @@
 											</div>
 											<div class="col-sm-2">
 												<label class="cus-chek">
-													<input type="checkbox" name="public">
+													<input type="checkbox" name="public" id="public">
 													<span class="checkmark"></span>
 												</label>
 											</div>
@@ -222,7 +209,9 @@
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/poll.js"></script>
+	<!-- <script type="text/javascript" src="js/poll.js"></script> -->
+	<script type="text/javascript" src="js/dashboard.js"></script>
+	<!-- <script type="text/javascript" src="js/edit-poll.js"></script> -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
