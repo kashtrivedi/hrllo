@@ -1,4 +1,5 @@
 var app;
+var count = 0;
 
 window.onload = function () {
     setup();
@@ -50,18 +51,15 @@ function main(user) {
         title = doc.data().title;
         desc = doc.data().description;
         opts = doc.data().options;
-
-        // opts.forEach(op => {
-        //     console.log(op);
-        // })
+        count = count + 1;
 
         var output = `
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-6 col-sm-6 singlePoll">
                 <div class="created-poll">
                     <div class="cre-pl">
                         <h4>${title}</h4>
                         <p>${desc}</p>
-                        <ul id="options">
+                        <ul class="options${count}">
 
                         </ul>
                     </div>
@@ -77,10 +75,12 @@ function main(user) {
 
         $('#polls').append(output);
         // https://www.kirupa.com/html5/dynamically_create_populate_list.htm
-        $('#options').append(opts.map(t => $('<li>').text(t)));
+        $(`.options${count}`).append(opts.map(t => $('<li>').text(t)));
     }
 
     database.collection('polls').get().then((snapshot) => {
+        var noPolls = snapshot.size;
+        $("#no_polls").text(`(${noPolls})`);
         snapshot.docs.forEach(doc => {
             renderPolls(doc);
         })

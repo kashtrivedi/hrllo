@@ -62,41 +62,32 @@ function main(user) {
 
         var title = $('#poll-title').val();
 
-        database.collection("polls").where("title", "==", title).get().then(function (snap) {
-            snap.forEach(function (doc) {
-                doc.ref.delete();
-            })
-            console.log("Document successfully deleted!");
-        }).catch(function (error) {
-            console.error("Error removing document: ", error);
+        var opts = [];
+        $('.opt').each(function () {
+            opts.push($(this).val());
         });
 
-        setInterval(function () {
-            var opts = [];
-            $('.opt').each(function () {
-                opts.push($(this).val());
-            });
+        var endDate = $('#endDate').val();
+        var endTime = $('#endTime').val();
+        var dateTime = `${endDate} ${endTime}`;
+        var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
 
-            var endDate = $('#endDate').val();
-            var endTime = $('#endTime').val();
-            var dateTime = `${endDate} ${endTime}`;
-            var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
+        // database.collection("polls").doc(`${title}`).update({
+        //     title: form.title.value,
+        //     description: form.desc.value,
+        //     options: opts,
+        //     endsOn: epochTime,
+        //     multipleSelections: form.multSelections.checked,
+        //     addOptions: form.addOptions.checked,
+        //     public: form.public.checked,
+        //     uid: uid
+        // }).catch(function (error) {
+        //     console.error("Error updating document: ", error);
+        // });
 
-            database.collection('polls').add({
-                title: form.title.value,
-                description: form.desc.value,
-                options: opts,
-                endsOn: epochTime,
-                multipleSelections: form.multSelections.checked,
-                addOptions: form.addOptions.checked,
-                public: form.public.checked,
-                uid: uid,
-            })
-
-            setInterval(function () {
-                window.location.href = "/dashboard.html";
-            }, 2000)
-        }, 3000)
+        // setInterval(function() {
+        //     window.location.href = "/dashboard.html";
+        // }, 2000)
     })
 }
 
@@ -116,7 +107,7 @@ function renderPollTitle(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
@@ -145,7 +136,7 @@ function renderActivePoll(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
@@ -174,7 +165,7 @@ function renderInactivePoll(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" onclick="window.location.href='/poll-stats.html';"></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
@@ -205,6 +196,7 @@ function deletePoll() {
         console.error("Error removing document: ", error);
     });
 
+    // Dont need to do this, because reloading takes care of it
     // $(`#${titleID}`).each(function() {
     //     $(this).parent().parent().parent().parent().remove();
     // })
@@ -289,3 +281,11 @@ function signOut() {
         console.error('Sign Out Error', error);
     });
 }
+
+$(document).ready(function () {
+    $('.progress .progress-bar').css("width",
+        function () {
+            return $(this).attr("aria-valuenow") + "%";
+        }
+    )
+});

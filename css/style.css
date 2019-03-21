@@ -401,10 +401,6 @@ footer{
     color: #333;
 }
 
-.main-dash-cnt{
-    padding: 40px 0;
-    width: 100%;
-}
 .add-btn{
     padding: 12px 40px;
     background: #0d47a1; /* Old browsers */
@@ -416,7 +412,7 @@ footer{
     font-weight: bold;
     font-family: 'Raleway';
     color: #fff;
-    margin: 0 auto 40px;
+    margin: 30px auto;
     display: table;
     box-shadow: 0 6px 15px rgba(0,0,0,0.48);
 }
@@ -581,7 +577,7 @@ footer{
 }
 
 .polls-created-wrp{
-    padding: 80px 40px;
+    padding: 40px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 5px rgba(0,0,0,0.20);
@@ -826,20 +822,7 @@ footer{
 /* **** End User Profile 3 **** */
 
 /* **** Create Poll Page **** */
-.create-poll-req{
-    padding: 100px 0 40px;
-}
-.create-pol-wrp{
-    padding: 60px 40px;
-    background: #fff;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 5px 5px rgba(0,0,0,0.18);
-}
 .crebtn{
-    /* position: absolute;
-    top: -30px;
-    right:50px; */
     z-index: 10;
     padding: 15px 35px;
     background: #1E88E5;
@@ -1271,4 +1254,19 @@ textarea{
 .form-group input {
     font-family: arial;
     padding: 0 !important;
+}
+#modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#stats-modal {
+    display: flex;
+    margin: 35px;
+}
+.modal-header {
+    padding: 0px;
+}
+#close-stats {
+    margin: 5px 15px;
 }
