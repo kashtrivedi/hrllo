@@ -278,6 +278,9 @@
 	/* *** End Poll Start *** */
 
 	/* *** User Profile 0*** */
+	.user-profile{
+		padding: 0;
+	}
 	.user-profile-head{
 		padding: 40px 0;
 	}
@@ -300,10 +303,11 @@
 		margin-right: 10px;
 	}
 	.polls-created-wrp{
-		padding: 40px 15px;
+		padding: 40px 15px 0 15px;
 	}
 	.polls-created-wrp h2{
 		font-size: 18px;
+		margin: 0;
 	}
 	.polls-created-wrp h2 img{
 		width: 20px;
@@ -630,10 +634,11 @@
 		margin-right: 10px;
 	}
 	.polls-created-wrp{
-		padding: 40px 15px;
+		padding: 40px 15px 0 15px;
 	}
 	.polls-created-wrp h2{
 		font-size: 18px;
+		margin: 0;
 	}
 	.polls-created-wrp h2 img{
 		width: 20px;
@@ -914,7 +919,7 @@
 		margin-right: 10px;
 	}
 	.polls-created-wrp{
-		padding: 40px 15px;
+		padding: 40px 15px 0 15px;
 	}
 	.polls-created-wrp h2{
 		font-size: 18px;

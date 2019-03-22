@@ -50,6 +50,8 @@ function main(user) {
         })
     })
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     // SUBMIT EDITED POLL
 
     var uid = user.uid;
@@ -57,38 +59,46 @@ function main(user) {
 
     // TODO ASYNC
     // Does not work yet, making changes
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
+    // form.addEventListener('submit', function (e) {
+    //     e.preventDefault();
 
-        var title = $('#poll-title').val();
+    //     var title = $('#poll-title').val();
 
-        var opts = [];
-        $('.opt').each(function () {
-            opts.push($(this).val());
-        });
+    //     var opts = [];
+    //     $('.opt').each(function () {
+    //         opts.push($(this).val());
+    //     });
 
-        var endDate = $('#endDate').val();
-        var endTime = $('#endTime').val();
-        var dateTime = `${endDate} ${endTime}`;
-        var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
+    //     var endDate = $('#endDate').val();
+    //     var endTime = $('#endTime').val();
+    //     var dateTime = `${endDate} ${endTime}`;
+    //     var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
 
-        // database.collection("polls").doc(`${title}`).update({
-        //     title: form.title.value,
-        //     description: form.desc.value,
-        //     options: opts,
-        //     endsOn: epochTime,
-        //     multipleSelections: form.multSelections.checked,
-        //     addOptions: form.addOptions.checked,
-        //     public: form.public.checked,
-        //     uid: uid
-        // }).catch(function (error) {
-        //     console.error("Error updating document: ", error);
-        // });
+    //     database.collection("polls").doc(`${title}`)
 
-        // setInterval(function() {
-        //     window.location.href = "/dashboard.html";
-        // }, 2000)
-    })
+
+
+    //     database.collection('polls').where("title", "==", title).get().then((snapshot) => {
+    //         snapshot.docs.forEach(doc => {
+    //             doc.update({
+    //                 title: form.title.value,
+    //                 description: form.desc.value,
+    //                 options: opts,
+    //                 endsOn: epochTime,
+    //                 multipleSelections: form.multSelections.checked,
+    //                 addOptions: form.addOptions.checked,
+    //                 public: form.public.checked,
+    //                 uid: uid
+    //             })
+    //         })
+    //     })
+
+    //     setInterval(function () {
+    //         window.location.href = "/dashboard.html";
+    //     }, 2000)
+    // })
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
 function renderPollTitle(doc) {
@@ -107,7 +117,7 @@ function renderPollTitle(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg"></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
@@ -136,7 +146,7 @@ function renderActivePoll(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt="Statistics"></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
@@ -165,7 +175,7 @@ function renderInactivePoll(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id)" id="edit${count}"></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt="Statistics"></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
                         </ul>
@@ -196,7 +206,7 @@ function deletePoll() {
         console.error("Error removing document: ", error);
     });
 
-    // Dont need to do this, because reloading takes care of it
+    // Dont need to do this because reloading takes care of it
     // $(`#${titleID}`).each(function() {
     //     $(this).parent().parent().parent().parent().remove();
     // })
@@ -205,6 +215,52 @@ function deletePoll() {
         window.location.href = "/dashboard.html";
     }, 2000)
 }
+
+// Poll-stats
+
+function getStats(poll) {
+    var title = $(`#title${poll[9]}`).text();
+    var statOpts;
+
+    database.collection('polls').where("title", "==", title).get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+            var myNode = $('.progress-poll').html('');
+            $('.start-head h1').text(doc.data().title);
+            $('.start-head h2').text(doc.data().description);
+            statOpts = doc.data().options;
+            statOpts.map((option) => addStat(option));
+        })
+    })
+
+
+
+}
+
+function addStat(option) {
+    count = count + 1;
+    var stat = `
+        <div class="progress-reviews">
+            <h4 class="stat-opt${count}"></h4>
+            <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="50">
+                </div>
+            </div>
+            <p><img src="images/user-2.png" alt=""> 5</p>
+        </div>
+    `;
+
+    $('.progress-poll').append(stat);
+    $(`.stat-opt${count}`).text(option);
+    $('.progress .progress-bar').css("width",
+        function () {
+            return $(this).attr("aria-valuenow") + "%";
+        }
+    )
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getOldData(pollTitle) {
     var title = $(`#title${pollTitle[4]}`).text();
@@ -274,6 +330,8 @@ function delOpt(opt) {
     opt.parentNode.parentNode.remove();
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function signOut() {
     firebase.auth().signOut().then(function () {
 
@@ -281,11 +339,3 @@ function signOut() {
         console.error('Sign Out Error', error);
     });
 }
-
-$(document).ready(function () {
-    $('.progress .progress-bar').css("width",
-        function () {
-            return $(this).attr("aria-valuenow") + "%";
-        }
-    )
-});

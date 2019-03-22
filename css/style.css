@@ -513,7 +513,7 @@ footer{
 .user-profile{
     width: 100%;
     min-height: 100vh;
-    padding: 80px 0;
+    padding: 0;
     background: #0d47a1; /* Old browsers */
     background: -moz-linear-gradient(45deg, #0d47a1 0%, #1e88e5 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%); /* Chrome10-25,Safari5.1-6 */
@@ -577,7 +577,7 @@ footer{
 }
 
 .polls-created-wrp{
-    padding: 40px;
+    padding: 40px 40px 0 40px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 5px rgba(0,0,0,0.20);
@@ -586,7 +586,7 @@ footer{
     font-size: 26px;
     font-weight: bold;
     color: #212121;
-    margin: 0 0 60px;
+    margin: 0 0 20px;
 }
 .polls-created-wrp h2 span{color: rgba(33,33,33,0.60); font-weight: normal; margin-left: 5px;}
 .polls-created-wrp h2 img{
