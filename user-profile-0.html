@@ -1,75 +1,119 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
 	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
-    <title>EASYPOLL | User Profile</title>
+	<title>EASYPOLL | User Profile</title>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <nav class="navbar navbar-default dash-nav">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                
-                <a class="navbar-brand" href="index.html"><img src="images/logo-foot.png" alt=""></a>
-            </div>
+	<!-- Header -->
+	<nav class="navbar navbar-default dash-nav">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-    <!-- End Header -->
+				<a class="navbar-brand" href="index.html"><img src="images/logo-foot.png" alt=""></a>
+			</div>
 
-    <!-- User Profile -->
-    <section class="user-profile">
-    	<div class="container">
-    		<div class="user-profile-head">
-    			<div class="row">
-    				<div class="col-md-6 col-sm-6">
-    					<div class="pro-bx">
-    						<div class="pro-img">
-    							<img id="pro-pic" alt="Profile Picture">
-    						</div>
-    						<div class="pro-dt">
-    							<h3 id="pro-name"></h3>
-    							<p id="pro-email"></p>
-    						</div>
-    					</div>
-    				</div>
-    				<div class="col-md-6 col-sm-6">
-    					<div class="pro-like">
-    						<ul>
-    							<li><img src="images/pro1.png" alt=""><div id="karma"></div></li>
-    							<li><img src="images/pro2.png" alt=""><div id="created"></div></li>
-    							<li><img src="images/pro3.png" alt=""><div id="participated"></div></li>
-    						</ul>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-    		<div class="polls-created-wrp">
-    			<h2><img src="images/ic2.png" alt=""> POLLS CREATED <span id="no_polls"></span></h2>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- End Header -->
 
-    			<div class="row" id="polls">
-    				
-    			</div>
-    		</div>
-    	</div>
-    </section>
-    <!-- End User Profile -->
+	<!-- Poll stats -->
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-lg" id="modal-container">
+			<div class="modal-content">
+				<section class="main-dash-cnt create-poll-req" id="stats-modal">
+					<div class="container">
+						<button type="button" id="close-stats" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<div class="start-head">
+							<h1></h1>
+							<h2></h2>
+						</div>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script> 
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/profile.js"></script>
+						<div class="header-wrp">
+							<div class="row">
+								<div class="col-sm-7">
+									<h2><img src="images/ic2.png" alt=""> Statistics</h2>
+								</div>
+								<div class="col-sm-5">
+									<h3><img src="images/user.png" alt=""> 20</h3>
+								</div>
+							</div>
+						</div>
+
+						<div class="progress-poll">
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<!-- User Profile -->
+	<section class="user-profile">
+		<div class="container">
+			<div class="user-profile-head">
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<div class="pro-bx">
+							<div class="pro-img">
+								<img id="pro-pic" alt="Profile Picture">
+							</div>
+							<div class="pro-dt">
+								<h3 id="pro-name"></h3>
+								<p id="pro-email"></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="pro-like">
+							<ul>
+								<li><img src="images/pro1.png" alt="">
+									<div id="karma"></div>
+								</li>
+								<li><img src="images/pro2.png" alt="">
+									<div id="created"></div>
+								</li>
+								<li><img src="images/pro3.png" alt="">
+									<div id="participated"></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="polls-created-wrp">
+				<h2><img src="images/ic2.png" alt=""> POLLS CREATED <span id="no_polls"></span></h2>
+
+				<div class="row" id="polls">
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End User Profile -->
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/profile.js"></script>
 </body>
+
 </html>

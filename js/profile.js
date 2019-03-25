@@ -1,5 +1,6 @@
 var app;
 var count = 0;
+var database;
 
 window.onload = function () {
     setup();
@@ -30,10 +31,10 @@ function setup() {
 
 function main(user) {
 
+    database = app.firestore();
     var profilePic = $("#pro-pic");
     var profileName = $("#pro-name");
     var profileEmail = $("#pro-email");
-    var database = app.firestore();
 
     profilePic.attr('src', user.photoURL);
     profileName.html(user.displayName);
@@ -57,7 +58,7 @@ function main(user) {
             <div class="col-md-6 col-sm-6 singlePoll">
                 <div class="created-poll">
                     <div class="cre-pl">
-                        <h4>${title}</h4>
+                        <h4 id="title${count}">${title}</h4>
                         <p>${desc}</p>
                         <ul class="options${count}">
 
@@ -65,7 +66,7 @@ function main(user) {
                     </div>
                     <div class="poll-act">
                         <ul>
-                            <li><a href="poll-stats.html"><img src="images/ic2.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
                         </ul>
                     </div>
@@ -90,4 +91,44 @@ function main(user) {
     $("#created").html(user.polls_created);
     $("#participated").html(user.polls_participated);
 
+}
+
+// Poll-stats
+
+function getStats(poll) {
+    var title = $(`#title${poll[9]}`).text();
+    var statOpts;
+
+    database.collection('polls').where("title", "==", title).get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+            var myNode = $('.progress-poll').html('');
+            $('.start-head h1').text(doc.data().title);
+            $('.start-head h2').text(doc.data().description);
+            statOpts = doc.data().options;
+            statOpts.map((option) => addStat(option));
+        })
+    })
+}
+
+function addStat(option) {
+    count = count + 1;
+    var stat = `
+        <div class="progress-reviews">
+            <h4 class="stat-opt${count}"></h4>
+            <div class="progress skill-bar ">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="50">
+                </div>
+            </div>
+            <p><img src="images/user-2.png" alt=""> 5</p>
+        </div>
+    `;
+
+    $('.progress-poll').append(stat);
+    $(`.stat-opt${count}`).text(option);
+    $('.progress .progress-bar').css("width",
+        function () {
+            return $(this).attr("aria-valuenow") + "%";
+        }
+    )
 }

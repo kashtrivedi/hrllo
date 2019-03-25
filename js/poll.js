@@ -64,6 +64,7 @@ function main(user) {
         //     window.location.href = '../dashboard.html';
         // })
 
+
         var opts = [];
         $('.opt').each(function () {
             opts.push($(this).val());
@@ -74,6 +75,8 @@ function main(user) {
         var dateTime = `${endDate} ${endTime}`;
         var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
 
+
+        //Delete this after async done
         database.collection('polls').add({
             title: form.title.value,
             description: form.desc.value,
