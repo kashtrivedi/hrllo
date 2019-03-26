@@ -20,7 +20,6 @@ function setup() {
     app.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
-            $("#pro-pic").attr("src", `${user.photoURL}`);
             main(user);
         } else {
             // No user is signed in.
@@ -29,14 +28,16 @@ function setup() {
     });
 }
 
-function main() {
+function main(user) {
     database = app.firestore();
-    var form = document.getElementById('create-poll-form');
+    $("#pro-pic").attr("src", `${user.photoURL}`);
 
+    var form = document.getElementById('create-poll-form');
     var url_string = window.location.href;
     var url = new URL(url_string);
     var pollTitle = url.searchParams.get("title");
     var docID = url.searchParams.get("docID");
+    if (docID == null) window.location.href = "/dashboard.html";
 
     database.collection('polls').where("title", "==", pollTitle).get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
@@ -50,8 +51,12 @@ function main() {
         var title = $('#poll-title').val();
 
         var opts = [];
+
         $('.opt').each(function () {
-            opts.push($(this).val());
+            var option = {};
+            option["option"] = $(this).val();
+            option["votes"] = 0;
+            opts.push(option);
         });
 
         var endDate = $('#endDate').val();
@@ -79,13 +84,6 @@ function getOldData(pollTitle) {
     var title = $(`#title${pollTitle[4]}`).text();
 
     window.location.href = `/edit-poll.html?title=${title}`;
-
-
-    // database.collection('polls').where("title", "==", title).get().then((snapshot) => {
-    //     snapshot.docs.forEach(doc => {
-    //         oldData(doc);
-    //     })
-    // })
 }
 
 function oldData(doc) {
@@ -97,7 +95,7 @@ function oldData(doc) {
     var addOptions = doc.data().addOptions;
     var public = doc.data().public;
 
-    var dateTime = moment(epochTime).format("YYYY-MM-DD H:mm");
+    var dateTime = moment(epochTime).format("YYYY-MM-DD HH:mm");
     var date = dateTime.slice(0, 10);
     var time = dateTime.slice(11, );
 
@@ -116,10 +114,9 @@ function oldData(doc) {
         revert: 300,
     }).disableSelection();
 
-    opts.map(function (option) {
-        addOpt(option);
-    })
-
+    opts.forEach(function (value, i) {
+        addOpt(opts[i].option);
+    });
 
 }
 

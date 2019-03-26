@@ -66,8 +66,12 @@ function main(user) {
 
 
         var opts = [];
+
         $('.opt').each(function () {
-            opts.push($(this).val());
+            var option = {};
+            option["option"] = $(this).val();
+            option["votes"] = 0;
+            opts.push(option);
         });
 
         var endDate = $('#endDate').val();

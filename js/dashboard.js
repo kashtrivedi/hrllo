@@ -40,45 +40,74 @@ function main(user) {
 
     profilePic.attr('src', user.photoURL);
 
-    database.collection('polls').where("uid", "==", user.uid).get().then((snapshot) => {
+    database.collection('polls').where("uid", "==", user.uid).orderBy("endsOn", "desc").get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
-            renderPollTitle(doc);
+            var isActive;
             if (doc.data().endsOn > epochToday) {
+                isActive = true;
+                renderPollTitle(doc, isActive);
                 renderActivePoll(doc);
             } else {
+                isActive = false;
+                renderPollTitle(doc, isActive);
                 renderInactivePoll(doc);
             }
         })
     })
 }
 
-function renderPollTitle(doc) {
+function renderPollTitle(doc, isActive) {
     var title = doc.data().title;
     count = count + 1;
 
-    var pollTitles = `
-        <li>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="list-nm">
-                        <p id="title${count}">${title}</p>
+    if(isActive){
+        var pollTitles = `
+            <li>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="list-nm">
+                            <p id="title${count}">${title}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="action-icons">
+                            <ul>
+                                <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id, this)" id="edit${count}" data-id="${doc.id}"></a></li>
+                                <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
+                                <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="action-icons">
-                        <ul>
-                            <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id, this)" id="edit${count}" data-id="${doc.id}"></a></li>
-                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
-                            <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </li>
-    `;
+            </li>
+        `;
 
-    $('#pollTitles').append(pollTitles);
+        $('#pollTitles').append(pollTitles);
+    } else {
+        var pollTitles = `
+            <li>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="list-nm">
+                            <p id="title${count}">${title}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="action-icons">
+                            <ul>
+                                <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
+                                <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        `;
+
+        $('#pollTitles').append(pollTitles);
+    }
 }
 
 function renderActivePoll(doc) {
@@ -125,7 +154,6 @@ function renderInactivePoll(doc) {
                 <div class="col-sm-4">
                     <div class="action-icons">
                         <ul>
-                            <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" onclick="getOldData(this.id, this)" id="edit${count}" data-id="${doc.id}"></a></li>
                             <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
@@ -163,8 +191,8 @@ function deletePoll() {
     // })
 
     setInterval(function () {
-        window.location.href = "/dashboard";
-    }, 2000)
+        window.location.href = "/dashboard.html";
+    }, 1000)
 }
 
 // Poll-stats
@@ -179,12 +207,15 @@ function getStats(poll) {
             $('.start-head h1').text(doc.data().title);
             $('.start-head h2').text(doc.data().description);
             statOpts = doc.data().options;
-            statOpts.map((option) => addStat(option));
+            
+            statOpts.forEach(function (value, i) {
+                addStat(statOpts[i].option, statOpts[i].votes);
+            });
         })
     })
 }
 
-function addStat(option) {
+function addStat(option, votes) {
     count = count + 1;
     var stat = `
         <div class="progress-reviews">
