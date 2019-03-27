@@ -28,6 +28,7 @@ function setup() {
 }
 
 function main(user) {
+    $('#pro-pic').attr('src', user.photoURL);
     var uid = user.uid;
     var database = app.firestore();
     var form = document.getElementById('create-poll-form');

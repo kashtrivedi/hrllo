@@ -1270,3 +1270,13 @@ textarea{
 #close-stats {
     margin: 5px 15px;
 }
+#endTime {
+	padding: 0 10px !important;
+	font-size: 17px;
+	width: 100%;
+}
+#endDate {
+	padding: 0 10px !important;
+	font-size: 17px;
+	width: 100%;
+}
