@@ -126,7 +126,7 @@ function addOpt(option) {
         <li>
             <div class="op-lf">
                 <img src="images/sm-bar.png" alt="" class="sortIcon">
-                <input class="opt" type="text" placeholder="Type here" id="poll-option${count}">
+                <input class="opt" type="text" placeholder="Type here" id="poll-option${count}" required>
                 <img src="images/close.png" alt="" onclick="delOpt(this)">
             </div>
         </li>

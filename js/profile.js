@@ -40,11 +40,12 @@ function main(user) {
     profileName.html(user.displayName);
     profileEmail.html(user.email);
 
-    var userInfo = {
-        karma: 25,
-        polls_created: 10,
-        polls_participated: 35
-    }
+    database.collection('info').where("uid", "==", user.uid).get().then((snapshot) => {
+        var userInfo = snapshot.docs[0].data();
+        $("#karma").html(userInfo.karma);
+        $("#created").html(userInfo.polls_created);
+        $("#participated").html(userInfo.polls_participated);
+    })
 
     database.collection('polls').where("uid", "==", user.uid).get().then((snapshot) => {
         var noPolls = snapshot.size;
@@ -53,11 +54,6 @@ function main(user) {
             renderPolls(doc);
         })
     })
-
-    $("#karma").html(userInfo.karma);
-    $("#created").html(userInfo.polls_created);
-    $("#participated").html(userInfo.polls_participated);
-
 }
 
 function renderPolls(doc) {
@@ -91,7 +87,7 @@ function renderPolls(doc) {
         // https://www.kirupa.com/html5/dynamically_create_populate_list.htm
         $(`.options${count}`).append([opts[i].option].map(t => $('<li>').text(t)));
     });
-    
+
 }
 
 // Poll-stats
@@ -106,7 +102,9 @@ function getStats(poll) {
             $('.start-head h1').text(doc.data().title);
             $('.start-head h2').text(doc.data().description);
             statOpts = doc.data().options;
-            statOpts.map((option) => addStat(option));
+            statOpts.forEach(function (value, i) {
+                addStat(statOpts[i].option, statOpts[i].votes);
+            })
         })
     })
 }

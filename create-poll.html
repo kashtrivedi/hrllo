@@ -60,7 +60,7 @@
 					<li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><img
 								id="pro-pic" alt=""> <i class="fa fa-angle-down"></i></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">My Profile</a></li>
+							<li><a href="/user-profile-0.html">My Profile</a></li>
 							<li><a href="#" onclick="signOut()">Log out</a></li>
 						</ul>
 					</li>
@@ -88,7 +88,7 @@
 									</div>
 
 									<input type="text" name="title" placeholder="Poll title" class="form-control"
-										id="poll-title">
+										id="poll-title" required>
 								</div>
 
 								<div class="cre-frmg">
@@ -98,7 +98,7 @@
 									</div>
 
 									<textarea class="form-control" name="desc" rows="5"
-										placeholder="Poll Description"></textarea>
+										placeholder="Poll Description" required></textarea>
 								</div>
 
 								<div class="cre-frmg">
@@ -142,14 +142,14 @@
 										<div class="col-md-6 col-sm-7">
 											<div class="form-group">
 												<img src="images/calen.png" alt="">
-												<input type="date" name="date" class="form-control" id="endDate">
+												<input type="date" name="date" class="form-control" id="endDate" required>
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-5">
 											<div class="form-group">
 												<img src="images/time.png" alt="">
 												<input type="time" name="time" placeholder="hh/mm" class="form-control"
-													id="endTime">
+													id="endTime" required>
 											</div>
 										</div>
 									</div>

@@ -105,7 +105,6 @@ function main(user) {
         revert: 300,
     }).disableSelection();
 
-
 }
 
 function addOpt() {
@@ -113,7 +112,7 @@ function addOpt() {
         <li>
             <div class="op-lf">
                 <img src="images/sm-bar.png" alt="" class="sortIcon">
-                <input class="opt" type="text" placeholder="Type here">
+                <input class="opt" type="text" placeholder="Type here" required>
                 <img src="images/close.png" alt="" onclick="delOpt(this)">
             </div>
         </li>

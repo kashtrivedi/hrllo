@@ -40,6 +40,17 @@ function main(user) {
 
     profilePic.attr('src', user.photoURL);
 
+    database.collection('info').where("uid", "==", user.uid).get().then((snapshot) => {
+        if(snapshot.empty === true) {
+            database.collection('info').add({
+                uid: user.uid,
+                karma: 0,
+                polls_created: 0,
+                polls_participated: 0
+            })
+        } 
+    })
+
     database.collection('polls').where("uid", "==", user.uid).orderBy("endsOn", "desc").get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
             var isActive;
@@ -60,7 +71,7 @@ function renderPollTitle(doc, isActive) {
     var title = doc.data().title;
     count = count + 1;
 
-    if(isActive){
+    if (isActive) {
         var pollTitles = `
             <li>
                 <div class="row">
@@ -207,7 +218,7 @@ function getStats(poll) {
             $('.start-head h1').text(doc.data().title);
             $('.start-head h2').text(doc.data().description);
             statOpts = doc.data().options;
-            
+
             statOpts.forEach(function (value, i) {
                 addStat(statOpts[i].option, statOpts[i].votes);
             });
