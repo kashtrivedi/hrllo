@@ -33,6 +33,10 @@ function main(user) {
     var database = app.firestore();
     var form = document.getElementById('create-poll-form');
 
+    database.collection('info').where("uid", "==", uid).get().then((snapshot) => {
+        infoID = snapshot.docs[0].id;
+    })
+
     // TODO ASYNC
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -91,6 +95,15 @@ function main(user) {
             addOptions: form.addOptions.checked,
             public: form.public.checked,
             uid: uid,
+        })
+        
+        // ADD USER INFO LOGIC HERE, update karma and polls created
+        database.collection('info').where("uid", "==", uid).get().then((snapshot) => {
+            var incPollsCreated = snapshot.docs[0].data().polls_created + 1;
+            database.collection('info').doc(`${infoID}`).update({
+                // karma = // INSERT LOGIC 
+                polls_created: incPollsCreated,
+            })
         })
 
         setInterval(function() {

@@ -3,6 +3,7 @@ var database;
 var count = 0;
 var item;
 var docID;
+var infoID;
 
 window.onload = function () {
     setup();
@@ -48,7 +49,10 @@ function main(user) {
                 polls_created: 0,
                 polls_participated: 0
             })
-        } 
+        } else {
+            infoID = snapshot.docs[0].id;
+            console.log(infoID);
+        }
     })
 
     database.collection('polls').where("uid", "==", user.uid).orderBy("endsOn", "desc").get().then((snapshot) => {
