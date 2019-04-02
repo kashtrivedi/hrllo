@@ -1,59 +1,16 @@
-var app;
-var database;
+var app = window.app;
+var database = window.database;
+var user = window.user;
 var count = 0;
 var item;
 var docID;
 var infoID;
 
-window.onload = function () {
-    setup();
-}
+function main() {
+    var today = moment().format("YYYY-MM-DD HH:mm").valueOf();
+    var epochToday = moment(today, "YYYY-MM-DD HH:mm").valueOf();
 
-function setup() {
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBhYCyUQE0XiOGHhzhelNdtGwBsYj8Af7Y",
-        authDomain: "easy-poll-54c41.firebaseapp.com",
-        databaseURL: "https://easy-poll-54c41.firebaseio.com",
-        projectId: "easy-poll-54c41",
-        storageBucket: "easy-poll-54c41.appspot.com",
-        messagingSenderId: "7924447937"
-    };
-    app = firebase.initializeApp(config);
-
-    app.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            main(user);
-        } else {
-            // No user is signed in.
-            window.location.href = '/';
-        }
-    });
-}
-
-function main(user) {
-    database = app.firestore();
-    var profilePic = $('#pro-pic');
-
-    var Today = moment().format("YYYY-MM-DD HH:mm").valueOf();
-    var epochToday = moment(Today, "YYYY-MM-DD HH:mm").valueOf();
-
-    profilePic.attr('src', user.photoURL);
-
-    database.collection('info').where("uid", "==", user.uid).get().then((snapshot) => {
-        if(snapshot.empty === true) {
-            database.collection('info').add({
-                uid: user.uid,
-                karma: 0,
-                polls_created: 0,
-                polls_participated: 0
-            })
-        } else {
-            infoID = snapshot.docs[0].id;
-            console.log(infoID);
-        }
-    })
+    $('#profile-picture').attr('src', user.photoURL);
 
     database.collection('polls').where("uid", "==", user.uid).orderBy("endsOn", "desc").get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
@@ -155,23 +112,43 @@ function renderActivePoll(doc) {
 }
 
 function renderInactivePoll(doc) {
-    var title = doc.data().title;
-    count = count + 1;
+    ++count;
 
-    var pollTitles = `
+    // var pollTitle = `
+    //     <li>
+    //         <div class="row">
+    //             <div class="col-sm-8">
+    //                 <div class="list-nm">
+    //                     <p id="title${count}">${title}</p>
+    //                 </div>
+    //             </div>
+    //             <div class="col-sm-4">
+    //                 <div class="action-icons">
+    //                     <ul>
+    //                         <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
+    //                         <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
+    //                         <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
+    //                     </ul>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </li>
+    // `;
+
+    var pollTitle = `
         <li>
             <div class="row">
                 <div class="col-sm-8">
                     <div class="list-nm">
-                        <p id="title${count}">${title}</p>
+                        <p id="title${count}">${doc.data().title}</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="action-icons">
-                        <ul>
+                        <ul data-id="${doc.id}">
                             <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" class="pollStats${count}" onclick="getStats(this.className)"></a></li>
                             <li><a href="#"><img src="images/ic3.png" alt=""></a></li>
-                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" id="item${count}" onclick="getId(this.id)"></a></li>
+                            <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" onclick="showDeleteModal(this)"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -179,7 +156,13 @@ function renderInactivePoll(doc) {
         </li>
     `;
 
-    $('#inactivePolls').append(pollTitles);
+    $('#inactivePolls').append(pollTitle);
+}
+
+function showDeleteModal(e) {
+    var listItem = $(e);
+    $('#deleteModal').attr('data-deleteId', listItem.parent().parent().parent().data('id'));
+    $('#deleteModal').modal('show');
 }
 
 function getId(title) {
@@ -191,23 +174,19 @@ function getId(title) {
 function deletePoll() {
     var titleID = `title${item[4]}`;
     var title = $(`#${titleID}`).text();
-    database.collection("polls").where("title", "==", title).get().then(function (snap) {
-        snap.forEach(function (doc) {
-            doc.ref.delete();
-        })
+    database.collection("polls").where("title", "==", title).get().then((snap) => {
+        snap.forEach((doc) => doc.ref.delete());
         console.log("Document successfully deleted!");
-    }).catch(function (error) {
+    })
+    .then(() => window.location.href = "/dashboard.html")
+    .catch((error) => {
         console.error("Error removing document: ", error);
-    });
+    })
 
     // Dont need to do this because reloading takes care of it
     // $(`#${titleID}`).each(function() {
     //     $(this).parent().parent().parent().parent().remove();
     // })
-
-    setInterval(function () {
-        window.location.href = "/dashboard.html";
-    }, 1000)
 }
 
 // Poll-stats

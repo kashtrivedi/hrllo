@@ -1,43 +1,18 @@
-var app;
-var database;
+var app = window.app;
+var database = window.database;
+var user = window.user;
 
-window.onload = function () {
-    setup();
-}
+function main() {
+    $("#profile-picture").attr("src", `${user.photoURL}`);
 
-function setup() {
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBhYCyUQE0XiOGHhzhelNdtGwBsYj8Af7Y",
-        authDomain: "easy-poll-54c41.firebaseapp.com",
-        databaseURL: "https://easy-poll-54c41.firebaseio.com",
-        projectId: "easy-poll-54c41",
-        storageBucket: "easy-poll-54c41.appspot.com",
-        messagingSenderId: "7924447937"
-    };
-    app = firebase.initializeApp(config);
-
-    app.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            main(user);
-        } else {
-            // No user is signed in.
-            window.location.href = '/';
-        }
-    });
-}
-
-function main(user) {
-    database = app.firestore();
-    $("#pro-pic").attr("src", `${user.photoURL}`);
-
-    var form = document.getElementById('create-poll-form');
+    var form = $('#create-poll-form');
     var url_string = window.location.href;
     var url = new URL(url_string);
     var pollTitle = url.searchParams.get("title");
     var docID = url.searchParams.get("docID");
-    if (docID == null) window.location.href = "/dashboard.html";
+    if (docID === null) {
+        window.location.href = "/dashboard.html";
+    }
 
     database.collection('polls').where("title", "==", pollTitle).get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
@@ -45,7 +20,7 @@ function main(user) {
         })
     })
 
-    form.addEventListener('submit', function (e) {
+    form.on('submit', function (e) {
         e.preventDefault();
 
         var title = $('#poll-title').val();
@@ -69,7 +44,7 @@ function main(user) {
             description: form.desc.value,
             options: opts,
             endsOn: epochTime,
-            multipleSelections: form.multSelections.checked,
+            multipleSelections: form.multipleSelections.checked,
             addOptions: form.addOptions.checked,
             public: form.public.checked
         })
@@ -91,7 +66,7 @@ function oldData(doc) {
     var desc = doc.data().description;
     var opts = doc.data().options;
     var epochTime = doc.data().endsOn;
-    var multSelections = doc.data().multipleSelections;
+    var multipleSelections = doc.data().multipleSelections;
     var addOptions = doc.data().addOptions;
     var public = doc.data().public;
 
@@ -101,7 +76,7 @@ function oldData(doc) {
 
     $('#poll-title').val(title);
     $('#poll-desc').val(desc);
-    $('#multSelections').prop("checked", multSelections);
+    $('#multipleSelections').prop("checked", multipleSelections);
     $('#addOptions').prop("checked", addOptions);
     $('#public').prop("checked", public);
     $('#endDate').val(date);

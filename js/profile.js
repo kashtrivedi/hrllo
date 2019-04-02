@@ -1,38 +1,10 @@
-var app;
+var app = window.app;
+var database = window.database;
+var user = window.user;
 var count = 0;
-var database;
 
-window.onload = function () {
-    setup();
-};
-
-function setup() {
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBhYCyUQE0XiOGHhzhelNdtGwBsYj8Af7Y",
-        authDomain: "easy-poll-54c41.firebaseapp.com",
-        databaseURL: "https://easy-poll-54c41.firebaseio.com",
-        projectId: "easy-poll-54c41",
-        storageBucket: "easy-poll-54c41.appspot.com",
-        messagingSenderId: "7924447937"
-    };
-    app = firebase.initializeApp(config);
-
-    app.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            main(user);
-        } else {
-            // No user is signed in.
-            window.location.href = '/';
-        }
-    });
-}
-
-function main(user) {
-
-    database = app.firestore();
-    var profilePic = $("#pro-pic");
+function main() {
+    var profilePic = $("#profile-picture");
     var profileName = $("#pro-name");
     var profileEmail = $("#pro-email");
 
@@ -43,20 +15,18 @@ function main(user) {
     database.collection('info').where("uid", "==", user.uid).get().then((snapshot) => {
         var userInfo = snapshot.docs[0].data();
         $("#karma").html(userInfo.karma);
-        $("#created").html(userInfo.polls_created);
         $("#participated").html(userInfo.polls_participated);
-    })
+    });
 
     database.collection('polls').where("uid", "==", user.uid).get().then((snapshot) => {
-        var noPolls = snapshot.size;
-        $("#no_polls").text(`(${noPolls})`);
-        snapshot.docs.forEach(doc => {
-            renderPolls(doc);
-        })
-    })
+        var numberPolls = snapshot.size;
+        $("#created").html(numberPolls);
+        $("#no_polls").text(`(${numberPolls})`);
+        snapshot.docs.forEach(renderPoll);
+    });
 }
 
-function renderPolls(doc) {
+function renderPoll(doc) {
     title = doc.data().title;
     desc = doc.data().description;
     opts = doc.data().options;

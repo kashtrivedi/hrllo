@@ -1,74 +1,22 @@
-var app;
+var app = window.app;
+var database = window.database;
+var user = window.user;
 
-window.onload = function () {
-    setup();
-}
-
-function setup() {
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBhYCyUQE0XiOGHhzhelNdtGwBsYj8Af7Y",
-        authDomain: "easy-poll-54c41.firebaseapp.com",
-        databaseURL: "https://easy-poll-54c41.firebaseio.com",
-        projectId: "easy-poll-54c41",
-        storageBucket: "easy-poll-54c41.appspot.com",
-        messagingSenderId: "7924447937"
-    };
-    app = firebase.initializeApp(config);
-
-    app.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            main(user);
-        } else {
-            // No user is signed in.
-            window.location.href = '/';
-        }
-    });
-}
-
-function main(user) {
-    $('#pro-pic').attr('src', user.photoURL);
+function main() {
+    $('#profile-picture').attr('src', user.photoURL);
     var uid = user.uid;
     var database = app.firestore();
     var form = document.getElementById('create-poll-form');
 
-    database.collection('info').where("uid", "==", uid).get().then((snapshot) => {
-        infoID = snapshot.docs[0].id;
-    })
+    database.collection('info')
+        .where("uid", "==", uid).get()
+        .then((snapshot) => {
+            infoID = snapshot.docs[0].id;
+        });
 
     // TODO ASYNC
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-
-        // var submitData = new Promise(function (resolve, reject) {
-        //     var opts = [];
-        //     $('.opt').each(function () {
-        //         opts.push($(this).val());
-        //     });
-
-        //     var endDate = $('#endDate').val();
-        //     var endTime = $('#endTime').val();
-        //     var dateTime = `${endDate} ${endTime}`;
-        //     var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
-
-        //     database.collection('polls').add({
-        //         title: form.title.value,
-        //         description: form.desc.value,
-        //         options: opts,
-        //         endsOn: epochTime,
-        //         multipleSelections: form.multSelections.checked,
-        //         addOptions: form.addOptions.checked,
-        //         public: form.public.checked,
-        //         uid: uid,
-        //     })
-        //     resolve();
-        // })
-
-        // submitData.then(function () {
-        //     window.location.href = '../dashboard.html';
-        // })
-
 
         var opts = [];
 
@@ -84,32 +32,22 @@ function main(user) {
         var dateTime = `${endDate} ${endTime}`;
         var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
 
-
         //Delete this after async done
         database.collection('polls').add({
             title: form.title.value,
             description: form.desc.value,
             options: opts,
             endsOn: epochTime,
-            multipleSelections: form.multSelections.checked,
+            multipleSelections: form.multipleSelections.checked,
             addOptions: form.addOptions.checked,
             public: form.public.checked,
             uid: uid,
-        })
-        
-        // ADD USER INFO LOGIC HERE, update karma and polls created
-        database.collection('info').where("uid", "==", uid).get().then((snapshot) => {
-            var incPollsCreated = snapshot.docs[0].data().polls_created + 1;
-            database.collection('info').doc(`${infoID}`).update({
-                // karma = // INSERT LOGIC 
-                polls_created: incPollsCreated,
-            })
-        })
-
-        setInterval(function() {
-            window.location.href="/dashboard.html";
-        }, 2000)
+        }).then(() => window.location.href = "/dashboard.html")
     })
+
+    // ADD USER INFO LOGIC HERE, update karma and polls created
+
+    //
 
     $("#opt-list").sortable({
         containment: "parent",
@@ -117,7 +55,6 @@ function main(user) {
         handle: ".sortIcon",
         revert: 300,
     }).disableSelection();
-
 }
 
 function addOpt() {
