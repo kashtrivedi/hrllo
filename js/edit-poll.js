@@ -5,7 +5,7 @@ var user = window.user;
 function main() {
     $("#profile-picture").attr("src", `${user.photoURL}`);
 
-    var form = $('#create-poll-form');
+    var form = $('#edit-poll-form');
     var url_string = window.location.href;
     var url = new URL(url_string);
     var pollTitle = url.searchParams.get("title");
@@ -14,11 +14,7 @@ function main() {
         window.location.href = "/dashboard.html";
     }
 
-    database.collection('polls').where("title", "==", pollTitle).get().then((snapshot) => {
-        snapshot.docs.forEach(doc => {
-            oldData(doc);
-        })
-    })
+    database.collection('polls').doc(`${docID}`).get().then(oldData);
 
     form.on('submit', function (e) {
         e.preventDefault();
@@ -39,19 +35,30 @@ function main() {
         var dateTime = `${endDate} ${endTime}`;
         var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
 
-        database.collection('polls').doc(`${docID}`).update({
-            title: form.title.value,
-            description: form.desc.value,
-            options: opts,
-            endsOn: epochTime,
-            multipleSelections: form.multipleSelections.checked,
-            addOptions: form.addOptions.checked,
-            public: form.public.checked
-        })
+        var updatedTitle = form.find('input[name="title"]').val();
+        var updatedDescription = form.find('textarea[name="description"]').val();
+        var updatedMultipleSelections = form.find('input[name="multipleSelections"]').prop('checked');
+        var updatedAddOptions = form.find('input[name="addOptions"]').prop('checked');
+        var updatedPublic = form.find('input[name="public"]').prop('checked');
 
-        setInterval(function () {
-            window.location.href = "/dashboard.html";
-        }, 2000)
+        database.collection('polls').doc(`${docID}`)
+            .update({
+                title: updatedTitle,
+                description: updatedDescription,
+                options: opts,
+                endsOn: epochTime,
+                multipleSelections: updatedMultipleSelections,
+                addOptions: updatedAddOptions,
+                public: updatedPublic
+            })
+            .then(() => window.location.href = "/dashboard.html")
+            .catch((err) => {
+                console.log(err);
+            })
+
+        // setInterval(function () {
+        //     window.location.href = "/dashboard.html";
+        // }, 2000)
     })
 }
 
@@ -90,25 +97,38 @@ function oldData(doc) {
     }).disableSelection();
 
     opts.forEach(function (value, i) {
-        addOpt(opts[i].option);
+        loadOptions(opts[i].option);
     });
 
 }
 
-function addOpt(option) {
-    count = count + 1;
+function addOptions() {
     var opt = `
         <li>
             <div class="op-lf">
                 <img src="images/sm-bar.png" alt="" class="sortIcon">
-                <input class="opt" type="text" placeholder="Type here" id="poll-option${count}" required>
+                <input class="opt" type="text" placeholder="Type here" required>
                 <img src="images/close.png" alt="" onclick="delOpt(this)">
             </div>
         </li>
     `;
 
     $('#opt-list').append(opt);
-    $(`#poll-option${count}`).val(option);
+    $('#opt-list').sortable("refresh");
+}
+
+function loadOptions(option) {
+    var opt = `
+        <li>
+            <div class="op-lf">
+                <img src="images/sm-bar.png" alt="" class="sortIcon">
+                <input class="opt" type="text" placeholder="Type here" value="${option}" required>
+                <img src="images/close.png" alt="" onclick="delOpt(this)">
+            </div>
+        </li>
+    `;
+
+    $('#opt-list').append(opt);
     $('#opt-list').sortable("refresh");
 }
 

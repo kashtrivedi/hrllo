@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
 	<title>EASYPOLL | User Profile</title>
 </head>
 
@@ -25,7 +24,15 @@
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
+				<ul class="nav navbar-nav pull-right" id="manu">
+					<li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
+							<img class="profile-picture" alt="Profile Picture"> <i class="fa fa-angle-down"></i></a>
+						<ul class="dropdown-menu">
+								<li><a href="/dashboard.html">Dashboard</a></li>
+							<li><a href="#" id="logOut" onclick="signOut()">Log out</a></li>
+						</ul>
+					</li>
+				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
@@ -74,7 +81,7 @@
 					<div class="col-md-6 col-sm-6">
 						<div class="pro-bx">
 							<div class="pro-img">
-								<img id="profile-picture" alt="Profile Picture">
+								<img class="profile-picture" alt="Profile Picture">
 							</div>
 							<div class="pro-dt">
 								<h3 id="pro-name"></h3>
@@ -111,6 +118,7 @@
 	</section>
 	<!-- End User Profile -->
 
+	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/profile.js"></script>

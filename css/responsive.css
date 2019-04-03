@@ -722,9 +722,6 @@
 		display: flex;
 		justify-content: space-between;
 	}
-	.col-md-6 {
-		width: 50%;
-	}
 	#adv-set {
 		display: flex;
 		flex-direction: column;

@@ -8,15 +8,13 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
 	<title>EASYPOLL | Create Poll</title>
 </head>
 
 <body>
 
 	<!-- Pop Up -->
-	<div id="myModal" class="modal fade" role="dialog">
+	<!-- <div id="myModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -36,7 +34,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- Pop Up -->
 
 	<!-- Header -->
@@ -61,6 +59,7 @@
 								id="profile-picture" alt=""> <i class="fa fa-angle-down"></i></a>
 						<ul class="dropdown-menu">
 							<li><a href="/user-profile-0.html">My Profile</a></li>
+							<li><a href="/dashboard.html">Dashboard</a></li>
 							<li><a href="#" onclick="signOut()">Log out</a></li>
 						</ul>
 					</li>
@@ -223,12 +222,14 @@
 	</section>
 	<!-- End Dashboard -->
 
+	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/poll.js"></script>
-	<script type="text/javascript" src="js/init.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/en-gb.js"></script>
+	<script type="text/javascript" src="js/create-poll.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
 </body>
 
 </html>
