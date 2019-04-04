@@ -979,11 +979,6 @@ textarea{
   line-height: 30px;
 }
 
-/* On mouse-over, add a grey background color */
-.cus-chek:hover input ~ .checkmark {
-  background-color: #1E88E5;
-}
-
 /* When the checkbox is checked, add a blue background */
 .cus-chek input:checked ~ .checkmark {
   background-color: #1E88E5;
