@@ -976,6 +976,7 @@ textarea{
   border: 3px solid #1E88E5;
   border-radius: 10px;
   background-color: #fff;
+  line-height: 30px;
 }
 
 /* On mouse-over, add a grey background color */
@@ -1283,7 +1284,6 @@ textarea{
 
 #pollSection {
     width: 100%;
-    height: 100vh;
     padding: 0;
     margin: 0;
     position: absolute;
@@ -1295,14 +1295,74 @@ textarea{
 
 #votingPoll {
     position: relative;
-    width: 80%;
+    width: 50%;
     margin: 100px auto;
+}
+
+.pollCard {
+    background: white;
+}
+
+#votePollCard {
+    width: 90%;
+    margin: auto;
 }
 
 #votePollTitle {
     font-size: 40px;
+    padding: 30px 0;
+    margin: 0;
 }
 
-#votePollDesc {
+#votePollDescription {
     font-size: 20px;
+    margin-bottom: 40px;
+}
+
+#votePollForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#votePollOptions {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.votePollOption {
+    display: flex !important;
+    line-height: 50px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.votePollCheckbox {
+    margin: 0;
+}
+
+#submitVoteDiv {
+    text-align: center;
+}
+
+#submitVote {
+    margin: 20px 0;
+    width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background: rgb(49, 49, 49);
+    color: white;
+    font-size: 25px;
+}
+
+#submitVote:hover,
+#submitVote:focus {
+    transition: 200ms;
+    font-size: 28px;
+}
+
+.list-nm p:hover {
+    cursor: pointer;
 }

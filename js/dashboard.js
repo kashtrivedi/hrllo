@@ -36,7 +36,7 @@ function renderPollTitle(doc, isActive) {
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="list-nm">
-                            <p>${title}</p>
+                            <p data-id="${doc.id}" onclick="votePoll(this)">${title}</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -60,7 +60,7 @@ function renderPollTitle(doc, isActive) {
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="list-nm">
-                            <p>${title}</p>
+                            <p data-id="${doc.id}" onclick="votePoll(this)">${title}</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -88,7 +88,7 @@ function renderActivePoll(doc) {
             <div class="row">
                 <div class="col-sm-8">
                     <div class="list-nm">
-                        <p>${title}</p>
+                        <p data-id="${doc.id}" onclick="votePoll(this)">${title}</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -115,13 +115,12 @@ function renderInactivePoll(doc) {
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="list-nm">
-                            <p>${title}</p>
+                            <p data-id="${doc.id}" onclick="votePoll(this)">${title}</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="action-icons">
                             <ul>
-                                <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" data-id="${doc.id}" onclick="editThisPoll(this)"></a></li>
                                 <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
                                 <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}"></a></li>
                                 <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" data-id="${doc.id}" onclick="showDeleteModal(this)"></a></li>
@@ -149,9 +148,14 @@ function getStats(e) {
         statOpts = doc.data().options;
 
         statOpts.forEach(function (value, i) {
-            addStat(statOpts[i].option, statOpts[i].votes);
+            addStat(statOpts[i].option, statOpts[i].voters);
         });
     })
+}
+
+function votePoll(e) {
+    var docID = e.getAttribute("data-id");
+    window.location.href = `/vote-poll.html?docID=${docID}`;
 }
 
 function showDeleteModal(e) {
@@ -173,7 +177,7 @@ function deletePoll() {
         })
 }
 
-function addStat(option, votes) {
+function addStat(option, voters) {
     var stat = `
         <div class="progress-reviews">
             <h4>${option}</h4>

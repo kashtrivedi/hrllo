@@ -36,24 +36,31 @@
                                 id="profile-picture" alt=""> <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/user-profile-0.html">My Profile</a></li>
+                            <li><a href="/dashboard.html">Dashboard</a></li>
                             <li><a href="#" onclick="signOut()">Log out</a></li>
                         </ul>
                     </li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
+            <!-- navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <!-- End Header -->
 
     <section id="pollSection">
         <div id="votingPoll">
-            <div class="created-poll">
-                <div class="cre-pl">
-                    <h1 id="votePollTitle">Vacation Destination</h1>
-                    <p id="votePollDesc">Choose where you would want to go for your vacation</p>
-                    <ul>
-    
-                    </ul>
+            <div class="created-poll pollCard">
+                <div id="votePollCard">
+                    <h1 id="votePollTitle"></h1>
+                    <p id="votePollDescription"></p>
+                    <form id="votePollForm" action="POST">
+                        <ul id="votePollOptions">
+
+                        </ul>
+                        <div id="submitVoteDiv">
+                            <button type="submit" id="submitVote">VOTE !</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@ function renderPoll(doc) {
 
     var output = `
         <div class="col-md-6 col-sm-6 singlePoll">
-            <div class="created-poll">
+            <div class="created-poll" data-id="${doc.id}" onclick="votePoll(this)">
                 <div class="cre-pl">
                     <h4>${title}</h4>
                     <p>${desc}</p>
@@ -59,6 +59,11 @@ function renderPoll(doc) {
 
 }
 
+function votePoll(e) {
+    var docID = e.getAttribute("data-id");
+    window.location.href = `/vote-poll.html?docID=${docID}`;
+}
+
 // Poll-stats
 
 function getStats(e) {
@@ -70,7 +75,7 @@ function getStats(e) {
         $('.start-head h2').text(doc.data().description);
         var statOpts = doc.data().options;
         statOpts.forEach(function (value, i) {
-            addStat(statOpts[i].option, statOpts[i].votes);
+            addStat(statOpts[i].option, statOpts[i].voters);
         })
     })
 }

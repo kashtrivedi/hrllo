@@ -23,7 +23,7 @@ function main() {
         $('.opt').each(function () {
             var option = {};
             option["option"] = $(this).val();
-            option["votes"] = 0;
+            option["voters"] = 0;
             opts.push(option);
         });
 
