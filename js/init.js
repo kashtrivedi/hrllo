@@ -15,10 +15,15 @@ function setup(cb) {
         if (user) {
             // User is signed in.
             window.user = user;
+            if(window.location.pathname === `/dashboard.html`) {
+                return cb();
+            } else {
+                window.location.href = '/dashboard.html';
+                return cb();
+            }
+        } else {
+            // window.location.href = '';
             return cb();
-        } else if (window.location.href !== '/') {
-            // No user is signed in.
-            window.location.href = '/';
         }
     });
 }
