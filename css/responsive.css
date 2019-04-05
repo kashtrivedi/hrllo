@@ -1,8 +1,11 @@
 @media(min-width: 1350px) {
 	/* On mouse-over, add a blue background color */
 	.cus-chek:hover input ~ .checkmark {
-	background-color: #1E88E5;
-  }
+		background-color: #1E88E5;
+	}
+	#pollSection {
+		/* height: 100vh; */
+	}
 }
 
 @media(min-width:1025px) and (max-width:1350px){
@@ -1080,6 +1083,12 @@
 	}
 	#submitVote {
 		width: 200px;
+	}
+	.checkmark {
+		left: -20px
+	}
+	.dotIcon {
+		left: -20px
 	}
 }
 

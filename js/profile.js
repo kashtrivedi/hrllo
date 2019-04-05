@@ -28,7 +28,7 @@ function main() {
 function renderPoll(doc) {
     var title = doc.data().title;
     var desc = doc.data().description;
-    var opts = doc.data().options;
+    var options = Object.keys(doc.data().options);
     var id = doc.id;
 
     var output = `
@@ -52,9 +52,8 @@ function renderPoll(doc) {
     `;
 
     $('#polls').append(output);
-    opts.forEach(function (value, i) {
-        // https://www.kirupa.com/html5/dynamically_create_populate_list.htm
-        $(`#${id}`).append([opts[i].option].map(t => $('<li>').text(t)));
+    options.map((option) => {
+        $(`#${id}`).append(`<li>${option}</li>`);
     });
 
 }

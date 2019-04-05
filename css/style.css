@@ -1006,6 +1006,47 @@ textarea{
   font-size: 20px;
   text-align: center;
 }
+/* Create a custom checkbox */
+.dotIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:45px;
+  width: 45px;
+  border: 3px solid #1E88E5;
+  border-radius: 50px;
+  background-color: #fff;
+  line-height: 30px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cus-chek input:checked ~ .dotIcon {
+  background-color: white;
+}
+
+/* Create the dotIcon/indicator (hidden when not checked) */
+.dotIcon:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the dotIcon when checked */
+.cus-chek input:checked ~ .dotIcon:after {
+  display: block;
+}
+
+/* Style the dotIcon/indicator */
+.cus-chek .dotIcon:after {
+  left: 7px;
+  top: 4px;
+  color: #1E88E5;
+  font-family: 'FontAwesome';
+  content: "\f111";
+  font-size: 30px;
+  text-align: center;
+}
+
 .item-cheh{
     margin-bottom: 30px;
 }
@@ -1311,7 +1352,6 @@ textarea{
 
 #votePollDescription {
     font-size: 20px;
-    margin-bottom: 40px;
 }
 
 #votePollForm {
@@ -1360,4 +1400,10 @@ textarea{
 
 .list-nm p:hover {
     cursor: pointer;
+}
+
+#ifMultipleSelections {
+    font-size: 15px;
+    margin-bottom: 40px;
+    color: #1e88e5;
 }

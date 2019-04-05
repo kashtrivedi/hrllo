@@ -14,29 +14,32 @@ function main() {
             infoID = snapshot.docs[0].id;
         });
 
-    // TODO ASYNC
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var opts = [];
+        var options = [];
 
-        $('.opt').each(function () {
-            var option = {};
-            option["option"] = $(this).val();
-            option["voters"] = 0;
-            opts.push(option);
+        $('.opt').get().map((option) => {
+            options.push($(option).val());
         });
+
+        if (options.length < 2) {
+            alert('Minimum of 2 options are needed!');
+            return;
+        }
+
+        // Storing options as object -> option_name: array of voters_uid (initialized as empty)
+        var dbOptions = options.reduce((acc, elem) => { acc[elem] = []; return acc; }, {});
 
         var endDate = $('#endDate').val();
         var endTime = $('#endTime').val();
         var dateTime = `${endDate} ${endTime}`;
         var epochTime = moment(dateTime, "YYYY-MM-DD HH:mm").valueOf();
 
-        //Delete this after async done
         database.collection('polls').add({
             title: form.title.value,
             description: form.desc.value,
-            options: opts,
+            options: dbOptions,
             endsOn: epochTime,
             multipleSelections: form.multipleSelections.checked,
             addOptions: form.addOptions.checked,
@@ -44,10 +47,6 @@ function main() {
             uid: uid,
         }).then(() => window.location.href = "/dashboard.html")
     })
-
-    // ADD USER INFO LOGIC HERE, update karma and polls created
-
-    //
 
     $("#opt-list").sortable({
         containment: "parent",

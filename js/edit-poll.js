@@ -71,7 +71,7 @@ function getOldData(pollTitle) {
 function oldData(doc) {
     var title = doc.data().title;
     var desc = doc.data().description;
-    var opts = doc.data().options;
+    var opts = Object.keys(doc.data().options);
     var epochTime = doc.data().endsOn;
     var multipleSelections = doc.data().multipleSelections;
     var addOptions = doc.data().addOptions;
@@ -96,8 +96,8 @@ function oldData(doc) {
         revert: 300,
     }).disableSelection();
 
-    opts.forEach(function (value, i) {
-        loadOptions(opts[i].option);
+    opts.map((option) => {
+        loadOptions(option);
     });
 
 }
