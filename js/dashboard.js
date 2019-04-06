@@ -147,29 +147,37 @@ function getStats(e) {
         $('.start-head h1').text(data.title);
         $('.start-head h2').text(data.description);
         var options = Object.entries(data.options);
+        var totalVotes = 0;
         options.forEach((option) => {
-            addStat(option[0], option[1].length);
+            totalVotes += option[1].length;
+        })
+        $('#totalVotes').html(totalVotes);
+        options.forEach((option) => {
+            addStat(option[0], option[1].length, totalVotes);
         });
     })
 }
 
-function addStat(option, voters) {
+function addStat(option, optionVotes, totalVotes) {
     var stat = `
         <div class="progress-reviews">
             <h4>${option}</h4>
             <div class="progress skill-bar ">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
-                    aria-valuemin="0" aria-valuemax="50">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="${optionVotes}"
+                    aria-valuemin="0" aria-valuemax="${totalVotes}">
                 </div>
             </div>
-            <p><img src="images/user-2.png" alt=""> 5</p>
+            <p><img src="images/user-2.png" alt="">${optionVotes}</p>
         </div>
     `;
 
     $('.progress-poll').append(stat);
     $('.progress .progress-bar').css("width",
         function () {
-            return $(this).attr("aria-valuenow") + "%";
+            var votes = $(this).attr("aria-valuenow");
+            var totalVotes = $(this).attr("aria-valuemax")
+            var votePerctentage = (votes/totalVotes) * 100;
+            return `${votePerctentage}%`;
         }
     )
 }

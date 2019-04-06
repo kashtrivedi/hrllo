@@ -34,6 +34,23 @@ function main() {
 
                 $('.displayIcon').addClass("dotIcon");
             }
+
+            // If user has already voted, displays vote else disables voting
+            var optionValues = Object.values(data.options);
+            optionValues.forEach((optionValue, i) => {
+                optionValue.forEach((voter) => {
+                    if (voter === user.uid) {
+                        var votedOption = $('.optionSelection').get(i);
+                        $(votedOption).attr('checked', 'true');
+
+                        // Remove this if editing vote option is allowed
+                        var allOptions = $(".optionSelection").get();
+                        $(allOptions).attr("disabled", true);
+                        $("#submitVote").attr("disabled", true);
+                        $("#submitVote").text("DISABLED");
+                    }
+                })
+            })
         })
 
     form.on('submit', (e) => {
@@ -49,21 +66,31 @@ function main() {
             return;
         }
 
-        database.collection('polls').doc(`${docID}`)
-            .update({
-                options: 
-                    options.reduce((acc, elem) => {
-                        var val;
-                        if (checked.indexOf(elem) !== -1) {
-                            val = firebase.firestore.FieldValue.arrayUnion(user.uid);
-                        } else {
-                            val = firebase.firestore.FieldValue.arrayRemove(user.uid);
-                        }
-                        acc[elem] = val;
-                        return acc;
-                    }, {})
-            .then(() => window.location.href = '/dashboard/html')
-        })
+        var entries;
+        database.collection('polls').doc(`${docID}`).get()
+            .then((doc) => {
+                entries = Object.entries(doc.data().options);
+            })
+            .then(() => {
+                database.collection('polls').doc(`${docID}`)
+                    .update({
+                        options: 
+                            entries.reduce((acc,elem) => {
+            
+                                if (checked.includes(elem[0])) {
+                                    elem[1].push(user.uid);
+                                }
+            
+                                acc[elem[0]] = elem[1]; 
+                                return acc;
+                            }, {})
+                    })
+                    .then(() => {
+                        window.location.href = '/dashboard.html';
+                    })
+            })
+
+
     })
 
 }

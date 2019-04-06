@@ -33,9 +33,9 @@ function renderPoll(doc) {
 
     var output = `
         <div class="col-md-6 col-sm-6 singlePoll">
-            <div class="created-poll" data-id="${doc.id}" onclick="votePoll(this)">
+            <div class="created-poll">
                 <div class="cre-pl">
-                    <h4>${title}</h4>
+                    <h4 data-id="${doc.id}" onclick="votePoll(this)">${title}</h4>
                     <p>${desc}</p>
                     <ul id="${id}">
 
@@ -98,4 +98,12 @@ function addStat(option) {
             return $(this).attr("aria-valuenow") + "%";
         }
     )
+}
+
+function signOut() {
+    firebase.auth().signOut().then(function () {
+
+    }, function (error) {
+        console.error('Sign Out Error', error);
+    });
 }
