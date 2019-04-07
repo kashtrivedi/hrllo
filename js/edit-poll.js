@@ -55,10 +55,6 @@ function main() {
             .catch((err) => {
                 console.log(err);
             })
-
-        // setInterval(function () {
-        //     window.location.href = "/dashboard.html";
-        // }, 2000)
     })
 }
 
@@ -80,6 +76,13 @@ function oldData(doc) {
     var dateTime = moment(epochTime).format("YYYY-MM-DD HH:mm");
     var date = dateTime.slice(0, 10);
     var time = dateTime.slice(11, );
+
+    // Hide add options button if addOptions = FALSE
+    // if (user.uid === doc.data().uid) {
+    //     $('.add-pol').show();
+    // } else if (user.uid !== doc.data().uid && !addOptions) {
+    //     $('.add-pol').hide();
+    // }
 
     $('#poll-title').val(title);
     $('#poll-desc').val(desc);

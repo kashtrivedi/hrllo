@@ -892,8 +892,7 @@ textarea{
     color: #fff;
     text-align: center;
     background: #1E88E5;
-    margin-right: 15px;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.40);
+    /* box-shadow: 0 2px 3px rgba(0,0,0,0.40); */
 }
 .opt-lst li{
     display: block;
@@ -970,7 +969,7 @@ textarea{
 .checkmark {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   height:45px;
   width: 45px;
   border: 3px solid #1E88E5;
@@ -1010,7 +1009,7 @@ textarea{
 .dotIcon {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   height:45px;
   width: 45px;
   border: 3px solid #1E88E5;
@@ -1038,7 +1037,7 @@ textarea{
 
 /* Style the dotIcon/indicator */
 .cus-chek .dotIcon:after {
-  left: 7px;
+  left: 6.5px;
   top: 4px;
   color: #1E88E5;
   font-family: 'FontAwesome';
@@ -1362,7 +1361,7 @@ textarea{
 #votePollOptions {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
 }
 
 .votePollOption {
@@ -1375,6 +1374,13 @@ textarea{
 
 .votePollCheckbox {
     margin: 0;
+}
+
+.newPollOption {
+    width: 80%;
+    line-height: 50px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 #submitVoteDiv {
@@ -1404,4 +1410,40 @@ textarea{
 
 .cre-pl h4:hover {
     cursor: pointer;
+}
+
+#voteAddOption {
+    display: none;
+    justify-content: flex-end;
+}
+
+#voteAddOption i {
+    height: 45px;
+    width: 45px;
+    font-size: 25px;
+    line-height: 50px;
+}
+
+.create-edit-add-poll {
+    margin-right: 15px;
+}
+
+.newPollOption {
+    font-size: 20px;
+    margin: 0;
+    border: none;
+}
+
+#voteAddOption {
+    
+}
+
+#voteAddOptionBtn {
+    cursor: pointer;
+}
+
+#deleteNewOption {
+    height: 45px;
+    width: 45px;
+    margin: 1px 40px 0 0;
 }

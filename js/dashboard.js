@@ -3,7 +3,6 @@ var database = window.database;
 var user = window.user;
 var item;
 var docID;
-var infoID;
 
 function main() {
     var today = moment().format("YYYY-MM-DD HH:mm").valueOf();
