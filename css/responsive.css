@@ -3,9 +3,6 @@
 	.cus-chek:hover input ~ .checkmark {
 		background-color: #1E88E5;
 	}
-	#pollSection {
-		/* height: 100vh; */
-	}
 }
 
 @media(min-width:1025px) and (max-width:1350px){
