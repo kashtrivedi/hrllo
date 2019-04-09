@@ -1,7 +1,6 @@
 var app = window.app;
 var database = window.database;
 var user = window.user;
-var item;
 var docID;
 
 function main() {
@@ -213,7 +212,7 @@ function getOldData(id, docid) {
 
 function signOut() {
     firebase.auth().signOut().then(function () {
-
+        // Sign out successful 
     }, function (error) {
         console.error('Sign Out Error', error);
     });

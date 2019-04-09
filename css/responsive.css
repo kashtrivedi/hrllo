@@ -3,6 +3,9 @@
 	.cus-chek:hover input ~ .checkmark {
 		background-color: #1E88E5;
 	}
+	#noCreatedPolls {
+		font-size: 40px;
+	}
 }
 
 @media(min-width:1025px) and (max-width:1350px){
@@ -223,6 +226,13 @@
 
 	#votingPoll {
 		width: 55%;
+	}
+	#modal-container {
+		display: block;
+		width: 80%;
+	}
+	.modal-content {
+		padding: 20px;
 	}
 }
 
@@ -446,6 +456,16 @@
 
 	#votingPoll {
 		width: 70%;
+	}
+	#votingPoll {
+		width: 55%;
+	}
+	#modal-container {
+		display: block;
+		width: 80%;
+	}
+	.modal-content {
+		padding: 10px;
 	}
 }
 

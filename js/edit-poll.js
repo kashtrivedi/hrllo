@@ -21,14 +21,14 @@ function main() {
 
         var title = $('#poll-title').val();
 
-        var opts = [];
+        var options = [];
 
-        $('.opt').each(function () {
-            var option = {};
-            option["option"] = $(this).val();
-            option["voters"] = [];
-            opts.push(option);
+        $('.opt').get().map((option) => {
+            options.push($(option).val());
         });
+
+        var allOptions = options.reduce((acc, elem) => { acc[elem] = []; return acc; }, {});
+        console.log(allOptions);
 
         var endDate = $('#endDate').val();
         var endTime = $('#endTime').val();
@@ -41,20 +41,20 @@ function main() {
         var updatedAddOptions = form.find('input[name="addOptions"]').prop('checked');
         var updatedPublic = form.find('input[name="public"]').prop('checked');
 
-        database.collection('polls').doc(`${docID}`)
-            .update({
-                title: updatedTitle,
-                description: updatedDescription,
-                options: opts,
-                endsOn: epochTime,
-                multipleSelections: updatedMultipleSelections,
-                addOptions: updatedAddOptions,
-                public: updatedPublic
-            })
-            .then(() => window.location.href = "/dashboard.html")
-            .catch((err) => {
-                console.log(err);
-            })
+        // database.collection('polls').doc(`${docID}`)
+        //     .update({
+        //         title: updatedTitle,
+        //         description: updatedDescription,
+        //         options: allOptions,
+        //         endsOn: epochTime,
+        //         multipleSelections: updatedMultipleSelections,
+        //         addOptions: updatedAddOptions,
+        //         public: updatedPublic
+        //     })
+        //     .then(() => window.location.href = "/dashboard.html")
+        //     .catch((err) => {
+        //         console.log(err);
+        //     })
     })
 }
 
@@ -76,13 +76,6 @@ function oldData(doc) {
     var dateTime = moment(epochTime).format("YYYY-MM-DD HH:mm");
     var date = dateTime.slice(0, 10);
     var time = dateTime.slice(11, );
-
-    // Hide add options button if addOptions = FALSE
-    // if (user.uid === doc.data().uid) {
-    //     $('.add-pol').show();
-    // } else if (user.uid !== doc.data().uid && !addOptions) {
-    //     $('.add-pol').hide();
-    // }
 
     $('#poll-title').val(title);
     $('#poll-desc').val(desc);
