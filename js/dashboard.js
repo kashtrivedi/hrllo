@@ -211,7 +211,7 @@ function getOldData(id, docid) {
 
 function shareLink(docID) {
     var docID = docID.getAttribute('data-id');
-    var shareUrl = `${window.location.hostname}/vote-poll.html?docID=${docID}`;
+    var shareUrl = `https://${window.location.hostname}/vote-poll.html?docID=${docID}`;
     $('#share-modal-link').val(shareUrl);
 }
 
