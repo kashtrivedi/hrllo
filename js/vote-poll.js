@@ -50,11 +50,12 @@ function main() {
                         $(votedOption).attr('checked', 'true');
 
                         // Remove this if editing vote option is allowed
-                        var allOptions = $(".optionSelector").get();
-                        $(allOptions).attr("disabled", true);
-                        $("#submitVote").attr("disabled", true);
-                        $("#voteAddOptionBtn").css("display", 'none');
-                        $("#submitVote").text("DISABLED");
+                        // Code for disabling voting multiple times
+                        // var allOptions = $(".optionSelector").get();
+                        // $(allOptions).attr("disabled", true);
+                        // $("#submitVote").attr("disabled", true);
+                        // $("#voteAddOptionBtn").css("display", 'none');
+                        // $("#submitVote").text("DISABLED");
                     }
                 })
             })

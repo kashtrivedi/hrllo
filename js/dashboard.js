@@ -42,7 +42,7 @@ function renderPollTitle(doc, isActive) {
                             <ul>
                                 <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" data-id="${doc.id}" onclick="editThisPoll(this)"></a></li>
                                 <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
-                                <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}"></a></li>
+                                <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="shareLink(this)"></a></li>
                                 <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" data-id="${doc.id}" onclick="showDeleteModal(this)"></a></li>
                             </ul>
                         </div>
@@ -65,7 +65,7 @@ function renderPollTitle(doc, isActive) {
                         <div class="action-icons">
                             <ul>
                                 <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
-                                <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}"></a></li>
+                                <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="shareLink(this)"></a></li>
                                 <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" data-id="${doc.id}" onclick="showDeleteModal(this)"></a></li>
                             </ul>
                         </div>
@@ -94,7 +94,7 @@ function renderActivePoll(doc) {
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" data-id="${doc.id}" onclick="editThisPoll(this)"></a></li>
                             <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
-                            <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}"></a></li>
+                            <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="shareLink(this)"></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" data-id="${doc.id}" onclick="showDeleteModal(this)"></a></li>
                         </ul>
                     </div>
@@ -120,7 +120,6 @@ function renderInactivePoll(doc) {
                         <div class="action-icons">
                             <ul>
                                 <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
-                                <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}"></a></li>
                                 <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" data-id="${doc.id}" onclick="showDeleteModal(this)"></a></li>
                             </ul>
                         </div>
@@ -208,6 +207,19 @@ function getOldData(id, docid) {
     var title = $(`#title${id[4]}`).text();
     var docID = $(docid).data("id");
     window.location.href = `/edit-poll.html?title=${title}&docID=${docID}`;
+}
+
+function shareLink(docID) {
+    var docID = docID.getAttribute('data-id');
+    var shareUrl = `${window.location.hostname}/vote-poll.html?docID=${docID}`;
+    $('#share-modal-link').val(shareUrl);
+}
+
+function copyLink() {
+  var copyText = document.getElementById("share-modal-link");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
 }
 
 function signOut() {

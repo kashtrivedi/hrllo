@@ -28,7 +28,6 @@ function main() {
         });
 
         var allOptions = options.reduce((acc, elem) => { acc[elem] = []; return acc; }, {});
-        console.log(allOptions);
 
         var endDate = $('#endDate').val();
         var endTime = $('#endTime').val();
@@ -41,20 +40,43 @@ function main() {
         var updatedAddOptions = form.find('input[name="addOptions"]').prop('checked');
         var updatedPublic = form.find('input[name="public"]').prop('checked');
 
-        // database.collection('polls').doc(`${docID}`)
-        //     .update({
-        //         title: updatedTitle,
-        //         description: updatedDescription,
-        //         options: allOptions,
-        //         endsOn: epochTime,
-        //         multipleSelections: updatedMultipleSelections,
-        //         addOptions: updatedAddOptions,
-        //         public: updatedPublic
-        //     })
-        //     .then(() => window.location.href = "/dashboard.html")
-        //     .catch((err) => {
-        //         console.log(err);
-        //     })
+        var createdOptions = $('.newOption').get();
+        var newOptions = [];
+        createdOptions.map((option) => {
+            newOptions.push($(option).val());
+        });
+
+        var allOptions = [];
+
+        database.collection('polls').doc(docID).get()
+            .then((doc) => {
+                var entries = Object.entries(doc.data().options);
+                var options = entries.reduce((acc, [option, uids]) => {
+                    acc[option] = uids;
+                    return acc;
+                }, {})
+
+                allOptions = newOptions.reduce((acc, option) => {
+                    acc[option] = [];
+                    return acc;
+                }, options);
+
+                return database.collection('polls').doc(`${docID}`)
+                    .update({
+                        title: updatedTitle,
+                        description: updatedDescription,
+                        options: allOptions,
+                        endsOn: epochTime,
+                        multipleSelections: updatedMultipleSelections,
+                        addOptions: updatedAddOptions,
+                        public: updatedPublic
+                    })
+
+            })
+            .then(() => window.location.href = "/dashboard.html")
+            .catch((err) => {
+                console.log(err);
+            })
     })
 }
 
@@ -65,6 +87,12 @@ function getOldData(pollTitle) {
 }
 
 function oldData(doc) {
+
+    //Checks whether current user is the creator of the poll
+    if (doc.data().uid !== user.uid) {
+        window.location.href = '/dashboard.html';
+    }
+
     var title = doc.data().title;
     var desc = doc.data().description;
     var opts = Object.keys(doc.data().options);
@@ -103,7 +131,7 @@ function addOptions() {
         <li>
             <div class="op-lf">
                 <img src="images/sm-bar.png" alt="" class="sortIcon">
-                <input class="opt" type="text" placeholder="" required>
+                <input class="opt newOption" type="text" placeholder="" required>
                 <img src="images/close.png" alt="" onclick="delOpt(this)">
             </div>
         </li>
@@ -119,7 +147,7 @@ function loadOptions(option) {
             <div class="op-lf">
                 <img src="images/sm-bar.png" alt="" class="sortIcon">
                 <input class="opt" type="text" placeholder="" value="${option}" required>
-                <img src="images/close.png" alt="" onclick="delOpt(this)">
+                <!--<img src="images/close.png" alt="" onclick="delOpt(this)">-->
             </div>
         </li>
     `;

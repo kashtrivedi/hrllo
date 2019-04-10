@@ -13,6 +13,20 @@
 
 <body>
 
+	<!-- Display voting link -->
+	<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-sm" id="share-modal-container">
+			<div class="modal-content"  id="share-modal-content">
+				<h2 id="share-modal-heading">Copy this link and share it with others!</h2>
+				<div id="share-link-div">
+					<input id="share-modal-link" disabled>
+					<a id="share-link-button"><i class="fa fa-copy" onclick="copyLink()"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Delete Poll Modal -->
 	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -87,7 +101,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav pull-right" id="manu">
 					<li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
-						<img id="profile-picture" src="images/propic.jpg" alt="Profile Picture"><i class="fa fa-angle-down"></i></a>
+							<img id="profile-picture" src="images/propic.jpg" alt="Profile Picture"><i
+								class="fa fa-angle-down"></i></a>
 						<ul class="dropdown-menu">
 							<li><a href="#" onclick="location.href = '/user-profile-0.html';">My Profile</a></li>
 							<li><a href="#" id="logOut" onclick="signOut()">Log out</a></li>

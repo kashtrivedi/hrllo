@@ -85,6 +85,9 @@
 	#votingPoll {
 		width: 55%;
 	}
+	#deleteNewOption {
+		margin-right: 50px; 
+	}
 }
 
 @media(min-width:992px) and (max-width:1024px){
@@ -233,6 +236,9 @@
 	}
 	.modal-content {
 		padding: 20px;
+	}
+	#deleteNewOption {
+		margin-right: 50px; 
 	}
 }
 
@@ -466,6 +472,9 @@
 	}
 	.modal-content {
 		padding: 10px;
+	}
+	#deleteNewOption {
+		margin-right: 55px; 
 	}
 }
 
@@ -780,6 +789,9 @@
 	}
 	#submitVote {
 		width: 200px;
+	}
+	#deleteNewOption {
+		margin-right: 53px; 
 	}
 }
 
@@ -1106,6 +1118,9 @@
 	}
 	.dotIcon {
 		left: -45px
+	}
+	#deleteNewOption {
+		margin-right: 50px; 
 	}
 }
 
