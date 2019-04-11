@@ -8,7 +8,7 @@ function main() {
     var epochToday = moment(today, "YYYY-MM-DD HH:mm").valueOf();
 
     $('#profile-picture').attr('src', user.photoURL);
-
+    
     database.collection('polls').where("uid", "==", user.uid).orderBy("endsOn", "desc").get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
             var isActive;
@@ -23,6 +23,45 @@ function main() {
             }
         })
     })
+
+    database.collection('polls').get().then((snapshot) => {
+        snapshot.forEach((doc) => {
+            Object.values(doc.data().options).every((option) => {
+                if (option.includes(user.uid)) {
+                    renderPollParticipated(doc);
+                    return false;
+                } else {
+                    return true;
+                }
+            })
+        })
+    })
+}
+
+function renderPollParticipated(doc) {
+    var title = doc.data().title;
+
+    var pollTitle = `
+        <li>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="list-nm">
+                        <p data-id="${doc.id}" onclick="votePoll(this)">${title}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="action-icons">
+                        <ul>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
+                            <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="shareLink(this)"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+    `;
+
+    $('#participatedPolls').append(pollTitle);
 }
 
 function renderPollTitle(doc, isActive) {

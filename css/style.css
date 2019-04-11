@@ -1541,6 +1541,7 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 75%;
 }
 
 #stats-modal {
@@ -1737,5 +1738,12 @@ textarea {
 
 #share-link-button {
     cursor: pointer;
-    /* margin-left: 50px; */
+}
+
+#stats-modal-content {
+    width: 100%;
+}
+#profile-add-poll {
+    position: relative;
+    bottom: 20px;
 }

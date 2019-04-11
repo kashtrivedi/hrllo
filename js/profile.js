@@ -2,6 +2,8 @@ var app = window.app;
 var database = window.database;
 var user = window.user;
 var allPollsVoteTotal = 0;
+var numberPollsCreated;
+var numberPollsParticipated;
 
 function main() {
     var profilePic = $(".profile-picture");
@@ -12,15 +14,14 @@ function main() {
     profileName.html(user.displayName);
     profileEmail.html(user.email);
 
-    // Doing this directly with logic in the next part
-    // database.collection('info').where("uid", "==", user.uid).get().then((snapshot) => {
-    //     var userInfo = snapshot.docs[0].data();
-    //     $("#participated").html(userInfo.polls_participated);
-    // });
-
     database.collection('polls').where("uid", "==", user.uid).get().then((snapshot) => {
-        var numberPollsCreated = snapshot.size;
-        var numberPollsParticipated = 0;
+        numberPollsCreated = snapshot.size;
+        numberPollsParticipated = 0;
+
+        snapshot.docs.forEach((doc) => {
+            allPollsVoteTotal +=  Object.keys(doc.data().options).length;
+            renderPoll(doc);
+        })
 
         if (numberPollsCreated === 0) {
             var noPolls = `<h1 id="noCreatedPolls">You have not created any polls!</h1>`;
@@ -29,9 +30,10 @@ function main() {
 
         $("#created").html(numberPollsCreated);
         $("#no_polls").text(`(${numberPollsCreated})`);
-        snapshot.docs.forEach(renderPoll);
+    })
+
+    database.collection('polls').get().then((snapshot) => {
         snapshot.forEach((doc) => {
-            allPollsVoteTotal +=  Object.keys(doc.data().options).length;
             Object.values(doc.data().options).every((option) => {
                 if (option.includes(user.uid)) {
                     ++numberPollsParticipated;
@@ -44,7 +46,7 @@ function main() {
         var karma = Math.round(allPollsVoteTotal / (numberPollsCreated + numberPollsParticipated));
         $('#karma').text(karma);
         $('#participated').text(numberPollsParticipated);
-    });
+    })
 }
 
 function renderPoll(doc) {

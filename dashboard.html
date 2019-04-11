@@ -50,7 +50,7 @@
 	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 		aria-hidden="true">
 		<div class="modal-dialog modal-lg" id="modal-container">
-			<div class="modal-content">
+			<div class="modal-content" id="stats-modal-content">
 				<section class="main-dash-cnt create-poll-req" id="stats-modal">
 					<div class="container" id="statsContainer">
 						<button type="button" id="close-stats" class="close" data-dismiss="modal" aria-label="Close">
@@ -117,8 +117,7 @@
 	<!-- Dashboard -->
 	<section class="main-dash-cnt">
 		<div class="container">
-			<a href="#" class="add-btn" onclick="location.href = '/create-poll.html';"><i class="fa fa-plus"></i> CREATE
-				POLL</a>
+			<a href="#" class="add-btn" onclick="location.href = '/create-poll.html';"><i class="fa fa-plus"></i> CREATE POLL</a>
 
 			<div class="poll-block">
 				<div class="poll-head">
@@ -130,6 +129,7 @@
 									<li class="active"><a data-toggle="tab" href="#home">ALL</a></li>
 									<li><a data-toggle="tab" href="#menu1">Active</a></li>
 									<li><a data-toggle="tab" href="#menu2">Inactive</a></li>
+									<li><a data-toggle="tab" href="#menu3">Participated</a></li>
 								</ul>
 							</div>
 						</div>
@@ -159,6 +159,13 @@
 					<div id="menu2" class="tab-pane fade">
 						<div class="poll-lst">
 							<ul id="inactivePolls">
+
+							</ul>
+						</div>
+					</div>
+					<div id="menu3" class="tab-pane fade">
+						<div class="poll-lst">
+							<ul id="participatedPolls">
 
 							</ul>
 						</div>

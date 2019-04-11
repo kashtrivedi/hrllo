@@ -51,11 +51,11 @@ function main() {
 
                         // Remove this if editing vote option is allowed
                         // Code for disabling voting multiple times
-                        // var allOptions = $(".optionSelector").get();
-                        // $(allOptions).attr("disabled", true);
-                        // $("#submitVote").attr("disabled", true);
-                        // $("#voteAddOptionBtn").css("display", 'none');
-                        // $("#submitVote").text("DISABLED");
+                        var allOptions = $(".optionSelector").get();
+                        $(allOptions).attr("disabled", true);
+                        $("#submitVote").attr("disabled", true);
+                        $("#voteAddOptionBtn").css("display", 'none');
+                        $("#submitVote").text("DISABLED");
                     }
                 })
             })

@@ -793,6 +793,9 @@
 	#deleteNewOption {
 		margin-right: 53px; 
 	}
+	#modal-container {
+		width: 80%;
+	}
 }
 
 @media(max-width:447px){
@@ -1121,6 +1124,9 @@
 	}
 	#deleteNewOption {
 		margin-right: 50px; 
+	}
+	#modal-container {
+		width: 90%;
 	}
 }
 
