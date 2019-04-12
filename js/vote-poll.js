@@ -161,10 +161,3 @@ function signOut() {
         console.error('Sign Out Error', error);
     });
 }
-
-// function delete() {
-//     // Dont need to do this because reloading takes care of it
-//      // $(`#${titleID}`).each(function() {
-//      //     $(this).parent().parent().parent().parent().remove();
-//      // })
-// }
