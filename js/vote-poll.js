@@ -56,6 +56,7 @@ function main() {
                         $("#submitVote").attr("disabled", true);
                         $("#voteAddOptionBtn").css("display", 'none');
                         $("#submitVote").text("DISABLED");
+                        $(".cus-chek").css("cursor", "default");
                     }
                 })
             })
@@ -69,6 +70,7 @@ function main() {
                 $("#submitVote").attr("disabled", true);
                 $("#voteAddOptionBtn").css("display", 'none');
                 $("#submitVote").text("EXPIRED");
+                $(".cus-chek").css("cursor", "default");
             }
         })
 
