@@ -68,7 +68,7 @@ function main() {
                 $(allOptions).attr("disabled", true);
                 $("#submitVote").attr("disabled", true);
                 $("#voteAddOptionBtn").css("display", 'none');
-                $("#submitVote").text("DISABLED");
+                $("#submitVote").text("EXPIRED");
             }
         })
 
