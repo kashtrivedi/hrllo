@@ -26,9 +26,10 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav pull-right" id="manu">
 					<li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">
-						<img class="profile-picture" src="images/propic.jpg" alt="Profile Picture"><i class="fa fa-angle-down"></i></a>
+							<img class="profile-picture" src="images/propic.jpg" alt="Profile Picture"><i
+								class="fa fa-angle-down"></i></a>
 						<ul class="dropdown-menu">
-								<li><a href="/dashboard.html">Dashboard</a></li>
+							<li><a href="/dashboard.html">Dashboard</a></li>
 							<li><a href="#" id="logOut" onclick="signOut()">Log out</a></li>
 						</ul>
 					</li>
@@ -113,13 +114,16 @@
 				<div class="row" id="polls">
 
 				</div>
-				<a href="#" id="profile-add-poll" class="add-btn" onclick="location.href = '/create-poll.html';"><i class="fa fa-plus"></i> CREATE POLL</a>
+				<a href="#" id="profile-add-poll" class="add-btn" onclick="location.href = '/create-poll.html';"><i
+						class="fa fa-plus"></i> CREATE POLL</a>
 			</div>
 		</div>
 	</section>
 	<!-- End User Profile -->
 
-	<script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-firestore.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/profile.js"></script>

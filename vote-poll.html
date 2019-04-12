@@ -8,7 +8,9 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-firestore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <title>EASYPOLL | Create Poll</title>
 </head>
@@ -56,7 +58,8 @@
                     <h4 id="ifMultipleSelections"></h4>
                     <form id="votePollForm" action="POST">
                         <ul id="votePollOptions"></ul>
-                        <a class="add-pol" id="voteAddOption" ><i class="fa fa-plus" id="voteAddOptionBtn" onclick="addVoteOption(this)"></i></a>
+                        <a class="add-pol" id="voteAddOption"><i class="fa fa-plus" id="voteAddOptionBtn"
+                                onclick="addVoteOption(this)"></i></a>
                         <div id="submitVoteDiv">
                             <button type="submit" id="submitVote">VOTE !</button>
                         </div>
@@ -65,7 +68,7 @@
             </div>
         </div>
     </section>
-    
+
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/vote-poll.js"></script>

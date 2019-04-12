@@ -59,6 +59,17 @@ function main() {
                     }
                 })
             })
+
+            // Disables voting if the poll has expired
+            var today = moment().format("YYYY-MM-DD HH:mm").valueOf();
+            var epochToday = moment(today, "YYYY-MM-DD HH:mm").valueOf();
+            if (data.endsOn < epochToday) {
+                var allOptions = $(".optionSelector").get();
+                $(allOptions).attr("disabled", true);
+                $("#submitVote").attr("disabled", true);
+                $("#voteAddOptionBtn").css("display", 'none');
+                $("#submitVote").text("DISABLED");
+            }
         })
 
 
@@ -78,7 +89,7 @@ function main() {
             var input = $(e).parent().parent().children()[0];
             return $(input).val();
         })
-        
+
         var checked = oldChecked.concat(newCheckedOptions);
         var options = inputs.map((e) => $(e).parent().parent().text());
 
