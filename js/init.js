@@ -11,11 +11,11 @@ function setup(cb) {
     window.app = firebase.initializeApp(config);
     window.database = window.app.firestore();
 
-    window.app.auth().onAuthStateChanged(function(user) {
+    window.app.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
             window.user = user;
-            if(window.location.pathname === "/dashboard.html") {
+            if (window.location.pathname === "/dashboard.html") {
                 return cb();
             } else if (window.location.pathname === '/index.html') {
                 window.location.href = '/dashboard.html';
@@ -24,7 +24,7 @@ function setup(cb) {
                 return cb();
             }
         } else {
-            if(window.location.pathname === '/') {
+            if (window.location.pathname === '/') {
                 return cb();
             } else {
                 window.location.href = '/';

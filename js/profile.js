@@ -9,6 +9,7 @@ function main() {
     var profilePic = $(".profile-picture");
     var profileName = $("#pro-name");
     var profileEmail = $("#pro-email");
+    var karma = 0;
 
     profilePic.attr('src', user.photoURL);
     profileName.html(user.displayName);
@@ -19,7 +20,7 @@ function main() {
         numberPollsParticipated = 0;
 
         snapshot.docs.forEach((doc) => {
-            allPollsVoteTotal +=  Object.keys(doc.data().options).length;
+            allPollsVoteTotal += Object.keys(doc.data().options).length;
             renderPoll(doc);
         })
 
@@ -43,7 +44,15 @@ function main() {
                 }
             })
         })
-        var karma = Math.round(allPollsVoteTotal / (numberPollsCreated + numberPollsParticipated));
+
+        console.log(allPollsVoteTotal);
+
+        if (allPollsVoteTotal === 0) {
+            karma = 0;
+        } else {
+            karma = Math.round(allPollsVoteTotal / (numberPollsCreated + numberPollsParticipated));
+            console.log(karma);
+        }
         $('#karma').text(karma);
         $('#participated').text(numberPollsParticipated);
     })
@@ -126,7 +135,7 @@ function addStat(option, optionVotes, totalVotes) {
         function () {
             var votes = $(this).attr("aria-valuenow");
             var totalVotes = $(this).attr("aria-valuemax")
-            var votePerctentage = (votes/totalVotes) * 100;
+            var votePerctentage = (votes / totalVotes) * 100;
             return `${votePerctentage}%`;
         }
     )

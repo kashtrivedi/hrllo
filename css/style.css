@@ -1743,7 +1743,12 @@ textarea {
 #stats-modal-content {
     width: 100%;
 }
+
 #profile-add-poll {
     position: relative;
     bottom: 20px;
+}
+
+#signIn {
+    cursor: pointer;
 }
