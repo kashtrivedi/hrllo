@@ -22,12 +22,6 @@ function main() {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Disables clicking on submit multiple times
-        if (allowSubmit)
-            allowSubmit = false;
-        else
-            return false;
-
         var options = [];
 
         $('.opt').get().map((option) => {
@@ -53,6 +47,12 @@ function main() {
             alert('Cannot set a date which has already been passed.')
             return;
         }
+
+        // Disables clicking on submit multiple times
+        if (allowSubmit)
+            allowSubmit = false;
+        else
+            return false;
 
         var endTime = $('#endTime').val();
         var dateTime = `${endDate} ${endTime}`;
