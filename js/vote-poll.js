@@ -5,8 +5,9 @@ var onclickVal;
 
 function main() {
     $("#profile-picture").attr('src', user.photoURL);
-    var url = new URL(window.location);
-    var docID = url.searchParams.get("docID");
+    var url = window.location.href;
+    var urlInfo = url.split('?');
+    var docID = urlInfo[1];
     var form = $('#votePollForm');
 
     database.collection('polls').doc(`${docID}`).get()
@@ -41,6 +42,16 @@ function main() {
             options.map((option) => `<li class='votePollOption'>${option}<label class='cus-chek votePollCheckbox'><input type='checkbox' class='optionSelector allOptions' onclick='${onclickVal}'><span class='displayIcon ${iconType}'></span></label></li>`).forEach((li) => $("#votePollOptions").append(li))
 
 
+            // Disable voting if user is creator of poll
+            if (data.uid === user.uid) {
+                var allOptions = $(".optionSelector").get();
+                $(allOptions).attr("disabled", true);
+                $("#submitVote").attr("disabled", true);
+                $("#voteAddOptionBtn").css("display", 'none');
+                $("#submitVote").text("NOT ALLOWED");
+                $(".cus-chek").css("cursor", "default");
+            }
+
             // If user has already voted, displays vote else disables voting
             var optionValues = Object.values(data.options);
             optionValues.forEach((optionValue, i) => {
@@ -55,7 +66,7 @@ function main() {
                         $(allOptions).attr("disabled", true);
                         $("#submitVote").attr("disabled", true);
                         $("#voteAddOptionBtn").css("display", 'none');
-                        $("#submitVote").text("DISABLED");
+                        $("#submitVote").text("ALREADY VOTED");
                         $(".cus-chek").css("cursor", "default");
                     }
                 })

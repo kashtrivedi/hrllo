@@ -45,13 +45,10 @@ function main() {
             })
         })
 
-        console.log(allPollsVoteTotal);
-
         if (allPollsVoteTotal === 0) {
             karma = 0;
         } else {
             karma = Math.round(allPollsVoteTotal / (numberPollsCreated + numberPollsParticipated));
-            console.log(karma);
         }
         $('#karma').text(karma);
         $('#participated').text(numberPollsParticipated);

@@ -131,7 +131,7 @@ function addOptions() {
         <li>
             <div class="op-lf">
                 <img src="images/sm-bar.png" alt="" class="sortIcon">
-                <input class="opt newOption" type="text" placeholder="" required>
+                <input class="opt newOption" type="text" placeholder="" autofocus required>
                 <img src="images/close.png" alt="" onclick="delOpt(this)">
             </div>
         </li>
@@ -146,7 +146,7 @@ function loadOptions(option) {
         <li>
             <div class="op-lf">
                 <img src="images/sm-bar.png" alt="" class="sortIcon">
-                <input class="opt" type="text" placeholder="" value="${option}" required>
+                <input class="opt" type="text" placeholder="" value="${option}" disabled>
                 <!--<img src="images/close.png" alt="" onclick="delOpt(this)">-->
             </div>
         </li>

@@ -8,7 +8,7 @@ function main() {
     var epochToday = moment(today, "YYYY-MM-DD HH:mm").valueOf();
 
     $('#profile-picture').attr('src', user.photoURL);
-    
+
     database.collection('polls').where("uid", "==", user.uid).orderBy("endsOn", "desc").get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
             var isActive;
@@ -104,7 +104,6 @@ function renderPollTitle(doc, isActive) {
                         <div class="action-icons">
                             <ul>
                                 <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
-                                <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="shareLink(this)"></a></li>
                                 <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" data-id="${doc.id}" onclick="showDeleteModal(this)"></a></li>
                             </ul>
                         </div>
@@ -212,7 +211,7 @@ function addStat(option, optionVotes, totalVotes) {
         function () {
             var votes = $(this).attr("aria-valuenow");
             var totalVotes = $(this).attr("aria-valuemax")
-            var votePerctentage = (votes/totalVotes) * 100;
+            var votePerctentage = (votes / totalVotes) * 100;
             return `${votePerctentage}%`;
         }
     )
@@ -220,7 +219,7 @@ function addStat(option, optionVotes, totalVotes) {
 
 function votePoll(e) {
     var docID = e.getAttribute("data-id");
-    window.location.href = `/vote-poll.html?docID=${docID}`;
+    window.location.href = `/vote-poll.html?${docID}`;
 }
 
 function showDeleteModal(e) {
@@ -250,15 +249,19 @@ function getOldData(id, docid) {
 
 function shareLink(docID) {
     var docID = docID.getAttribute('data-id');
-    var shareUrl = `https://${window.location.hostname}/vote-poll.html?docID=${docID}`;
+    var shareUrl = `https://${window.location.hostname}/vote-poll.html?${docID}`;
     $('#share-modal-link').val(shareUrl);
 }
 
 function copyLink() {
-  var copyText = document.getElementById("share-modal-link");
-  copyText.select();
-  document.execCommand("copy");
-  alert("Copied the text: " + copyText.value);
+    var copyText = document.getElementById("share-modal-link");
+    copyText.select();
+    document.execCommand("copy");
+    var x = document.getElementById("linkCopy");
+    x.className = "show";
+    setTimeout(function () {
+        x.className = x.className.replace("show", "");
+    }, 3000);
 }
 
 function signOut() {
