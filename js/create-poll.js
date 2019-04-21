@@ -79,18 +79,30 @@ function main() {
 }
 
 function addOpt() {
-    var option = `
-        <li>
-            <div class="op-lf">
-                <img src="images/sm-bar.png" alt="" class="sortIcon">
-                <input class="opt" type="text" placeholder="" required>
-                <img src="images/close.png" alt="" onclick="delOpt(this)">
-            </div>
-        </li>
-    `;
+    var empty = false;
+    $('.opt').get().some((option) => {
+        if (option.value == "") {
+            alert('Option empty!');
+            empty = true;
+            return;
+        }
+    })
 
-    $('#opt-list').append(option);
-    $('#opt-list').sortable("refresh");
+    if (!empty) {
+        var option = `
+                <li>
+                    <div class="op-lf">
+                        <img src="images/sm-bar.png" alt="" class="sortIcon">
+                        <input class="opt" type="text" placeholder="" required>
+                        <img src="images/close.png" alt="" onclick="delOpt(this)">
+                    </div>
+                </li>
+            `;
+
+        $('#opt-list').append(option);
+        $('.opt').focus();
+        $('#opt-list').sortable("refresh");
+    }
 }
 
 function delOpt(opt) {

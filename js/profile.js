@@ -90,7 +90,7 @@ function renderPoll(doc) {
 
 function votePoll(e) {
     var docID = e.getAttribute("data-id");
-    window.location.href = `/vote-poll.html?docID=${docID}`;
+    window.location.href = `/vote-poll.html?${docID}`;
 }
 
 // Poll-stats

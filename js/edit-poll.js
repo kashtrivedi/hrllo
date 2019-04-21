@@ -27,7 +27,10 @@ function main() {
             options.push($(option).val());
         });
 
-        var allOptions = options.reduce((acc, elem) => { acc[elem] = []; return acc; }, {});
+        var allOptions = options.reduce((acc, elem) => {
+            acc[elem] = [];
+            return acc;
+        }, {});
 
         var endDate = $('#endDate').val();
         var endTime = $('#endTime').val();
@@ -127,18 +130,30 @@ function oldData(doc) {
 }
 
 function addOptions() {
-    var opt = `
-        <li>
-            <div class="op-lf">
-                <img src="images/sm-bar.png" alt="" class="sortIcon">
-                <input class="opt newOption" type="text" placeholder="" autofocus required>
-                <img src="images/close.png" alt="" onclick="delOpt(this)">
-            </div>
-        </li>
-    `;
+    var empty = false;
+    $('.opt').get().some((option) => {
+        if (option.value == "") {
+            alert('Option empty!');
+            empty = true;
+            return;
+        }
+    })
 
-    $('#opt-list').append(opt);
-    $('#opt-list').sortable("refresh");
+    if (!empty) {
+        var option = `
+                <li>
+                    <div class="op-lf">
+                        <img src="images/sm-bar.png" alt="" class="sortIcon">
+                        <input class="opt" type="text" placeholder="" required>
+                        <img src="images/close.png" alt="" onclick="delOpt(this)">
+                    </div>
+                </li>
+            `;
+
+        $('#opt-list').append(option);
+        $('.opt').focus();
+        $('#opt-list').sortable("refresh");
+    }
 }
 
 function loadOptions(option) {

@@ -153,14 +153,26 @@ function oneOptionAllowed() {
 }
 
 function addVoteOption(selection) {
-    $("#votePollOptions").append(`<li class='votePollOption'><input class='newPollOption' placeholder="Option" required><img src="images/close.png" alt="Delete Option" id="deleteNewOption" onclick="delOpt(this)"><label class='cus-chek votePollCheckbox'><input type='checkbox' class='newOptionSelector allOptions' onclick='${onclickVal}'><span class='displayIcon'></span></label></li>`);
+    var empty = false;
+    $('.newPollOption').get().some((option) => {
+        if (option.value == "") {
+            alert('Option empty!');
+            empty = true;
+            return;
+        }
+    })
 
-    if (selection.getAttribute("data-selection") == "true") {
-        $('.displayIcon').addClass("checkmark");
-    } else {
-        $('.displayIcon').addClass("dotIcon");
+    if (!empty) {
+
+        $("#votePollOptions").append(`<li class='votePollOption'><input class='newPollOption' placeholder="Option" required><img src="images/close.png" alt="Delete Option" id="deleteNewOption" onclick="delOpt(this)"><label class='cus-chek votePollCheckbox'><input type='checkbox' class='newOptionSelector allOptions' onclick='${onclickVal}'><span class='displayIcon'></span></label></li>`);
+        $(".newPollOption").focus();
+
+        if (selection.getAttribute("data-selection") == "true") {
+            $('.displayIcon').addClass("checkmark");
+        } else {
+            $('.displayIcon').addClass("dotIcon");
+        }
     }
-
 }
 
 function delOpt(opt) {
