@@ -36,6 +36,15 @@ function main() {
             })
         })
     })
+
+    database.collection('polls').get().then((snapshot) => {
+        snapshot.forEach((doc) => {
+            var data = doc.data();
+            if (data.public && data.uid !== user.uid) {
+                renderPollPublic(doc);
+            }
+        })
+    })
 }
 
 function renderPollParticipated(doc) {
@@ -53,7 +62,7 @@ function renderPollParticipated(doc) {
                     <div class="action-icons">
                         <ul>
                             <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
-                            <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="shareLink(this)"></a></li>
+                            <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="copyLink(this)"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -81,7 +90,7 @@ function renderPollTitle(doc, isActive) {
                             <ul>
                                 <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" data-id="${doc.id}" onclick="editThisPoll(this)"></a></li>
                                 <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
-                                <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="shareLink(this)"></a></li>
+                                <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="copyLink(this)"></a></li>
                                 <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" data-id="${doc.id}" onclick="showDeleteModal(this)"></a></li>
                             </ul>
                         </div>
@@ -132,7 +141,7 @@ function renderActivePoll(doc) {
                         <ul>
                             <li><a href="#"><img src="images/ic1.png" alt="Edit Poll" data-id="${doc.id}" onclick="editThisPoll(this)"></a></li>
                             <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
-                            <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="shareLink(this)"></a></li>
+                            <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="copyLink(this)"></a></li>
                             <li><a href="#"><img src="images/ic4.png" alt="Delete Poll" data-toggle="modal" data-target="#deletePoll" data-id="${doc.id}" onclick="showDeleteModal(this)"></a></li>
                         </ul>
                     </div>
@@ -167,6 +176,32 @@ function renderInactivePoll(doc) {
         `;
 
     $('#inactivePolls').append(pollTitle);
+}
+
+function renderPollPublic(doc) {
+    var title = doc.data().title;
+
+    var pollTitle = `
+        <li>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="list-nm">
+                        <p data-id="${doc.id}" onclick="votePoll(this)">${title}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="action-icons">
+                        <ul>
+                            <li><a href="#"><img src="images/ic2.png" alt="Statistics" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="${doc.id}" onclick="getStats(this)"></a></li>
+                            <li><a href="#"><img src="images/ic3.png" alt="Share" data-id="${doc.id}" data-toggle="modal" data-target=".bd-example-modal-sm" onclick="copyLink(this)"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+    `;
+
+    $('#publicPolls').append(pollTitle);
 }
 
 function editThisPoll(e) {
@@ -227,7 +262,6 @@ function showDeleteModal(e) {
     var docID = e.getAttribute("data-id");
     $('#deleteModal').attr('data-deleteid', docID);
     $('#deleteModal').modal('show');
-
 }
 
 function deletePoll() {
@@ -247,13 +281,11 @@ function getOldData(id, docid) {
     window.location.href = `/edit-poll.html?title=${title}&docID=${docID}`;
 }
 
-function shareLink(docID) {
+
+function copyLink(docID) {
     var docID = docID.getAttribute('data-id');
     var shareUrl = `https://${window.location.hostname}/vote-poll.html?${docID}`;
-    $('#share-modal-link').val(shareUrl);
-}
-
-function copyLink() {
+    document.getElementById("share-modal-link").value = shareUrl;
     var copyText = document.getElementById("share-modal-link");
     copyText.select();
     document.execCommand("copy");
@@ -262,6 +294,7 @@ function copyLink() {
     setTimeout(function () {
         x.className = x.className.replace("show", "");
     }, 3000);
+
 }
 
 function signOut() {

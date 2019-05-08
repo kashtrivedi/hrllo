@@ -19,6 +19,8 @@ function main() {
     var currentDate = moment().format('YYYY-MM-DD');
     $('#endDate').val(currentDate);
 
+    $('#endDate').attr('min', currentDate); ////////////////////////////////////////////////////////////////////
+
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -28,12 +30,6 @@ function main() {
             options.push($(option).val());
         });
 
-        // Option check
-        if (options.length < 2) {
-            alert('Minimum of 2 options are needed!');
-            return;
-        }
-
         // Storing options as object -> option_name: array of voters_uid (initialized as empty)
         var dbOptions = options.reduce((acc, elem) => {
             acc[elem] = [];
@@ -41,12 +37,6 @@ function main() {
         }, {});
 
         var endDate = $('#endDate').val();
-
-        // Date check
-        if (currentDate > endDate) {
-            alert('Cannot set a date which has already been passed.')
-            return;
-        }
 
         // Disables clicking on submit multiple times
         if (allowSubmit)
@@ -78,22 +68,43 @@ function main() {
     }).disableSelection();
 }
 
+function displayError() {
+    $('#error-message p').text('Please fill in the empty option!');
+    $('#center-error').fadeIn(0, () => {
+        $('#center-error').css('display', 'flex');
+    })
+
+    setTimeout(() => {
+        $('#center-error').fadeOut("fast", () => {
+            $('#center-error').css('display', 'none');
+        })
+    }, 5000);
+}
+
 function addOpt() {
     var empty = false;
-    $('.opt').get().some((option) => {
+    $('.opt').get().forEach((option) => {
         if (option.value == "") {
-            alert('Option empty!');
-            empty = true;
-            return;
+            $(option).addClass('optionPlaceholder');
+            if (!empty) {
+                // $(".create-edit-add-poll").prop("onclick", null).off("click");
+                displayError();
+                $('#opt-list li:last-child input').focus();
+                empty = true;
+            }
         }
     })
+
+    $('.opt').on('change', function () {
+        $(".create-edit-add-poll").click(addOpt);
+    });
 
     if (!empty) {
         var option = `
                 <li>
                     <div class="op-lf">
                         <img src="images/sm-bar.png" alt="" class="sortIcon">
-                        <input class="opt" type="text" placeholder="" required>
+                        <input class="opt" type="text" required>
                         <img src="images/close.png" alt="" onclick="delOpt(this)">
                     </div>
                 </li>
@@ -103,6 +114,33 @@ function addOpt() {
         $('.opt').focus();
         $('#opt-list').sortable("refresh");
     }
+
+    // if (empty) {
+    //     $('#error-message p').text('Please fill in the empty option!');
+    //     $('#center-error').fadeIn(300, () => {
+    //         $('#center-error').css('display', 'flex');
+    //     })
+
+    //     setTimeout(() => {
+    //         $('#center-error').fadeOut("fast", () => {
+    //             $('#center-error').css('display', 'none');
+    //         })
+    //     }, 5000);
+    // } else {
+    //     var option = `
+    //             <li>
+    //                 <div class="op-lf">
+    //                     <img src="images/sm-bar.png" alt="" class="sortIcon">
+    //                     <input class="opt" type="text" required>
+    //                     <img src="images/close.png" alt="" onclick="delOpt(this)">
+    //                 </div>
+    //             </li>
+    //         `;
+
+    //     $('#opt-list').append(option);
+    //     $('.opt').focus();
+    //     $('#opt-list').sortable("refresh");
+    // }
 }
 
 function delOpt(opt) {

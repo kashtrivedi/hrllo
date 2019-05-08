@@ -16,6 +16,10 @@ function main() {
 
     database.collection('polls').doc(`${docID}`).get().then(oldData);
 
+    var currentDate = moment().format('YYYY-MM-DD');
+
+    $('#endDate').attr('min', currentDate);
+
     form.on('submit', function (e) {
         e.preventDefault();
 
@@ -129,22 +133,43 @@ function oldData(doc) {
 
 }
 
+function displayError() {
+    $('#error-message p').text('Please fill in the empty option!');
+    $('#center-error').fadeIn(0, () => {
+        $('#center-error').css('display', 'flex');
+    })
+
+    setTimeout(() => {
+        $('#center-error').fadeOut("fast", () => {
+            $('#center-error').css('display', 'none');
+        })
+    }, 5000);
+}
+
 function addOptions() {
     var empty = false;
-    $('.opt').get().some((option) => {
+    $('.opt').get().forEach((option) => {
         if (option.value == "") {
-            alert('Option empty!');
-            empty = true;
-            return;
+            $(option).addClass('optionPlaceholder');
+            if (!empty) {
+                // $(".create-edit-add-poll").prop("onclick", null).off("click");
+                displayError();
+                $('#opt-list li:last-child input').focus();
+                empty = true;
+            }
         }
     })
+
+    $('.opt').on('change', function () {
+        $(".create-edit-add-poll").click(addOpt);
+    });
 
     if (!empty) {
         var option = `
                 <li>
                     <div class="op-lf">
                         <img src="images/sm-bar.png" alt="" class="sortIcon">
-                        <input class="opt" type="text" placeholder="" required>
+                        <input class="opt" type="text" required>
                         <img src="images/close.png" alt="" onclick="delOpt(this)">
                     </div>
                 </li>

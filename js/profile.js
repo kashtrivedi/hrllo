@@ -62,7 +62,7 @@ function renderPoll(doc) {
     var id = doc.id;
 
     var output = `
-        <div class="col-md-6 col-sm-6 singlePoll">
+        <div class="col-md-6 singlePoll">
             <div class="created-poll">
                 <div class="cre-pl">
                     <h4 data-id="${doc.id}" onclick="votePoll(this)">${title}</h4>

@@ -16,6 +16,15 @@
 </head>
 
 <body>
+
+    <!-- Error message -->
+    <div id="center-error">
+        <div id="error-message">
+            <p></p>
+            <span id="close-alert" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
+        </div>
+    </div>
+
     <!-- Header -->
     <nav class="navbar navbar-default dash-nav">
         <div class="container">
@@ -39,7 +48,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="/user-profile-0.html">My Profile</a></li>
                             <li><a href="/dashboard.html">Dashboard</a></li>
-                            <li><a href="#" onclick="signOut()">Log out</a></li>
+                            <!-- <li><a href="#" onclick="signOut()">Log out</a></li> -->
                         </ul>
                     </li>
                 </ul>
@@ -72,7 +81,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/vote-poll.js"></script>
-    <script type="text/javascript" src="js/init.js"></script>
+    <!-- <script type="text/javascript" src="js/init.js"></script> -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>

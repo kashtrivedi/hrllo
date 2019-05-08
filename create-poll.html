@@ -13,6 +13,14 @@
 
 <body>
 
+	<!-- Error message -->
+	<div id="center-error">
+		<div id="error-message">
+			<p></p>
+			<span id="close-alert" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
+		</div>
+	</div>
+
 	<!-- Pop Up -->
 	<!-- <div id="myModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -88,7 +96,7 @@
 									</div>
 
 									<input type="text" name="title" placeholder="Poll title" class="form-control"
-										id="poll-title" required>
+										id="poll-title" maxlength="80" required>
 								</div>
 
 								<div class="cre-frmg">
@@ -114,20 +122,13 @@
 
 									<div class="opt-lst">
 										<ul id="opt-list">
-											<li>
+											<!-- <li>
 												<div class="op-lf">
 													<img src="images/sm-bar.png" alt="" class="sortIcon">
 													<input class="opt" type="text" required>
 													<img src="images/close.png" alt="" onclick="delOpt(this)">
 												</div>
-											</li>
-											<li>
-												<div class="op-lf">
-													<img src="images/sm-bar.png" alt="" class="sortIcon">
-													<input class="opt" type="text" required>
-													<img src="images/close.png" alt="" onclick="delOpt(this)">
-												</div>
-											</li>
+											</li> -->
 										</ul>
 									</div>
 								</div>
@@ -150,7 +151,7 @@
 											<div class="form-group">
 												<img src="images/time.png" alt="">
 												<input type="time" name="time" placeholder="hh/mm" class="form-control"
-													id="endTime" value="00:00">
+													id="endTime" value="23:59">
 											</div>
 										</div>
 									</div>

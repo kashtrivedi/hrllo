@@ -720,8 +720,7 @@ footer {
 }
 
 .cre-pl {
-    padding: 40px 40px;
-    border-bottom: 1px solid #707070;
+    padding: 40px 40px 60px 40px;
 }
 
 .cre-pl h4 {
@@ -1796,4 +1795,68 @@ textarea {
         bottom: 0;
         opacity: 0;
     }
+}
+
+.optionPlaceholder::-webkit-input-placeholder {
+    color: rgb(255, 50, 0);
+}
+
+.tab-content {
+    margin-bottom: 50px;
+}
+
+#poll-filter {
+    width: 100%;
+}
+
+#share-modal-link {
+    position: absolute;
+    left: -9999px;
+}
+
+#delete-poll-header {
+    padding: 40px;
+}
+
+#delete-poll-title {
+    font-size: 20px;
+}
+
+#center-error {
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
+#error-message {
+    position: fixed;
+    top: 5px;
+    width: 99%;
+    z-index: 200;
+    background: #FF949F;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    line-height: 30px;
+    padding: 5px;
+}
+
+#error-message p {
+    margin: 0;
+    font-size: 17px;
+    display: inline-block;
+}
+
+#error-message span {
+    display: inline-block;
+    float: right;
+}
+
+#close-alert {
+    margin: 2px;
+    font-size: 30px;
+}
+
+#close-alert:hover {
+    cursor: pointer;
 }
