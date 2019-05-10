@@ -119,10 +119,10 @@ body{
     padding: 0;
 }
 .navbar-default .navbar-nav>li>a{
-    padding: 10px 30px;
+    padding: 10px 25px;
     color: #fff;
     font-family: 'Raleway';
-    font-size: 20px;
+    font-size:16px;
     font-weight: 500;
     -ms-transition:all 0.3s ease;
     -o-transition:all 0.3s ease;
@@ -179,11 +179,11 @@ body{
     width: 100%;
 }
 .home-info h1{
-    font-size: 85px;
+    font-size:70px;
     font-weight: bold;
     font-family: 'Raleway';
     margin: 0 0 40px;
-    line-height: 95px;
+    line-height:80px;
     color: #fff;
 }
 .home-info h1 span{
@@ -191,10 +191,10 @@ body{
     color: rgba(255,255,255,0.30);
 }
 .home-info .btn-main{
-    padding: 10px 80px;
+    padding: 10px 40px;
     background: #fff;
     border-radius:50px;
-    font-size: 36px;
+    font-size:18px;
     font-weight: bold;
     color: #1E88E5;
     font-family: 'Raleway';
@@ -412,7 +412,7 @@ footer{
     background: -webkit-linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(45deg, #0d47a1 0%,#1e88e5 100%);  
     border-radius: 50px;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
     font-family: 'Raleway';
     color: #fff;
@@ -587,7 +587,7 @@ footer{
     box-shadow: 0 5px 5px rgba(0,0,0,0.20);
 }
 .polls-created-wrp h2{
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
     color: #212121;
     margin: 0 0 60px;
@@ -611,13 +611,13 @@ footer{
     border-bottom: 1px solid #707070;
 }
 .cre-pl h4{
-    font-size: 28px;
+    font-size:22px;
     font-weight: bold;
     color: #010101;
     margin: 0 0 15px;
 }
 .cre-pl p{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
     color: #212121;
     line-height: 26px;
@@ -625,7 +625,7 @@ footer{
 }
 .cre-pl li{
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     font-weight:400;
     color: #212121;
     padding: 5px 25px;
@@ -827,10 +827,10 @@ footer{
 
 /* **** Create Poll Page **** */
 .create-poll-req{
-    padding: 100px 0 40px;
+    padding: 60px 0 40px;
 }
 .create-pol-wrp{
-    padding: 100px 40px;
+    padding:60px 40px;
     background: #fff;
     border-radius: 10px;
     position: relative;
@@ -860,14 +860,14 @@ footer{
 }
 .dt-it h6,
 .cre-frmg h6{
-    font-size: 26px;
+    font-size:18px;
     font-weight: 500;
     color: #212121;
     margin: 0 0px;
 }
 .dt-it p,
 .cre-frmg p{
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     color: rgba(33,33,33,0.60);
     margin: 0 0 15px;
@@ -900,11 +900,11 @@ textarea{
     float: right;
 }
 .add-pol i{
-    width: 55px;
-    height: 55px;
+    width:45px;
+    height:45px;
     border-radius: 50%;
-    line-height: 60px;
-    font-size: 20px;
+    line-height:45px;
+    font-size:16px;
     color: #fff;
     text-align: center;
     background: #1E88E5;
@@ -1032,13 +1032,13 @@ textarea{
 
 /* **** Poll Start Page **** */
 .start-head h1{
-    font-size: 55px;
+    font-size:32px;
     font-weight: 600;
     color: #1E88E5;
     margin: 0 0 10px;
 }
 .start-head h2{
-    font-size: 36px;
+    font-size:20px;
     font-weight: 600;
     color: #212121;
     margin: 0 0 40px;
@@ -1051,18 +1051,18 @@ textarea{
 }
 
 .header-wrp h2{
-    font-size: 36px;
+    font-size:26px;
     font-weight: 600;
     color: #212121;
     margin: 0;
 }
 .header-wrp h2 img{
     display: inline-block;
-    width: 35px;
+    width: 30px;
     margin-right: 10px;
 }
 .header-wrp h3{
-    font-size: 34px;
+    font-size:26px;
     font-weight:500;
     color: #212121;
     font-family: 'Montserrat';
