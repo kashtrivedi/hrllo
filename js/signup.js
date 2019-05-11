@@ -17,7 +17,6 @@ function login() {
                     if (snapshot.empty) {
                         return database.collection('info').add({
                             uid: uid,
-                            email: result.user.email,
                             polls_created: 0,
                             polls_participated: 0
                         });
