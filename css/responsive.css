@@ -1,178 +1,291 @@
-@media(min-width:1025px) and (max-width:1350px){
+@media(min-width: 1350px) {
+
+	/* On mouse-over, add a blue background color */
+	.cus-chek:hover input~.checkmark {
+		background-color: #1E88E5;
+	}
+
+	#noCreatedPolls {
+		font-size: 40px;
+	}
+
+	#polls {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.singlePoll {
+		width: 50%;
+		display: flex;
+		flex-basis: 50%;
+		align-self: stretch;
+		position: relative;
+	}
+
+	.created-poll {
+		align-self: stretch;
+		width: 100%;
+		position: relative;
+	}
+
+	.poll-act {
+		position: absolute;
+		width: 100%;
+		bottom: -10px;
+		border-top: 1px solid #707070;
+	}
+}
+
+@media(min-width:1025px) and (max-width:1350px) {
+
 	/* *** Index Page *** */
-	.navbar-default{
+	.navbar-default {
 		padding: 15px 0;
 	}
-	.navbar-brand>img{
+
+	.navbar-brand>img {
 		margin-top: 10px;
 	}
-	.navbar-default .navbar-nav>li>a{
+
+	.navbar-default .navbar-nav>li>a {
 		font-size: 18px;
 	}
-	.dropdown-menu{
+
+	.dropdown-menu {
 		left: -70px;
 	}
 
 	.main-block {
 		padding: 80px 0;
 	}
-	.home-info h1{
+
+	.home-info h1 {
 		font-size: 55px;
 		line-height: 60px;
-		margin:  0 0 10px;
+		margin: 0 0 10px;
 	}
-	.home-info .btn-main{
+
+	.home-info .btn-main {
 		padding: 10px 40px;
 		font-size: 18px;
 	}
-	.home-img img{
+
+	.home-img img {
 		width: 70%;
 	}
 
-	footer{
+	footer {
 		padding: 10px 0;
 	}
+
 	/* *** End Index Page *** */
 
 	/* *** Error Pages *** */
-	.error-dt{
+	.error-dt {
 		padding: 0 40px;
 	}
-	.error-dt h2{
+
+	.error-dt h2 {
 		font-size: 150px;
 	}
 
-	.logo-bx{
+	.logo-bx {
 		padding: 20px 0;
 	}
-	.profile-ver2{
+
+	.profile-ver2 {
 		width: 300px;
 		padding: 0 15px;
 	}
-	.profile-v2 .pro-bx{
+
+	.profile-v2 .pro-bx {
 		padding: 20px 0;
 		display: block;
 		text-align: center;
 	}
-	.profile-v2 .pro-bx .pro-img img{
+
+	.profile-v2 .pro-bx .pro-img img {
 		margin: 0 auto 10px;
 	}
-	.profile-v2 .pro-v1-lk{
+
+	.profile-v2 .pro-v1-lk {
 		padding: 0 0 80px;
 	}
 
-	.user-prov3 .poll-prohd .pro-img img{
+	.user-prov3 .poll-prohd .pro-img img {
 		margin-right: 10px
 	}
-	.user-prov3 .poll-prohd .pro-dt h3{
+
+	.user-prov3 .poll-prohd .pro-dt h3 {
 		font-size: 20px;
 	}
-	 .user-prov3 .poll-prohd .pro-dt p{
-	 	font-size: 12px;
-	 }
+
+	.user-prov3 .poll-prohd .pro-dt p {
+		font-size: 12px;
+	}
+
 	/* *** End Error Pages *** */
+
+	#votingPoll {
+		width: 55%;
+	}
+
+	#deleteNewOption {
+		margin-right: 50px;
+	}
+
+	#polls {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.singlePoll {
+		width: 50%;
+		display: flex;
+		flex-basis: 50%;
+		align-self: stretch;
+		position: relative;
+	}
+
+	.created-poll {
+		align-self: stretch;
+		width: 100%;
+		position: relative;
+	}
+
+	.poll-act {
+		position: absolute;
+		width: 100%;
+		bottom: -10px;
+		border-top: 1px solid #707070;
+	}
 }
 
-@media(min-width:992px) and (max-width:1024px){
+@media(min-width:992px) and (max-width:1024px) {
+
 	/* *** Index Page *** */
-	.navbar-default{
+	.navbar-default {
 		padding: 15px 0;
 	}
-	.navbar-brand>img{
+
+	.navbar-brand>img {
 		margin-top: 10px;
 	}
-	.navbar-default .navbar-nav>li>a{
+
+	.navbar-default .navbar-nav>li>a {
 		font-size: 18px;
 	}
-	.dropdown-menu{
+
+	.dropdown-menu {
 		left: -70px;
 	}
 
 	.main-block {
 		padding: 80px 0;
 	}
-	.home-info h1{
+
+	.home-info h1 {
 		font-size: 55px;
 		line-height: 60px;
-		margin:  0 0 10px;
+		margin: 0 0 10px;
 	}
-	.home-info .btn-main{
+
+	.home-info .btn-main {
 		padding: 10px 40px;
 		font-size: 18px;
 	}
-	.home-img img{
+
+	.home-img img {
 		width: 70%;
 	}
 
-	footer{
+	footer {
 		padding: 10px 0;
 	}
+
 	/* *** End Index Page *** */
 
 	/* *** Error Pages *** */
-	.error-dt{
+	.error-dt {
 		padding: 0 40px;
 	}
-	.error-dt h2{
+
+	.error-dt h2 {
 		font-size: 150px;
 	}
+
 	/* *** End Error Pages *** */
 
 	/* *** Poll Start *** */
-	.start-head h1{
+	.start-head h1 {
 		font-size: 40px;
 	}
-	.start-head h2{
+
+	.start-head h2 {
 		font-size: 24px;
 	}
-	.poll-start-wrp{
+
+	.poll-start-wrp {
 		padding: 15px;
 	}
+
 	.header-wrp h3 img,
-	.header-wrp h2 img{
+	.header-wrp h2 img {
 		width: 20px;
 	}
-	.header-wrp h2{
+
+	.header-wrp h2 {
 		font-size: 20px;
 		margin: 0 0 10px;
 	}
-	.header-wrp h3{
+
+	.header-wrp h3 {
 		font-size: 20px;
 	}
-	.progress-poll{
+
+	.progress-poll {
 		padding: 20px 15px 35px;
 	}
-	.dash-nav .navbar-brand>img{
+
+	.dash-nav .navbar-brand>img {
 		margin: 0;
 	}
 
-	.prov1-wrp{
+	.prov1-wrp {
 		padding: 0;
 	}
-	.poll-prohd .pro-img img{
+
+	.poll-prohd .pro-img img {
 		width: 60px;
 		height: 60px;
 		margin-right: 10px;
 	}
-	.poll-prohd .pro-dt h3{
+
+	.poll-prohd .pro-dt h3 {
 		font-size: 20px;
 	}
-	.poll-prohd .pro-dt p{
+
+	.poll-prohd .pro-dt p {
 		font-size: 12px;
 	}
-	.poll-left{
+
+	.poll-left {
 		padding: 40px 10px;
 	}
-	.poll-right .cre-pl{
+
+	.poll-right .cre-pl {
 		padding: 15px;
 	}
-	.poll-right .cre-pl h4{
+
+	.poll-right .cre-pl h4 {
 		font-size: 20px;
 	}
-	.poll-right .cre-pl p{
+
+	.poll-right .cre-pl p {
 		font-size: 14px;
 	}
-	.poll-right .cre-pl li{
+
+	.poll-right .cre-pl li {
 		font-size: 14px;
 		padding: 5px 15px;
 		width: 100%;
@@ -180,174 +293,276 @@
 		text-align: center;
 	}
 
-	.logo-bx{
+	.logo-bx {
 		padding: 20px 0;
 	}
-	.profile-ver2{
+
+	.profile-ver2 {
 		width: 300px;
 		padding: 0 15px;
 	}
-	.profile-v2 .pro-bx{
+
+	.profile-v2 .pro-bx {
 		padding: 20px 0;
 		display: block;
 		text-align: center;
 	}
-	.profile-v2 .pro-bx .pro-img img{
+
+	.profile-v2 .pro-bx .pro-img img {
 		margin: 0 auto 10px;
 	}
-	.profile-v2 .pro-v1-lk{
+
+	.profile-v2 .pro-v1-lk {
 		padding: 0 0 80px;
 	}
+
 	/* *** End Poll Start *** */
+
+	/* Anand CSS */
+
+	/* Making create poll's changes responsive */
+	#endTime {
+		padding: 0 10px !important;
+	}
+
+	#endDate {
+		padding-left: 10px !important;
+	}
+
+	#votingPoll {
+		width: 55%;
+	}
+
+	#modal-container {
+		display: block;
+		width: 80%;
+	}
+
+	.modal-content {
+		padding: 20px;
+	}
+
+	#deleteNewOption {
+		margin-right: 50px;
+	}
+
+	#polls {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.singlePoll {
+		width: 50%;
+		display: flex;
+		flex-basis: 50%;
+		align-self: stretch;
+		position: relative;
+	}
+
+	.created-poll {
+		align-self: stretch;
+		width: 100%;
+		position: relative;
+	}
+
+	.poll-act {
+		position: absolute;
+		width: 100%;
+		bottom: -10px;
+		border-top: 1px solid #707070;
+	}
 }
 
-@media(min-width:768px) and (max-width:991px){
+@media(min-width:768px) and (max-width:991px) {
+
 	/* *** Index Page *** */
-	.navbar-default{
+	.navbar-default {
 		padding: 15px 0;
 	}
-	.navbar-brand>img{
+
+	.navbar-brand>img {
 		margin-top: 10px;
 	}
-	.navbar-default .navbar-nav>li>a{
+
+	.navbar-default .navbar-nav>li>a {
 		font-size: 18px;
 	}
-	.dropdown-menu{
+
+	.dropdown-menu {
 		left: -70px;
 	}
 
 	.main-block {
 		padding: 80px 0;
 	}
-	.home-info h1{
+
+	.home-info h1 {
 		font-size: 45px;
 		line-height: 50px;
-		margin:  0 0 10px;
+		margin: 0 0 10px;
 	}
-	.home-info .btn-main{
+
+	.home-info .btn-main {
 		padding: 10px 40px;
 		font-size: 18px;
 	}
-	.home-img img{
+
+	.home-img img {
 		width: 90%;
 	}
 
-	footer{
+	footer {
 		padding: 10px 0;
 	}
+
 	/* *** End Index Page *** */
 
 	/* *** Error Page *** */
-	.error-bx h1{
-		font-size:110px;
+	.error-bx h1 {
+		font-size: 110px;
 		text-align: center;
 	}
 
-	.error-dt{
+	.error-dt {
 		padding: 0;
 	}
-	.error-dt h2{
+
+	.error-dt h2 {
 		font-size: 150px;
 	}
+
 	/* *** End Error Page *** */
 
 	/* *** Poll Start *** */
-	.start-head h1{
+	.start-head h1 {
 		font-size: 40px;
 	}
-	.start-head h2{
+
+	.start-head h2 {
 		font-size: 24px;
 	}
-	.poll-start-wrp{
+
+	.poll-start-wrp {
 		padding: 15px;
 	}
+
 	.header-wrp h3 img,
-	.header-wrp h2 img{
+	.header-wrp h2 img {
 		width: 20px;
 	}
-	.header-wrp h2{
+
+	.header-wrp h2 {
 		font-size: 20px;
 		margin: 0 0 10px;
 	}
-	.header-wrp h3{
+
+	.header-wrp h3 {
 		font-size: 20px;
 	}
-	.progress-poll{
+
+	.progress-poll {
 		padding: 20px 15px 35px;
 	}
+
 	/* *** End Poll Start *** */
 
 	/* *** User Profile 0*** */
-	.user-profile-head{
+	.user-profile {
+		padding: 0;
+	}
+
+	.user-profile-head {
 		padding: 40px 0;
 	}
-	.pro-img img{
+
+	.pro-img img {
 		width: 80px;
 		height: 80px;
 	}
-	.pro-dt h3{font-size: 28px;}
-	.pro-like ul{
+
+	.pro-dt h3 {
+		font-size: 28px;
+	}
+
+	.pro-like ul {
 		text-align: left;
 	}
-	.pro-like li{
+
+	.pro-like li {
 		margin-right: 10px;
 		font-size: 15px;
 		padding: 5px 15px;
 	}
-	.pro-like li img{
-		width:20px;
-		height:20px;
+
+	.pro-like li img {
+		width: 20px;
+		height: 20px;
 		margin-right: 10px;
 	}
-	.polls-created-wrp{
-		padding: 40px 15px;
+
+	.polls-created-wrp {
+		padding: 40px 15px 0 15px;
 	}
-	.polls-created-wrp h2{
+
+	.polls-created-wrp h2 {
 		font-size: 18px;
+		margin: 0;
 	}
-	.polls-created-wrp h2 img{
+
+	.polls-created-wrp h2 img {
 		width: 20px;
 		height: 20px;
 	}
-	.cre-pl{
+
+	.cre-pl {
 		padding: 15px;
 	}
-	.cre-pl p{
+
+	.cre-pl p {
 		font-size: 16px;
 		line-height: 20px;
 	}
-	.cre-pl li{
+
+	.cre-pl li {
 		padding: 5px 20px;
 		font-size: 15px
 	}
 
-	.prov1-wrp{
+	.prov1-wrp {
 		padding: 0;
 	}
-	.poll-prohd .pro-img img{
+
+	.poll-prohd .pro-img img {
 		width: 60px;
 		height: 60px;
 		margin-right: 10px;
 	}
-	.poll-prohd .pro-dt h3{
+
+	.poll-prohd .pro-dt h3 {
 		font-size: 20px;
 	}
-	.poll-prohd .pro-dt p{
+
+	.poll-prohd .pro-dt p {
 		font-size: 12px;
 	}
-	.poll-left{
+
+	.poll-left {
 		padding: 40px 10px;
 	}
-	.poll-right .cre-pl{
+
+	.poll-right .cre-pl {
 		padding: 15px;
 	}
-	.poll-right .cre-pl h4{
+
+	.poll-right .cre-pl h4 {
 		font-size: 20px;
 	}
-	.poll-right .cre-pl p{
+
+	.poll-right .cre-pl p {
 		font-size: 14px;
 	}
-	.poll-right .cre-pl li{
+
+	.poll-right .cre-pl li {
 		font-size: 14px;
 		padding: 5px 15px;
 		width: 100%;
@@ -355,619 +570,985 @@
 		text-align: center;
 	}
 
-	.poll-left{
+	.poll-left {
 		padding: 40px 0;
 	}
-	.poll-prohd .pro-dt h3{
+
+	.poll-prohd .pro-dt h3 {
 		font-size: 22px;
 	}
-	.poll-right{
+
+	.poll-right {
 		padding: 40px 0;
 	}
-	.poll-right .cre-pl{
+
+	.poll-right .cre-pl {
 		padding: 15px;
 	}
-	.poll-right .cre-pl li{
+
+	.poll-right .cre-pl li {
 		font-size: 14px;
 		padding: 5px 15px;
 	}
 
-	.logo-bx{
+	.logo-bx {
 		padding: 20px 0;
 	}
-	.profile-ver2{
+
+	.profile-ver2 {
 		width: 260px;
 		padding: 0 15px;
 	}
-	.profile-v2 .pro-bx{
+
+	.profile-v2 .pro-bx {
 		padding: 20px 0;
 		display: block;
 		text-align: center;
 	}
-	.profile-v2 .pro-bx .pro-img img{
+
+	.profile-v2 .pro-bx .pro-img img {
 		margin: 0 auto 10px;
 	}
-	.profile-v2 .pro-v1-lk{
+
+	.profile-v2 .pro-v1-lk {
 		padding: 0 0 80px;
 	}
 
-	.user-prov3 .poll-left{
-		padding:  15px;
+	.user-prov3 .poll-left {
+		padding: 15px;
 	}
-	.user-prov3 .pro-bx{
+
+	.user-prov3 .pro-bx {
 		display: block;
 		text-align: center;
 	}
-	.user-prov3 .pro-img img{
+
+	.user-prov3 .pro-img img {
 		margin: 0 auto 10px;
 	}
+
 	/* *** End User Profile 0 *** */
+
+	#ends-on {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#date-time {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.col-md-6 {
+		width: 50%;
+	}
+
+	#votingPoll {
+		width: 70%;
+	}
+
+	#votingPoll {
+		width: 55%;
+	}
+
+	#modal-container {
+		display: block;
+		width: 80%;
+	}
+
+	.modal-content {
+		padding: 10px;
+	}
+
+	#deleteNewOption {
+		margin-right: 55px;
+	}
+
+	.polls-created-wrp h2 {
+		margin-bottom: 20px;
+	}
+
+	.cre-pl {
+		padding: 20px 20px 60px 20px;
+	}
+
+	#polls {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.singlePoll {
+		width: 50%;
+		display: flex;
+		flex-basis: 50%;
+		align-self: stretch;
+		position: relative;
+	}
+
+	.created-poll {
+		align-self: stretch;
+		width: 100%;
+		position: relative;
+	}
+
+	.poll-act {
+		position: absolute;
+		width: 100%;
+		bottom: -10px;
+		border-top: 1px solid #707070;
+	}
 }
 
-@media(min-width:448px) and (max-width:767px){
+@media(min-width:448px) and (max-width:767px) {
+
 	/* *** Index Page *** */
-	.navbar-default{
+	.navbar-default {
 		padding: 10px 0;
 	}
-	.navbar-brand>img{
+
+	.navbar-brand>img {
 		margin-left: 15px;
 		margin-top: 10px;
 	}
-	.navbar-nav{
+
+	.navbar-nav {
 		margin: 10px 0;
 		float: none !important;
 	}
-	.navbar-default .navbar-nav>li>a{
+
+	.navbar-default .navbar-nav>li>a {
 		display: table;
 		margin: 0 auto;
 		font-size: 18px;
 	}
 
-	.main-block{
+	.main-block {
 		height: auto;
 		padding: 80px 0 40px;
 	}
-	.main-block .container{
+
+	.main-block .container {
 		height: auto;
 	}
-	.home-info h1{
+
+	.home-info h1 {
 		font-size: 55px;
-		line-height:56px;
+		line-height: 56px;
 		text-align: center;
 	}
-	.home-info .btn-main{
+
+	.home-info .btn-main {
 		padding: 10px 40px;
 		font-size: 18px;
 		margin: 0 auto;
 	}
-	.home-img{
+
+	.home-img {
 		margin-top: 40px;
 	}
 
-	.footer-logo{
+	.footer-logo {
 		text-align: center;
 	}
-	.footer-logo img{
+
+	.footer-logo img {
 		margin: 0 auto 5px;
 	}
-	.foot-links ul{
+
+	.foot-links ul {
 		text-align: center;
 	}
-	.foot-links ul li a{
+
+	.foot-links ul li a {
 		padding: 10px 0;
 	}
+
 	/* *** End Index Page *** */
 
 	/* *** Error Pages *** */
-	.error-bx{
+	.error-bx {
 		width: 100%;
 		right: 0;
 		left: 0;
 		position: relative;
 		transform: translate(0);
 	}
+
 	.error-dt h2,
-	.error-bx h1{
+	.error-bx h1 {
 		font-size: 120px;
 		text-align: center;
 	}
 
-	.error-dt{
+	.error-dt {
 		padding: 0;
 	}
-	.error-dt p{
+
+	.error-dt p {
 		font-size: 16px;
 	}
-	.error-dt .btn-main{
+
+	.error-dt .btn-main {
 		display: table;
 		margin: 0 auto 10px;
 		float: none;
 	}
-	.error-img img{
+
+	.error-img img {
 		margin: 0 auto;
-	}	
+	}
+
 	/* *** End Error Pages *** */
 
 	/* *** Dashboard *** */
-	.add-btn{
+	.add-btn {
 		padding: 10px 40px;
 		font-size: 16px;
 	}
-	.poll-tab p{
+
+	.poll-tab p {
 		float: none;
 		margin: 0 0 10px;
 		text-align: center;
 	}
-	.poll-tab .nav>li{
+
+	.poll-tab .nav>li {
 		margin: 0 0 10px;
 		display: block;
 		float: none;
 	}
+
 	.filter-bx,
-	.poll-tab .nav-tabs{
+	.poll-tab .nav-tabs {
 		float: none;
 	}
-	.filter-bx img{
+
+	.filter-bx img {
 		margin: 0 auto;
 	}
-	.list-nm p{
+
+	.list-nm p {
 		text-align: center;
 		margin: 0 0 10px;
 	}
-	.action-icons ul{
+
+	.action-icons ul {
 		text-align: center;
 	}
+
 	/* *** End Dashboard *** */
 
 	/* *** Create Poll *** */
-	.crebtn{
+	.crebtn {
 		left: 0;
 		width: 100%;
 		text-align: center;
 	}
-	.create-pol-wrp{
+
+	.create-pol-wrp {
 		padding: 80px 15px;
 	}
-	.dt-it h6, .cre-frmg h6{
+
+	.dt-it h6,
+	.cre-frmg h6 {
 		font-size: 22px;
 	}
-	.dt-it p, .cre-frmg p{
+
+	.dt-it p,
+	.cre-frmg p {
 		font-size: 15px;
 	}
-	.op-lf p{
+
+	.op-lf p {
 		font-size: 22px;
 	}
-	.add-pol i{
+
+	.add-pol i {
 		width: 45px;
 		height: 45px;
 		line-height: 45px;
 		font-size: 15px;
 	}
-	.dt-it{
+
+	.dt-it {
 		width: 100%;
 		overflow: hidden;
 	}
-	.dt-it h6{
+
+	.dt-it h6 {
 		font-size: 20px;
 	}
-	.end-poll .form-group{
+
+	.end-poll .form-group {
 		margin: 0 0 15px;
 		overflow: hidden;
 		width: 100%;
 	}
-	.checkmark{
+
+	.checkmark {
 		position: relative;
 		display: block;
 		margin: 10px 0 0;
 	}
-	.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+
+	.navbar-default .navbar-collapse,
+	.navbar-default .navbar-form {
 		border: none;
 		box-shadow: none;
 	}
 
-	.modal-dialog{
+	.modal-dialog {
 		width: 90%;
 		margin: 30px auto;
 	}
+
 	.modal {
-		padding-right: 0!important;
+		padding-right: 0 !important;
 	}
-	.user-listing li{
+
+	.user-listing li {
 		float: left;
 		margin-right: 10px;
 		margin-bottom: 10px;
 	}
+
 	/* *** End Create Poll *** */
 
 	/* *** Poll Start *** */
-	.start-head h1{
+	.start-head h1 {
 		font-size: 36px;
 	}
-	.start-head h2{
+
+	.start-head h2 {
 		font-size: 20px;
 	}
-	.poll-start-wrp{
+
+	.poll-start-wrp {
 		padding: 15px;
 	}
+
 	.header-wrp h3 img,
-	.header-wrp h2 img{
+	.header-wrp h2 img {
 		width: 20px;
 	}
-	.header-wrp h2{
+
+	.header-wrp h2 {
 		text-align: center;
 		font-size: 20px;
 		margin: 0 0 10px;
 	}
-	.header-wrp h3{
+
+	.header-wrp h3 {
 		text-align: center;
 		font-size: 20px;
 	}
-	.progress-poll{
+
+	.progress-poll {
 		padding: 20px 15px 35px;
 	}
+
 	/* *** End Poll Start *** */
 
 	/* *** User Profile 0*** */
-	.user-profile-head{
+	.user-profile-head {
 		padding: 40px 0;
 	}
-	.pro-img img{
+
+	.pro-img img {
 		width: 80px;
 		height: 80px;
 	}
-	.pro-dt h3{font-size: 28px;}
-	.pro-like ul{
+
+	.pro-dt h3 {
+		font-size: 28px;
+	}
+
+	.pro-like ul {
 		text-align: left;
 	}
-	.pro-like li{
+
+	.pro-like li {
 		margin-right: 10px;
 		font-size: 15px;
 		padding: 5px 15px;
 	}
-	.pro-like li img{
-		width:20px;
-		height:20px;
-		margin-right: 10px;
-	}
-	.polls-created-wrp{
-		padding: 40px 15px;
-	}
-	.polls-created-wrp h2{
-		font-size: 18px;
-	}
-	.polls-created-wrp h2 img{
+
+	.pro-like li img {
 		width: 20px;
 		height: 20px;
-	}
-	.cre-pl{
-		padding: 15px;
-	}
-	.cre-pl p{
-		font-size: 16px;
-		line-height: 20px;
-	}
-	.cre-pl li{
-		padding: 5px 20px;
-		font-size: 15px
-	}
-
-	.poll-left{
-		padding: 40px 0;
-	}
-	.poll-prohd .pro-dt h3{
-		font-size: 22px;
-	}
-	.poll-right{
-		padding: 40px 0;
-	}
-	.poll-right .cre-pl{
-		padding: 15px;
-	}
-	.poll-right .cre-pl li{
-		font-size: 14px;
-		padding: 5px 15px;
-	}
-
-	.pro-userv2{
-		padding: 0 0 40px;
-	}
-	.profile-ver2{
-		position: relative;
-		width: 100%;
-		padding: 0 15px;
-		margin-bottom: 30px;
-	}
-	.profile-v2 .pro-bx .pro-img img{
 		margin-right: 10px;
 	}
 
-	.user-prov3 .poll-left{
-		margin-bottom: 30px;
-		padding:  15px;
+	.polls-created-wrp {
+		padding: 40px 15px 0 15px;
 	}
-	/* *** End User Profile 0 *** */
-}
 
-@media(max-width:447px){
-	/* *** Index Page *** */
-	.navbar-default{
-		padding: 10px 0;
-	}
-	.navbar-brand>img{
-		margin-left: 15px;
-		margin-top: 10px;
-	}
-	.navbar-nav{
-		margin: 10px 0;
-		float: none !important;
-	}
-	.navbar-default .navbar-nav>li{
+	.polls-created-wrp h2 {
+		font-size: 18px;
 		margin: 0;
 	}
-	.navbar-default .navbar-nav>li>a{
+
+	.polls-created-wrp h2 img {
+		width: 20px;
+		height: 20px;
+	}
+
+	.cre-pl {
+		padding: 15px;
+	}
+
+	.cre-pl p {
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	.cre-pl li {
+		padding: 5px 20px;
+		font-size: 15px
+	}
+
+	.poll-left {
+		padding: 40px 0;
+	}
+
+	.poll-prohd .pro-dt h3 {
+		font-size: 22px;
+	}
+
+	.poll-right {
+		padding: 40px 0;
+	}
+
+	.poll-right .cre-pl {
+		padding: 15px;
+	}
+
+	.poll-right .cre-pl li {
+		font-size: 14px;
+		padding: 5px 15px;
+	}
+
+	.pro-userv2 {
+		padding: 0 0 40px;
+	}
+
+	.profile-ver2 {
+		position: relative;
+		width: 100%;
+		padding: 0 15px;
+		margin-bottom: 30px;
+	}
+
+	.profile-v2 .pro-bx .pro-img img {
+		margin-right: 10px;
+	}
+
+	.user-prov3 .poll-left {
+		margin-bottom: 30px;
+		padding: 15px;
+	}
+
+	/* *** End User Profile 0 *** */
+
+	#ends-on {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#date-time {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#adv-set {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#adv-set-item {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.op-lf input {
+		flex: 1;
+		width: 100%;
+	}
+
+	#votingPoll {
+		width: 85%;
+	}
+
+	#submitVote {
+		width: 200px;
+	}
+
+	#deleteNewOption {
+		margin-right: 53px;
+	}
+
+	#modal-container {
+		width: 90%;
+	}
+
+	.polls-created-wrp h2 {
+		margin-bottom: 20px;
+	}
+
+	.poll-act {
+		border-top: 1px solid #707070;
+	}
+
+	.modal-content {
+		width: 100%;
+	}
+
+	.container {
+		width: 100%;
+	}
+}
+
+@media(max-width:447px) {
+
+	/* *** Index Page *** */
+	.navbar-default {
+		padding: 10px 0;
+	}
+
+	.navbar-brand>img {
+		margin-left: 15px;
+		margin-top: 10px;
+	}
+
+	.navbar-nav {
+		margin: 10px 0;
+		float: none !important;
+	}
+
+	.navbar-default .navbar-nav>li {
+		margin: 0;
+	}
+
+	.navbar-default .navbar-nav>li>a {
 		display: table;
 		margin: 0 auto;
 		font-size: 18px;
 	}
 
-	.main-block{
+	.main-block {
 		height: auto;
 		padding: 80px 0 40px;
 	}
-	.main-block .container{
+
+	.main-block .container {
 		height: auto;
 	}
-	.home-info h1{
+
+	.home-info h1 {
 		font-size: 55px;
-		line-height:56px;
+		line-height: 56px;
 		text-align: center;
 	}
-	.home-info .btn-main{
+
+	.home-info .btn-main {
 		padding: 10px 40px;
 		font-size: 18px;
 		margin: 0 auto;
 	}
-	.home-img{
+
+	.home-img {
 		margin-top: 40px;
 	}
 
-	.footer-logo{
+	.footer-logo {
 		text-align: center;
 	}
-	.footer-logo img{
+
+	.footer-logo img {
 		margin: 0 auto 5px;
 	}
-	.foot-links ul{
+
+	.foot-links ul {
 		text-align: center;
 	}
-	.foot-links ul li a{
+
+	.foot-links ul li a {
 		padding: 10px 0;
 	}
+
 	/* *** End Index Page *** */
 
 	/* *** Error Pages *** */
-	.error-bx{
+	.error-bx {
 		width: 100%;
 		right: 0;
 		left: 0;
 		position: relative;
 		transform: translate(0);
 	}
+
 	.error-dt h2,
-	.error-bx h1{
+	.error-bx h1 {
 		font-size: 120px;
 		text-align: center;
 	}
 
-	.error-dt{
+	.error-dt {
 		padding: 0;
 	}
-	.error-dt p{
+
+	.error-dt p {
 		font-size: 16px;
 	}
-	.error-dt .btn-main{
+
+	.error-dt .btn-main {
 		display: table;
 		margin: 0 auto 10px;
 		float: none;
 	}
+
 	/* *** End Error Pages *** */
 
 	/* *** Dashboard *** */
-	.add-btn{
+	.add-btn {
 		padding: 10px 40px;
 		font-size: 16px;
 	}
-	.poll-tab p{
+
+	.poll-tab p {
 		float: none;
 		margin: 0 0 10px;
 		text-align: center;
 	}
-	.poll-tab .nav>li{
+
+	.poll-tab .nav>li {
 		margin: 0 0 10px;
 		display: block;
 		float: none;
 	}
+
 	.filter-bx,
-	.poll-tab .nav-tabs{
+	.poll-tab .nav-tabs {
 		float: none;
 	}
-	.filter-bx img{
+
+	.filter-bx img {
 		margin: 0 auto;
 	}
-	.list-nm p{
+
+	.list-nm p {
 		text-align: center;
 		margin: 0 0 10px;
 	}
-	.action-icons ul{
+
+	.action-icons ul {
 		text-align: center;
 	}
+
 	/* *** End Dashboard *** */
 
 	/* *** Create Poll *** */
-	.crebtn{
+	.crebtn {
 		left: 0;
 		width: 100%;
 		text-align: center;
 	}
-	.create-pol-wrp{
+
+	.create-pol-wrp {
 		padding: 80px 15px;
 	}
-	.dt-it h6, .cre-frmg h6{
+
+	.dt-it h6,
+	.cre-frmg h6 {
 		font-size: 22px;
 	}
-	.dt-it p, .cre-frmg p{
+
+	.dt-it p,
+	.cre-frmg p {
 		font-size: 15px;
 	}
-	.op-lf p{
+
+	.op-lf p {
 		font-size: 22px;
 	}
-	.add-pol i{
+
+	.add-pol i {
 		width: 45px;
 		height: 45px;
 		line-height: 45px;
 		font-size: 15px;
 	}
-	.dt-it{
+
+	.dt-it {
 		width: 100%;
 		overflow: hidden;
 	}
-	.dt-it h6{
+
+	.dt-it h6 {
 		font-size: 20px;
 	}
-	.end-poll .form-group{
+
+	.end-poll .form-group {
 		margin: 0 0 15px;
 		overflow: hidden;
 		width: 100%;
 	}
-	.checkmark{
+
+	.checkmark {
 		position: relative;
 		display: block;
 		margin: 10px 0 0;
 	}
-	.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+
+	.navbar-default .navbar-collapse,
+	.navbar-default .navbar-form {
 		border: none;
 		box-shadow: none;
 	}
 
-	.modal-dialog{
+	.modal-dialog {
 		width: 90%;
 		margin: 30px auto;
 	}
+
 	.modal {
-		padding-right: 0!important;
+		padding-right: 0 !important;
 	}
-	.user-listing li{
+
+	.user-listing li {
 		float: left;
 		margin-right: 10px;
 		margin-bottom: 10px;
 	}
+
 	/* *** End Create Poll *** */
 
 	/* *** Poll Start *** */
-	.start-head h1{
+	.start-head h1 {
 		font-size: 36px;
 	}
-	.start-head h2{
+
+	.start-head h2 {
 		font-size: 20px;
 	}
-	.poll-start-wrp{
+
+	.poll-start-wrp {
 		padding: 15px;
 	}
+
 	.header-wrp h3 img,
-	.header-wrp h2 img{
+	.header-wrp h2 img {
 		width: 20px;
 	}
-	.header-wrp h2{
+
+	.header-wrp h2 {
 		text-align: center;
 		font-size: 20px;
 		margin: 0 0 10px;
 	}
-	.header-wrp h3{
+
+	.header-wrp h3 {
 		text-align: center;
 		font-size: 20px;
 	}
-	.progress-poll{
+
+	.progress-poll {
 		padding: 20px 15px 35px;
 	}
+
 	/* *** End Poll Start *** */
 
 	/* *** User Profile 0*** */
-	.user-profile-head{
+	.user-profile-head {
 		padding: 40px 0;
 	}
-	.pro-img img{
+
+	.pro-img img {
 		width: 80px;
 		height: 80px;
 	}
-	.pro-dt h3{font-size: 28px;}
-	.pro-like ul{
+
+	.pro-dt h3 {
+		font-size: 28px;
+	}
+
+	.pro-like ul {
 		text-align: left;
 	}
-	.pro-like li{
+
+	.pro-like li {
 		margin-right: 10px;
 		font-size: 15px;
 		padding: 5px 15px;
 	}
-	.pro-like li img{
-		width:20px;
-		height:20px;
+
+	.pro-like li img {
+		width: 20px;
+		height: 20px;
 		margin-right: 10px;
 	}
-	.polls-created-wrp{
-		padding: 40px 15px;
+
+	.polls-created-wrp {
+		padding: 40px 15px 0 15px;
 	}
-	.polls-created-wrp h2{
+
+	.polls-created-wrp h2 {
 		font-size: 18px;
 	}
-	.polls-created-wrp h2 img{
+
+	.polls-created-wrp h2 img {
 		width: 20px;
 		height: 20px;
 	}
-	.cre-pl{
+
+	.cre-pl {
 		padding: 15px;
 	}
-	.cre-pl p{
+
+	.cre-pl p {
 		font-size: 16px;
 		line-height: 20px;
 	}
-	.cre-pl li{
+
+	.cre-pl li {
 		padding: 5px 20px;
 		font-size: 15px
 	}
 
-	.poll-left{
+	.poll-left {
 		padding: 40px 0;
 	}
-	.poll-prohd .pro-dt h3{
+
+	.poll-prohd .pro-dt h3 {
 		font-size: 22px;
 	}
-	.poll-right{
+
+	.poll-right {
 		padding: 40px 0;
 	}
-	.poll-right .cre-pl{
+
+	.poll-right .cre-pl {
 		padding: 15px;
 	}
-	.poll-right .cre-pl li{
+
+	.poll-right .cre-pl li {
 		font-size: 14px;
 		padding: 5px 15px;
 	}
 
-	.pro-userv2{
+	.pro-userv2 {
 		padding: 0 0 40px;
 	}
-	.profile-ver2{
+
+	.profile-ver2 {
 		position: relative;
 		width: 100%;
 		padding: 0 15px;
 		margin-bottom: 30px;
 	}
-	.profile-v2 .pro-bx .pro-img img{
+
+	.profile-v2 .pro-bx .pro-img img {
 		margin-right: 10px;
 	}
 
-	.user-prov3 .poll-left{
+	.user-prov3 .poll-left {
 		margin-bottom: 30px;
-		padding:  15px;
+		padding: 15px;
 	}
+
 	/* *** End User Profile 0 *** */
+
+	#ends-on {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#date-time {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.col-md-6 {
+		width: 100%;
+	}
+
+	#adv-set {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#adv-set-item {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.op-lf input {
+		flex: 1;
+		width: 100%;
+	}
+
+	.op-lf img {
+		width: 30px;
+	}
+
+	#votingPoll {
+		width: 85%;
+	}
+
+	#submitVote {
+		width: 200px;
+	}
+
+	.checkmark {
+		left: -45px
+	}
+
+	.dotIcon {
+		left: -45px
+	}
+
+	#deleteNewOption {
+		margin-right: 50px;
+	}
+
+	#modal-container {
+		width: 90%;
+	}
+
+	.poll-act {
+		border-top: 1px solid #707070;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+	.modal-content {
+		width: 100%;
+	}
+}
+
+/* Making poll form changes */
+#endTime {
+	padding: 0 10px !important;
+	font-size: 17px;
+	width: 100%;
+}
+
+#endDate {
+	padding: 0 10px !important;
+	font-size: 17px;
+	width: 100%;
+}
+
+.add-rw {
+	display: flex;
+	justify-content: space-between;
+}
+
+.create-pol-wrp {
+	padding: 40px 15px;
 }

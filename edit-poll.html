@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<title>EASYPOLL | Create Poll</title>
+	<title>EASYPOLL | Edit Poll</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 	</div>
 
 	<!-- Pop Up -->
-	<!-- <div id="myModal" class="modal fade" role="dialog">
+	<div id="myModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 	<!-- Pop Up -->
 
 	<!-- Header -->
@@ -85,10 +85,10 @@
 				<div class="row" id="poll-container">
 					<div class="col-md-7 col-sm-12" id="form-container">
 						<div id="poll-head">
-							<h1>CREATE POLL</h1>
+							<h1>EDIT POLL</h1>
 						</div>
 						<div class="cre-frm">
-							<form method="POST" action="" id="create-poll-form">
+							<form method="POST" id="edit-poll-form">
 								<div class="cre-frmg">
 									<div class="cre-dt">
 										<h6>Title</h6>
@@ -96,7 +96,7 @@
 									</div>
 
 									<input type="text" name="title" placeholder="Poll title" class="form-control"
-										id="poll-title" maxlength="80" required>
+										id="poll-title" required>
 								</div>
 
 								<div class="cre-frmg">
@@ -105,8 +105,8 @@
 										<p>A brief description describing your poll</p>
 									</div>
 
-									<textarea class="form-control" name="desc" rows="5" placeholder="Poll Description"
-										required></textarea>
+									<textarea class="form-control" name="description" rows="5"
+										placeholder="Poll Description" id="poll-desc" required></textarea>
 								</div>
 
 								<div class="cre-frmg">
@@ -116,19 +116,13 @@
 											<p>Add options for your poll</p>
 										</div>
 										<div class="add-pol">
-											<i class="fa fa-plus create-edit-add-poll" onclick="addOpt()"></i>
+											<i class="fa fa-plus create-edit-add-poll" onclick="addOptions()"></i>
 										</div>
 									</div>
 
 									<div class="opt-lst">
 										<ul id="opt-list">
-											<!-- <li>
-												<div class="op-lf">
-													<img src="images/sm-bar.png" alt="" class="sortIcon">
-													<input class="opt" type="text" required>
-													<img src="images/close.png" alt="" onclick="delOpt(this)">
-												</div>
-											</li> -->
+
 										</ul>
 									</div>
 								</div>
@@ -151,7 +145,7 @@
 											<div class="form-group">
 												<img src="images/time.png" alt="">
 												<input type="time" name="time" placeholder="hh/mm" class="form-control"
-													id="endTime" value="23:59">
+													id="endTime" required>
 											</div>
 										</div>
 									</div>
@@ -173,7 +167,8 @@
 											</div>
 											<div class="col-sm-2">
 												<label class="cus-chek">
-													<input type="checkbox" name="multipleSelections">
+													<input type="checkbox" name="multipleSelections"
+														id="multipleSelections">
 													<span class="checkmark"></span>
 												</label>
 											</div>
@@ -189,7 +184,7 @@
 											</div>
 											<div class="col-sm-2">
 												<label class="cus-chek">
-													<input type="checkbox" name="addOptions">
+													<input type="checkbox" name="addOptions" id="addOptions">
 													<span class="checkmark"></span>
 												</label>
 											</div>
@@ -205,7 +200,7 @@
 											</div>
 											<div class="col-sm-2">
 												<label class="cus-chek">
-													<input type="checkbox" name="public">
+													<input type="checkbox" name="public" id="public">
 													<span class="checkmark"></span>
 												</label>
 											</div>
@@ -214,7 +209,7 @@
 								</div>
 								<div class="poll-cre-btn" id="crebtn">
 									<!-- <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal" class="crebtn"><img src="images/ok.png" alt=""> CREATE POLL</a> -->
-									<button class="crebtn"><img src="images/ok.png" alt=""> CREATE POLL</button>
+									<button class="crebtn"><img src="images/ok.png" alt=""> UPDATE POLL</button>
 								</div>
 							</form>
 						</div>
@@ -233,7 +228,7 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/en-gb.js"></script>
-	<script type="text/javascript" src="js/create-poll.js"></script>
+	<script type="text/javascript" src="js/edit-poll.js"></script>
 	<script type="text/javascript" src="js/init.js"></script>
 </body>
 

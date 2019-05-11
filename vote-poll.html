@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <title>EASYPOLL | Create Poll</title>
+</head>
+
+<body>
+
+    <!-- Error message -->
+    <div id="center-error">
+        <div id="error-message">
+            <p></p>
+            <span id="close-alert" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <nav class="navbar navbar-default dash-nav">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="dashboard.html"><img src="images/logo-foot.png" alt=""></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav pull-right" id="manu">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><img
+                                id="profile-picture" alt=""> <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user-profile-0.html">My Profile</a></li>
+                            <li><a href="/dashboard.html">Dashboard</a></li>
+                            <!-- <li><a href="#" onclick="signOut()">Log out</a></li> -->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End Header -->
+
+    <section id="pollSection">
+        <div id="votingPoll">
+            <div class="created-poll pollCard">
+                <div id="votePollCard">
+                    <h1 id="votePollTitle"></h1>
+                    <p id="votePollDescription"></p>
+                    <h4 id="ifMultipleSelections"></h4>
+                    <form id="votePollForm" action="POST">
+                        <ul id="votePollOptions"></ul>
+                        <a class="add-pol" id="voteAddOption"><i class="fa fa-plus" id="voteAddOptionBtn"
+                                onclick="addVoteOption(this)"></i></a>
+                        <div id="submitVoteDiv">
+                            <button type="submit" id="submitVote">VOTE !</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vote-poll.js"></script>
+    <!-- <script type="text/javascript" src="js/init.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</body>
+
+</html>
