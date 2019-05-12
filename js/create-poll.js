@@ -2,6 +2,7 @@ var app = window.app;
 var database = window.database;
 var user = window.user;
 var infoID;
+var index = 0;
 
 function main() {
     $('#profile-picture').attr('src', user.photoURL);
@@ -19,16 +20,28 @@ function main() {
     var currentDate = moment().format('YYYY-MM-DD');
     $('#endDate').val(currentDate);
 
-    $('#endDate').attr('min', currentDate); ////////////////////////////////////////////////////////////////////
+    $('#endDate').attr('min', currentDate);
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
         var options = [];
 
+        if ($('.opt').get().length < 2) {
+            $('#error-message p').text('Please add atleast 2 options!');
+            displayError();
+        }
+
         $('.opt').get().map((option) => {
             options.push($(option).val());
         });
+
+        options.forEach(option => {
+            if (options.includes(option)) {
+                $('#error-message p').text('2 options cannot be the same!');
+                displayError();
+            }
+        })
 
         // Storing options as object -> option_name: array of voters_uid (initialized as empty)
         var dbOptions = options.reduce((acc, elem) => {
@@ -69,7 +82,6 @@ function main() {
 }
 
 function displayError() {
-    $('#error-message p').text('Please fill in the empty option!');
     $('#center-error').fadeIn(0, () => {
         $('#center-error').css('display', 'flex');
     })
@@ -82,24 +94,23 @@ function displayError() {
 }
 
 function addOpt() {
-    var empty = false;
+    var empty = true;
     $('.opt').get().forEach((option) => {
+        index++;
+        console.log('---');
+        console.log(option.value, index);
         if (option.value == "") {
-            $(option).addClass('optionPlaceholder');
-            if (!empty) {
-                // $(".create-edit-add-poll").prop("onclick", null).off("click");
+            if (empty) {
+                $('#error-message p').text('Please fill in the empty option!');
                 displayError();
-                $('#opt-list li:last-child input').focus();
-                empty = true;
+                $(option).focus();
+                empty = false;
+                return;
             }
         }
     })
 
-    $('.opt').on('change', function () {
-        $(".create-edit-add-poll").click(addOpt);
-    });
-
-    if (!empty) {
+    if (empty) {
         var option = `
                 <li>
                     <div class="op-lf">
@@ -114,33 +125,6 @@ function addOpt() {
         $('.opt').focus();
         $('#opt-list').sortable("refresh");
     }
-
-    // if (empty) {
-    //     $('#error-message p').text('Please fill in the empty option!');
-    //     $('#center-error').fadeIn(300, () => {
-    //         $('#center-error').css('display', 'flex');
-    //     })
-
-    //     setTimeout(() => {
-    //         $('#center-error').fadeOut("fast", () => {
-    //             $('#center-error').css('display', 'none');
-    //         })
-    //     }, 5000);
-    // } else {
-    //     var option = `
-    //             <li>
-    //                 <div class="op-lf">
-    //                     <img src="images/sm-bar.png" alt="" class="sortIcon">
-    //                     <input class="opt" type="text" required>
-    //                     <img src="images/close.png" alt="" onclick="delOpt(this)">
-    //                 </div>
-    //             </li>
-    //         `;
-
-    //     $('#opt-list').append(option);
-    //     $('.opt').focus();
-    //     $('#opt-list').sortable("refresh");
-    // }
 }
 
 function delOpt(opt) {
