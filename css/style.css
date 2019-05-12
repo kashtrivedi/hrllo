@@ -3,7 +3,7 @@
 @font-face {
     font-family: 'Brandon Grotesque';
     src: url('../fonts/BrandonGrotesque-Bold.woff2') format('woff2'),
-        url('../fonts/BrandonGrotesque-Bold.woff') format('woff');
+    url('../fonts/BrandonGrotesque-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -11,7 +11,7 @@
 @font-face {
     font-family: 'Brandon Grotesque';
     src: url('../fonts/BrandonGrotesque-Regular.woff2') format('woff2'),
-        url('../fonts/BrandonGrotesque-Regular.woff') format('woff');
+    url('../fonts/BrandonGrotesque-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -19,7 +19,7 @@
 @font-face {
     font-family: 'Brandon Grotesque';
     src: url('../fonts/BrandonGrotesque-Light.woff2') format('woff2'),
-        url('../fonts/BrandonGrotesque-Light.woff') format('woff');
+    url('../fonts/BrandonGrotesque-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }
@@ -27,7 +27,7 @@
 @font-face {
     font-family: 'Brandon Grotesque';
     src: url('../fonts/BrandonGrotesque-Black.woff2') format('woff2'),
-        url('../fonts/BrandonGrotesque-Black.woff') format('woff');
+    url('../fonts/BrandonGrotesque-Black.woff') format('woff');
     font-weight: 900;
     font-style: normal;
 }
@@ -35,7 +35,7 @@
 @font-face {
     font-family: 'Brandon Grotesque';
     src: url('../fonts/BrandonGrotesque-Thin.woff2') format('woff2'),
-        url('../fonts/BrandonGrotesque-Thin.woff') format('woff');
+    url('../fonts/BrandonGrotesque-Thin.woff') format('woff');
     font-weight: 100;
     font-style: normal;
 }
@@ -43,7 +43,7 @@
 @font-face {
     font-family: 'Brandon Grotesque';
     src: url('../fonts/BrandonGrotesque-Medium.woff2') format('woff2'),
-        url('../fonts/BrandonGrotesque-Medium.woff') format('woff');
+    url('../fonts/BrandonGrotesque-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
@@ -129,17 +129,12 @@ body {
     height: auto;
     padding: 0;
 }
-<<<<<<< HEAD
-.navbar-default .navbar-nav>li>a{
-    padding: 10px 25px;
-=======
 
 .navbar-default .navbar-nav>li>a {
     padding: 10px 30px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     color: #fff;
     font-family: 'Raleway';
-    font-size:16px;
+    font-size: 20px;
     font-weight: 500;
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -212,18 +207,13 @@ body {
 .home-img img {
     width: 100%;
 }
-<<<<<<< HEAD
-.home-info h1{
-    font-size:70px;
-=======
 
 .home-info h1 {
     font-size: 85px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: bold;
     font-family: 'Raleway';
     margin: 0 0 40px;
-    line-height:80px;
+    line-height: 95px;
     color: #fff;
 }
 
@@ -231,20 +221,12 @@ body {
     display: block;
     color: rgba(255, 255, 255, 0.30);
 }
-<<<<<<< HEAD
-.home-info .btn-main{
-    padding: 10px 40px;
-    background: #fff;
-    border-radius:50px;
-    font-size:18px;
-=======
 
 .home-info .btn-main {
     padding: 10px 80px;
     background: #fff;
     border-radius: 50px;
     font-size: 36px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: bold;
     color: #1E88E5;
     font-family: 'Raleway';
@@ -501,7 +483,7 @@ footer {
     /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(45deg, #0d47a1 0%, #1e88e5 100%);
     border-radius: 50px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     font-family: 'Raleway';
     color: #fff;
@@ -708,14 +690,9 @@ footer {
     border-radius: 10px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.20);
 }
-<<<<<<< HEAD
-.polls-created-wrp h2{
-    font-size: 22px;
-=======
 
 .polls-created-wrp h2 {
     font-size: 26px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: bold;
     color: #212121;
     margin: 0 0 20px;
@@ -745,26 +722,16 @@ footer {
 .cre-pl {
     padding: 40px 40px 60px 40px;
 }
-<<<<<<< HEAD
-.cre-pl h4{
-    font-size:22px;
-=======
 
 .cre-pl h4 {
     font-size: 28px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: bold;
     color: #010101;
     margin: 0 0 15px;
 }
-<<<<<<< HEAD
-.cre-pl p{
-    font-size: 16px;
-=======
 
 .cre-pl p {
     font-size: 18px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: normal;
     color: #212121;
     line-height: 26px;
@@ -773,13 +740,8 @@ footer {
 
 .cre-pl li {
     display: inline-block;
-<<<<<<< HEAD
-    font-size: 16px;
-    font-weight:400;
-=======
     font-size: 18px;
     font-weight: 400;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     color: #212121;
     padding: 5px 25px;
     border: 1px solid #212121;
@@ -1045,24 +1007,7 @@ footer {
 /* **** End User Profile 3 **** */
 
 /* **** Create Poll Page **** */
-<<<<<<< HEAD
-.create-poll-req{
-    padding: 60px 0 40px;
-}
-.create-pol-wrp{
-    padding:60px 40px;
-    background: #fff;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 5px 5px rgba(0,0,0,0.18);
-}
-.crebtn{
-    position: absolute;
-    top: -30px;
-    right:50px;
-=======
 .crebtn {
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     z-index: 10;
     padding: 15px 35px;
     background: #1E88E5;
@@ -1086,26 +1031,16 @@ footer {
 }
 
 .dt-it h6,
-<<<<<<< HEAD
-.cre-frmg h6{
-    font-size:18px;
-=======
 .cre-frmg h6 {
     font-size: 26px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: 500;
     color: #212121;
     margin: 0 0px;
 }
 
 .dt-it p,
-<<<<<<< HEAD
-.cre-frmg p{
-    font-size: 14px;
-=======
 .cre-frmg p {
     font-size: 18px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: 500;
     color: rgba(33, 33, 33, 0.60);
     margin: 0 0 15px;
@@ -1143,19 +1078,13 @@ textarea {
 .add-pol {
     float: right;
 }
-<<<<<<< HEAD
-.add-pol i{
-    width:45px;
-    height:45px;
-=======
 
 .add-pol i {
     width: 55px;
     height: 55px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     border-radius: 50%;
-    line-height:45px;
-    font-size:16px;
+    line-height: 60px;
+    font-size: 20px;
     color: #fff;
     text-align: center;
     background: #1E88E5;
@@ -1303,11 +1232,6 @@ textarea {
     background-color: white;
 }
 
-<<<<<<< HEAD
-/* **** Poll Start Page **** */
-.start-head h1{
-    font-size:32px;
-=======
 /* Create the dotIcon/indicator (hidden when not checked) */
 .dotIcon:after {
     content: "";
@@ -1348,19 +1272,13 @@ textarea {
 /* **** Poll Start Page **** */
 .start-head h1 {
     font-size: 55px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: 600;
     color: #1E88E5;
     margin: 0 0 10px;
 }
-<<<<<<< HEAD
-.start-head h2{
-    font-size:20px;
-=======
 
 .start-head h2 {
     font-size: 36px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: 600;
     color: #212121;
     margin: 0 0 40px;
@@ -1373,13 +1291,8 @@ textarea {
     padding: 60px 60px;
 }
 
-<<<<<<< HEAD
-.header-wrp h2{
-    font-size:26px;
-=======
 .header-wrp h2 {
     font-size: 36px;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     font-weight: 600;
     color: #212121;
     margin: 0;
@@ -1387,19 +1300,13 @@ textarea {
 
 .header-wrp h2 img {
     display: inline-block;
-    width: 30px;
+    width: 35px;
     margin-right: 10px;
 }
-<<<<<<< HEAD
-.header-wrp h3{
-    font-size:26px;
-    font-weight:500;
-=======
 
 .header-wrp h3 {
     font-size: 34px;
     font-weight: 500;
->>>>>>> c711412aed5d936dd58312f9e9f393ac349a6387
     color: #212121;
     font-family: 'Montserrat';
     margin: 0;
