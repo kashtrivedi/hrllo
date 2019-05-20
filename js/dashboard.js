@@ -7,6 +7,8 @@ function main() {
     var today = moment().format("YYYY-MM-DD HH:mm").valueOf();
     var epochToday = moment(today, "YYYY-MM-DD HH:mm").valueOf();
 
+    console.log(database);
+
     $('#profile-picture').attr('src', user.photoURL);
 
     database.collection('polls').where("uid", "==", user.uid).orderBy("endsOn", "desc").get().then((snapshot) => {
