@@ -131,10 +131,10 @@ body {
 }
 
 .navbar-default .navbar-nav>li>a {
-    padding: 10px 25px;
+    padding: 10px 30px;
     color: #fff;
     font-family: 'Raleway';
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -209,11 +209,11 @@ body {
 }
 
 .home-info h1 {
-    font-size: 70px;
+    font-size: 85px;
     font-weight: bold;
     font-family: 'Raleway';
     margin: 0 0 40px;
-    line-height: 80px;
+    line-height: 95px;
     color: #fff;
 }
 
@@ -223,10 +223,10 @@ body {
 }
 
 .home-info .btn-main {
-    padding: 10px 40px;
+    padding: 10px 80px;
     background: #fff;
     border-radius: 50px;
-    font-size: 18px;
+    font-size: 36px;
     font-weight: bold;
     color: #1E88E5;
     font-family: 'Raleway';
@@ -473,11 +473,6 @@ footer {
     color: #333;
 }
 
-.main-dash-cnt {
-    padding: 40px 0;
-    width: 100%;
-}
-
 .add-btn {
     padding: 12px 40px;
     background: #0d47a1;
@@ -488,11 +483,11 @@ footer {
     /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(45deg, #0d47a1 0%, #1e88e5 100%);
     border-radius: 50px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     font-family: 'Raleway';
     color: #fff;
-    margin: 0 auto 40px;
+    margin: 30px auto;
     display: table;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.48);
 }
@@ -614,7 +609,7 @@ footer {
 .user-profile {
     width: 100%;
     min-height: 100vh;
-    padding: 80px 0;
+    padding: 0;
     background: #0d47a1;
     /* Old browsers */
     background: -moz-linear-gradient(45deg, #0d47a1 0%, #1e88e5 100%);
@@ -690,17 +685,17 @@ footer {
 }
 
 .polls-created-wrp {
-    padding: 80px 40px;
+    padding: 40px 40px 0 40px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.20);
 }
 
 .polls-created-wrp h2 {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
     color: #212121;
-    margin: 0 0 60px;
+    margin: 0 0 20px;
 }
 
 .polls-created-wrp h2 span {
@@ -725,19 +720,18 @@ footer {
 }
 
 .cre-pl {
-    padding: 40px 40px;
-    border-bottom: 1px solid #707070;
+    padding: 40px 40px 60px 40px;
 }
 
 .cre-pl h4 {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: bold;
     color: #010101;
     margin: 0 0 15px;
 }
 
 .cre-pl p {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: normal;
     color: #212121;
     line-height: 26px;
@@ -746,7 +740,7 @@ footer {
 
 .cre-pl li {
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     color: #212121;
     padding: 5px 25px;
@@ -1013,22 +1007,7 @@ footer {
 /* **** End User Profile 3 **** */
 
 /* **** Create Poll Page **** */
-.create-poll-req {
-    padding: 60px 0 40px;
-}
-
-.create-pol-wrp {
-    padding: 60px 40px;
-    background: #fff;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.18);
-}
-
 .crebtn {
-    position: absolute;
-    top: -30px;
-    right: 50px;
     z-index: 10;
     padding: 15px 35px;
     background: #1E88E5;
@@ -1037,6 +1016,7 @@ footer {
     font-weight: 500;
     color: #fff;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.30);
+    border: none;
 }
 
 .crebtn img {
@@ -1052,7 +1032,7 @@ footer {
 
 .dt-it h6,
 .cre-frmg h6 {
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 500;
     color: #212121;
     margin: 0 0px;
@@ -1060,7 +1040,7 @@ footer {
 
 .dt-it p,
 .cre-frmg p {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     color: rgba(33, 33, 33, 0.60);
     margin: 0 0 15px;
@@ -1100,16 +1080,15 @@ textarea {
 }
 
 .add-pol i {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    line-height: 45px;
-    font-size: 16px;
+    line-height: 60px;
+    font-size: 20px;
     color: #fff;
     text-align: center;
     background: #1E88E5;
-    margin-right: 15px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.40);
+    /* box-shadow: 0 2px 3px rgba(0,0,0,0.40); */
 }
 
 .opt-lst li {
@@ -1123,19 +1102,28 @@ textarea {
     overflow: hidden;
 }
 
-.op-lf img {
-    width: 35px;
-    float: left;
-    margin-right: 20px;
-    vertical-align: middle;
+.op-lf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.op-lf p {
-    margin: 0;
-    float: left;
-    font-size: 22px;
-    font-weight: 500;
-    color: rgba(33, 33, 33, 0.60);
+.op-lf img {
+    width: 35px;
+}
+
+.op-lf input {
+    flex: 2;
+    line-height: 35px;
+    margin: 0 10px;
+    font-size: 20px;
+    padding: 0 5px;
+    border: none;
+    background: #EEEEEE;
+}
+
+.op-lf input:focus {
+    background: white;
 }
 
 .clo-op {
@@ -1189,17 +1177,13 @@ textarea {
 .checkmark {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     height: 45px;
     width: 45px;
     border: 3px solid #1E88E5;
     border-radius: 10px;
     background-color: #fff;
-}
-
-/* On mouse-over, add a grey background color */
-.cus-chek:hover input~.checkmark {
-    background-color: #1E88E5;
+    line-height: 30px;
 }
 
 /* When the checkbox is checked, add a blue background */
@@ -1230,6 +1214,47 @@ textarea {
     text-align: center;
 }
 
+/* Create a custom checkbox */
+.dotIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 45px;
+    width: 45px;
+    border: 3px solid #1E88E5;
+    border-radius: 50px;
+    background-color: #fff;
+    line-height: 30px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cus-chek input:checked~.dotIcon {
+    background-color: white;
+}
+
+/* Create the dotIcon/indicator (hidden when not checked) */
+.dotIcon:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the dotIcon when checked */
+.cus-chek input:checked~.dotIcon:after {
+    display: block;
+}
+
+/* Style the dotIcon/indicator */
+.cus-chek .dotIcon:after {
+    left: 6.5px;
+    top: 4px;
+    color: #1E88E5;
+    font-family: 'FontAwesome';
+    content: "\f111";
+    font-size: 30px;
+    text-align: center;
+}
+
 .item-cheh {
     margin-bottom: 30px;
 }
@@ -1246,14 +1271,14 @@ textarea {
 
 /* **** Poll Start Page **** */
 .start-head h1 {
-    font-size: 32px;
+    font-size: 55px;
     font-weight: 600;
     color: #1E88E5;
     margin: 0 0 10px;
 }
 
 .start-head h2 {
-    font-size: 20px;
+    font-size: 36px;
     font-weight: 600;
     color: #212121;
     margin: 0 0 40px;
@@ -1267,7 +1292,7 @@ textarea {
 }
 
 .header-wrp h2 {
-    font-size: 26px;
+    font-size: 36px;
     font-weight: 600;
     color: #212121;
     margin: 0;
@@ -1275,12 +1300,12 @@ textarea {
 
 .header-wrp h2 img {
     display: inline-block;
-    width: 30px;
+    width: 35px;
     margin-right: 10px;
 }
 
 .header-wrp h3 {
-    font-size: 26px;
+    font-size: 34px;
     font-weight: 500;
     color: #212121;
     font-family: 'Montserrat';
@@ -1295,7 +1320,7 @@ textarea {
 }
 
 .progress-poll {
-    padding: 40px;
+    padding-top: 40px;
 }
 
 /* PROGRESS BAR */
@@ -1332,7 +1357,7 @@ textarea {
 .progress-reviews .progress-bar {
     background-color: #1E88E5;
     text-align: left;
-    transition-duration: 3s;
+    transition-duration: 2s;
 }
 
 .progress-reviews h4 {
@@ -1471,108 +1496,6 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.header-wrp h2 img {
-    display: inline-block;
-    width: 35px;
-    margin-right: 10px;
-}
-
-.header-wrp h3 {
-    font-size: 34px;
-    font-weight: 500;
-    color: #212121;
-    font-family: 'Montserrat';
-    margin: 0;
-    text-align: right;
-}
-
-.header-wrp h3 img {
-    display: inline-block;
-    width: 35px;
-    margin-right: 10px;
-}
-
-.progress-poll {
-    padding-top: 40px;
-}
-
-/* PROGRESS BAR */
-.progress-reviews {
-    margin-bottom: 40px;
-    width: 100%;
-}
-
-.progress-reviews:last-child {
-    margin: 0;
-}
-
-.progress-reviews .progress {
-    height: 40px;
-    margin: 0;
-    background: #fff;
-    border: 2px solid #1E88E5;
-    border-radius: 10px;
-}
-
-.progress-reviews .progress .skill {
-    line-height: 15px;
-    padding: 0;
-    margin: 0 0 0;
-    text-transform: uppercase;
-}
-
-.progress-reviews .progress .skill .val {
-    float: right;
-    font-style: normal;
-    margin: 0 20px 0 0;
-}
-
-.progress-reviews .progress-bar {
-    background-color: #1E88E5;
-    text-align: left;
-    transition-duration: 2s;
-}
-
-.progress-reviews h4 {
-    padding-bottom: 5px;
-    color: #1E88E5;
-    font-weight: 600;
-    margin: 0;
-    font-size: 20px;
-}
-
-.progress-reviews p {
-    float: right;
-    color: #1E88E5;
-    font-weight: 500;
-    font-size: 20px;
-    margin: 0;
-}
-
-.progress-reviews p img {
-    display: inline-block;
-    margin-right: 10px;
-    width: 20px;
-}
-
-/* End of Skill Section */
-
-
-.modal-dialog {
-    width: 400px;
-}
-
-.modal-content {
-    border-radius: 15px;
-    background: #fff;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.31);
-}
-
-.close {
-    float: left;
 }
 
 #poll-head {
